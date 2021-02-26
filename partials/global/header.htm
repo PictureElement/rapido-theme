@@ -1,0 +1,72 @@
+description = "Header"
+==
+{# HEADER #}
+<header id="pageHeader" class="page-header bg-white headroom">
+    <div class="container">
+        <nav class="navbar navbar-expand-xl px-0 py-2">
+            <a aria-label="rapido.msof.me" class="navbar-brand py-0 mr-2" href="{{ url('/') }}">
+                {% if this.theme.header_logo.extension == 'svg' %}
+                    <img src="{{ this.theme.header_logo.path }}" height="40" alt="{{ this.theme.header_logo.description }}">
+                {% else %}
+                    <img src="{{ this.theme.header_logo.path|resize(logoWidth/2, logoHeight/2) }}" srcset="{{ this.theme.header_logo.path|resize(logoWidth/2, logoHeight/2) }} 1x, {{ this.theme.header_logo.path }} 2x" width="{{ logoWidth/2 }}" height="{{ logoHeight/2 }}" alt="{{ this.theme.header_logo.description }}">
+                {% endif %}
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    {% if this.theme.services_enable == 1 %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/') }}/#services">SERVICES</a>
+                        </li>
+                    {% endif %}
+                    {% if this.theme.testimonials_enable == 1 %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/') }}/#testimonials">TESTIMONIALS</a>
+                        </li>
+                    {% endif %}
+                    {% if this.theme.projects_enable == 1 %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/') }}/#projects">PROJECTS</a>
+                        </li>
+                    {% endif %}
+                    {% if this.theme.about_enable == 1 %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/') }}/#about">ABOUT</a>
+                        </li>
+                    {% endif %}
+                    {% if this.theme.shop_enable == 1 %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/') }}/#shop">SHOP</a>
+                        </li>
+                    {% endif %}
+                    {% if this.theme.faq_enable == 1 %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/') }}/#faqs">FAQs</a>
+                        </li>
+                    {% endif %}
+                    {% if this.theme.blog_enable == 1 %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ 'blog'|page }}">BLOG</a>
+                        </li>
+                    {% endif %}
+                    {% if this.theme.clients_enable == 1 %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/') }}/#clients">CLIENTS</a>
+                        </li>
+                    {% endif %}
+                    {% if this.theme.contact_enable == 1 %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/') }}/#contactForm">CONTACT</a>
+                        </li>
+                    {% endif %}
+                </ul>
+                {# HEADER BUTTON #}
+                {% if this.theme.header_button_text %}
+                    <a href="{{ this.theme.header_button_link }}" class="btn btn-sm btn-accent d-none d-lg-inline-block ml-xl-3">{% if this.theme.header_button_icon != '' %}<i class="{{ this.theme.header_button_icon }}"></i> {% endif %}{{ this.theme.header_button_text }}</a>
+                {% endif %}
+            </div>
+        </nav>
+    </div>
+</header>

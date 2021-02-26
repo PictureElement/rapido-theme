@@ -1,0 +1,1089 @@
+name: "Rapido"
+description: "Meet Rapido, a polished single-page business-oriented theme with blog."
+author: "Marios Sofokleous"
+homepage: "https://www.msof.me/"
+code: "rapido"
+previewImage: "assets/images/theme-preview.png"
+require:
+    - ToughDeveloper.ImageResizer
+    - Indikator.Backend
+    - RainLab.Blog
+    - Rahman.BlogTags
+    - PolloZen.MostVisited
+    - Tallpro.Related
+    - ArrizalAmin.Portfolio
+    - JanVince.SmallGDPR
+    - RainLab.Sitemap
+    - Martin.Forms
+    - OFFLINE.SiteSearch
+
+#--------------------------------------------------------------------------
+# THEME CONFIGURATION
+#--------------------------------------------------------------------------
+
+form:
+    fields:
+
+        # Site
+        site_config_desc:
+            label: Rapido Theme Options
+            type: section
+            comment: A polished single-page business-oriented theme with blog.
+
+        site_name:
+            label: Site name
+            default: Rapido
+            comment: The website name as it should appear on the front-end
+
+    tabs:
+        fields:
+
+            # General
+
+            header_logo:
+                label: Header logo (wx80, JPG | JPEG | PNG | SVG)
+                type: fileupload
+                mode: image
+                fileTypes : jpg,jpeg,png,svg
+                tab: Global
+                span: left
+
+            footer_logo:
+                label: Footer logo (wx80, JPG | JPEG | PNG | SVG)
+                type: fileupload
+                mode: image
+                fileTypes : jpg,jpeg,png,svg
+                tab: Global
+                span: right
+
+            header_button_icon:
+                label: Button icon (Font Awesome 5 Free)
+                type: text
+                tab: Global
+                comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
+            
+            header_button_text:
+                label: Header button text
+                type: text
+                span: left
+                tab: Global
+                comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
+
+            header_button_link:
+                label: Header button link
+                type: text
+                span: right
+                tab: Global
+                comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
+
+            phone:
+                label: Phone
+                type: text
+                comment: e.g. +1-541-754-3010
+                tab: Global
+
+            email:
+                label: Email
+                type: text
+                comment: e.g. email@example.com
+                tab: Global
+
+            address:
+                label: Address
+                type: textarea
+                comment: e.g. Rapido, Inc.[/n]1355 Market St, Suite 900[/n]San Francisco, CA 94103
+                tab: Global
+
+            map_search_parameters:
+                label: Google Maps search parameters
+                type: text
+                default: Statue+of+Liberty+National+Monument
+                comment: e.g. Statue+of+Liberty+National+Monument | 40.6892494,-74.0445004
+                tab: Global
+                
+            working_hours:
+                label: Working hours
+                type: text
+                comment: e.g. Mon. to Fri. from 08:00 - 17:00
+                tab: Global
+
+            company_statement:
+                label: Your mission. Your values (Footer)
+                type: textarea
+                comment: Tell visitors why you’re in business. State your mission and values (20-25 words)
+                size: small
+                tab: Global
+
+            social_repeater:
+                label: 'Social channels'
+                type: repeater
+                prompt: 'Add new social channel'
+                form:
+                    fields:
+                        channel:
+                            label: Channel
+                            options:
+                                'fab fa-facebook-f': Facebook
+                                'fab fa-instagram': Instagram
+                                'fab fa-linkedin-in': LinkedIn
+                                'fab fa-twitter': Twitter
+                            showSearch: true
+                            span: left
+                            type: dropdown
+                        link:
+                            label: Link
+                            span: right
+                            type: text
+                tab: Global
+
+            subscribe_title:
+                label: Subscribe title
+                type: text
+                comment: e.g. Stay in the know
+                tab: Global
+
+            subscribe_message:
+                label: Subscribe message
+                type: text
+                comment: e.g. Sign up for our monthly newsletter and get news and announcements delivered right to your inbox.
+                tab: Global
+
+            subscribe_button_label:
+                label: Subscribe button label
+                type: text
+                comment: e.g. Join now
+                tab: Global
+
+            # Customization
+
+            colours:
+                label: Colours
+                type: section
+                tab: Theming
+
+            primary:
+                label: Primary
+                tab: Theming
+                type: colorpicker
+                default: '#5d21d2'
+                assetVar: 'primary'
+
+            on-primary:
+                label: On-primary
+                tab: Theming
+                type: colorpicker
+                default: 'rgba(255,255,255,0.87)'
+                assetVar: 'on-primary'
+
+            primary_dark:
+                label: Primary dark
+                tab: Theming
+                type: colorpicker
+                default: '#2e1169'
+                assetVar: 'primary-dark'
+
+            on-primary_dark:
+                label: On-primary dark
+                tab: Theming
+                type: colorpicker
+                default: 'rgba(255,255,255,0.87)'
+                assetVar: 'on-primary-dark'
+
+            primary_light:
+                label: Primary light
+                tab: Theming
+                type: colorpicker
+                default: '#f0eafb'
+                assetVar: 'primary-light'
+
+            accent:
+                label: Accent
+                tab: Theming
+                type: colorpicker
+                default: '#a0ebe5'
+                assetVar: 'accent'
+
+            on-accent:
+                label: On-accent
+                tab: Theming
+                type: colorpicker
+                default: 'rgba(0,0,0,0.87)'
+                assetVar: 'on-accent'
+
+            shape:
+                label: Shape
+                type: section
+                tab: Theming
+
+            corner-radius-sm:
+                label: Rounded corners (small)
+                tab: Theming
+                type: dropdown
+                options:
+                    '0': Square shape
+                    '0.75vh': Rounded shape 1
+                    '0.75vh 0 0.75vh 0': Rounded shape 2
+                showSearch: true
+                assetVar: 'corner-radius-sm'
+                comment: Rounded corners of small size components (e.g. inputs and buttons).
+            
+            corner-radius:
+                label: Rounded corners (regular)
+                tab: Theming
+                type: dropdown
+                options:
+                    '0': Square shape
+                    '1.5vh': Rounded shape 1
+                    '1.5vh 0 1.5vh 0': Rounded shape 2
+                showSearch: true
+                assetVar: 'corner-radius'
+                comment: Rounded corners of regular size components (e.g. cards).
+
+            corner-radius-lg:
+                label: Rounded corners (large)
+                tab: Theming
+                type: dropdown
+                options:
+                    '0': Square shape
+                    '3vh': Rounded shape 1
+                    '3vh 0 3vh 0': Rounded shape 2
+                showSearch: true
+                assetVar: 'corner-radius-lg'
+                comment: Rounded corners of large size components (e.g. section panels).
+
+            google_fonts:
+                label: Google Fonts
+                type: section
+                tab: Theming
+
+            google_fonts_enable:
+                label: Use Google Fonts?
+                type: switch
+                default: 0
+                assetVar: 'google-fonts-enable'
+                tab: Theming
+
+            google_fonts_link:
+                label: Google Fonts <link>
+                type: codeeditor
+                size: small
+                language: html
+                default: <link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Poppins:wght@400&display=swap" rel="stylesheet">
+                comment: Choose 300, 400, 600 styles for the Body family. Choose any style for the Heading family.
+                tab: Theming
+
+            google_fonts_body:
+                label: Body family
+                type: text
+                default: "'Open Sans', sans-serif"
+                comment: e.g. 'Open Sans', sans-serif
+                assetVar: 'google-fonts-body'
+                tab: Theming
+
+            google_fonts_heading:
+                label: Heading family
+                type: text
+                default: "'Poppins', sans-serif"
+                comment: e.g. 'Poppins', sans-serif
+                assetVar: 'google-fonts-heading'
+                tab: Theming
+
+            google_fonts_heading_weight:
+                label: Heading weight
+                type: text
+                default: "400"
+                comment: e.g. 100 | 200 | ... | 900
+                assetVar: 'headings-font-weight'
+                tab: Theming
+
+            # Hero
+
+            hero_enable:
+                label: Display this section?
+                type: switch
+                default: 1
+                tab: Hero
+
+            hero_repeater:
+                label: Slider
+                type: repeater
+                prompt: Add a new slide
+                form:
+                    fields:
+                        enable:
+                            label: Display this slide?
+                            type: switch
+                            default: 1
+                        image:
+                            label: Image (1920x1228, JPG | JPEG | PNG)
+                            type: mediafinder
+                            mode: image
+                            span: left
+                        image_alt:
+                            label: Alternative text
+                            type: text
+                            span: right
+                            comment: Describe the image as specifically as possible. Keep character count at arround 125 or less.
+                        title:
+                            label: Title
+                            type: text
+                            comment: e.g. Welcome to Rapido, a free single-page business theme.
+                        lead:
+                            label: Lead
+                            type: textarea
+                            size: small
+                        primary_button_icon:
+                            label: Primary button icon (Font Awesome 5 Free)
+                            type: text
+                            comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
+                        primary_button_text:
+                            label: Primary button text
+                            type: text
+                            span: left
+                            comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
+                        primary_button_link:
+                            label: Primary button link
+                            type: text
+                            span: right
+                            comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
+                        secondary_button_icon:
+                            label: Secondary button icon (Font Awesome 5 Free)
+                            type: text
+                            comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
+                        secondary_button_text:
+                            label: Secondary button text
+                            type: text
+                            span: left
+                            comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
+                        secondary_button_link:
+                            label: Secondary button link
+                            type: text
+                            span: right
+                            comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
+                tab: Hero
+
+            # Services
+
+            services_enable:
+                label: Display this section?
+                type: switch
+                default: 1
+                tab: Services
+
+            services_background_color:
+                label: Set a background color for this section?
+                type: switch
+                default: 0
+                tab: Services
+
+            services_pretitle:
+                label: Pretitle
+                type: text
+                tab: Services
+                comment: e.g. SERVICES
+
+            services_title:
+                label: Title
+                type: text
+                tab: Services
+                comment: e.g. What we can help with
+
+            services_lead:
+                label: Lead
+                type: textarea
+                tab: Services
+                size: small
+
+            services_repeater:
+                label: Services
+                type: repeater
+                prompt: Add a new service
+                form: 
+                    fields:
+                        icon:
+                            label: Icon (112x112, JPG | JPEG | PNG | SVG)
+                            type: mediafinder
+                            mode: image
+                            span: left
+                        icon_alt:
+                            label: Alternative text
+                            type: text
+                            span: right
+                            comment: Describe the icon as specifically as possible. Keep character count at arround 125 or less.
+                        title:
+                            label: Title
+                            type: text
+                            comment: e.g. Web development
+                        excerpt:
+                            label: Excerpt
+                            type: textarea
+                            size: small
+                            comment: Excerpts are a summary of your service description (~20 words)
+                        description:
+                            label: Description
+                            type: richeditor
+                            size: huge
+                tab: Services
+
+            # Testimonials
+
+            testimonials_enable:
+                label: Display this section?
+                type: switch
+                default: 1
+                tab: Testimonials
+
+            testimonials_background_color:
+                label: Set a background color for this section?
+                type: switch
+                default: 1
+                tab: Testimonials
+
+            testimonials_pretitle:
+                label: Pretitle
+                type: text
+                tab: Testimonials
+                comment: e.g. TESTIMONIALS
+
+            testimonials_title:
+                label: Title
+                type: text
+                tab: Testimonials
+                comment: e.g. What our clients say
+
+            testimonials_repeater:
+                label: Testimonials
+                type: repeater
+                prompt: Add a new testimonial
+                form:
+                    fields:
+                        avatar:
+                            label: Avatar (128x128, JPG | JPEG | PNG | SVG)
+                            type: mediafinder
+                            mode: image
+                            span: left
+                        avatar_alt:
+                            label: Alternative text
+                            type: text
+                            span: right
+                            comment: Describe the image
+                        statement:
+                            label: Statement
+                            type: textarea
+                            size: small
+                        author:
+                            label: Author
+                            type: text
+                            comment: e.g. Janet Morris, CEO, Wire Inc.
+                tab: Testimonials
+
+            # Projects
+
+            projects_enable:
+                label: Display this section?
+                type: switch
+                default: 1
+                tab: Projects
+
+            projects_background_color:
+                label: Set a background color for this section?
+                type: switch
+                default: 0
+                tab: Projects
+
+            projects_pretitle:
+                label: Pretitle
+                type: text
+                tab: Projects
+                comment: e.g. PROJECTS
+
+            projects_title:
+                label: Title
+                type: text
+                tab: Projects
+                comment: e.g. Featured projects
+
+            projects_lead:
+                label: Lead
+                type: textarea
+                tab: Projects
+                size: small
+
+            projects_comment:
+                label: Want to manage your projects?
+                type: section
+                tab: Projects
+                comment: To manage your projects, click "Portfolio" on the admin toolbar. The recommended image size for portfolio items is 1280x720.
+
+            # CTAs
+
+            cta_primary:
+                label: Call-to-action (Primary)
+                type: section
+                tab: CTAs
+
+            cta_primary_enable:
+                label: Display this section?
+                type: switch
+                default: 1
+                tab: CTAs
+
+            cta_primary_title:
+                label: Title
+                type: text
+                tab: CTAs
+                comment: e.g. You are just one click away from a modern website.
+
+            cta_primary_primary_button_icon:
+                label: Primary button icon (Font Awesome 5 Free)
+                type: text
+                tab: CTAs
+                comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
+            
+            cta_primary_primary_button_text:
+                label: Primary button text
+                type: text
+                span: left
+                tab: CTAs
+                comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
+
+            cta_primary_primary_button_link:
+                label: Primary button link
+                type: text
+                span: right
+                tab: CTAs
+                comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
+
+            cta_primary_secondary_button_icon:
+                label: Secondary button icon (Font Awesome 5 Free)
+                type: text
+                tab: CTAs
+                comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
+            
+            cta_primary_secondary_button_text:
+                label: Secondary button text
+                type: text
+                span: left
+                tab: CTAs
+                comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
+
+            cta_primary_secondary_button_link:
+                label: Secondary button link
+                type: text
+                span: right
+                tab: CTAs
+                comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
+
+            cta_secondary:
+                label: Call-to-action (Secondary)
+                type: section
+                tab: CTAs
+
+            cta_secondary_enable:
+                label: Display this section?
+                type: switch
+                default: 1
+                tab: CTAs
+
+            cta_secondary_title:
+                label: Title
+                type: text
+                tab: CTAs
+                comment: e.g. Let’s work together on your next web project.
+
+            cta_secondary_primary_button_icon:
+                label: Primary button icon (Font Awesome 5 Free)
+                type: text
+                tab: CTAs
+                comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
+            
+            cta_secondary_primary_button_text:
+                label: Primary button text
+                type: text
+                span: left
+                tab: CTAs
+                comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
+
+            cta_secondary_primary_button_link:
+                label: Primary button link
+                type: text
+                span: right
+                tab: CTAs
+                comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
+
+            cta_secondary_secondary_button_icon:
+                label: Secondary button icon (Font Awesome 5 Free)
+                type: text
+                tab: CTAs
+                comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
+            
+            cta_secondary_secondary_button_text:
+                label: Secondary button text
+                type: text
+                span: left
+                tab: CTAs
+                comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
+
+            cta_secondary_secondary_button_link:
+                label: Secondary button link
+                type: text
+                span: right
+                tab: CTAs
+                comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
+
+            # About
+
+            about_enable:
+                label: Display this section?
+                type: switch
+                default: 1
+                tab: About
+
+            about_background_color:
+                label: Set a background color for this section?
+                type: switch
+                default: 0
+                tab: About
+
+            about_pretitle:
+                label: Pretitle
+                type: text
+                tab: About
+                comment: e.g. ABOUT
+
+            about_title:
+                label: Title
+                type: text
+                tab: About
+                comment: e.g. Meet Rapido, a polished single-page theme with a blog suitable for small businesses.
+
+            about_text:
+                label: Text
+                type: richeditor
+                size: huge
+                tab: About
+
+            about_repeater:
+                label: Facts
+                type: repeater
+                prompt: Add a new fact
+                form:
+                    fields:
+                        number:
+                            label: Number
+                            type: text
+                            span: left
+                            comment: e.g. 1.234 | 1234 | 1,234.56 | $1,234.56 | 3,5k+ | 85%
+                        title:
+                            label: Title
+                            type: text
+                            span: right
+                            comment: e.g. Year's experience
+                maxItems: 3
+                tab: About
+
+            # Shop
+
+            shop_enable:
+                label: Display this section?
+                type: switch
+                default: 1
+                tab: Shop
+
+            shop_background_color:
+                label: Set a background color for this section?
+                type: switch
+                default: 1
+                tab: Shop
+
+            shop_pretitle:
+                label: Pretitle
+                type: text
+                tab: Shop
+                comment: e.g. SHOP
+
+            shop_title:
+                label: Title
+                type: text
+                tab: Shop
+                comment: e.g. Pay us a visit
+
+            shop_text:
+                label: Text
+                type: richeditor
+                size: huge
+                tab: Shop
+
+            shop_button_icon:
+                label: Button icon (Font Awesome 5 Free)
+                type: text
+                tab: Shop
+                comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
+
+            shop_button_text:
+                label: Button text
+                type: text
+                span: left
+                tab: Shop
+                comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote 
+
+            shop_button_link:
+                label: Button link
+                type: text
+                span: right
+                tab: Shop
+                comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm 
+
+            # FAQs
+
+            faq_enable:
+                label: Display this section?
+                type: switch
+                default: 1
+                tab: FAQs
+
+            faq_background_color:
+                label: Set a background color for this section?
+                type: switch
+                default: 0
+                tab: FAQs
+
+            faq_pretitle:
+                label: Pretitle
+                type: text
+                tab: FAQs
+                comment: e.g. FAQs
+
+            faq_title:
+                label: Title
+                type: text
+                tab: FAQs
+                comment: e.g. Answers to anything you might ask
+
+            faq_repeater:
+                label: FAQs
+                type: repeater
+                prompt: Add a new faq
+                form:
+                    fields:
+                        question:
+                            label: Question
+                            type: text
+                            comment: e.g. I have a technical problem, who do I do?
+                        answer:
+                            label: Answer
+                            type: richeditor
+                            size: small
+                tab: FAQs
+
+            # Blog
+
+            blog_section:
+                label: Blog section
+                type: section
+                tab: Blog
+
+            blog_enable:
+                label: Display this section?
+                type: switch
+                default: 1
+                tab: Blog
+
+            blog_background_color:
+                label: Set a background color for this section?
+                type: switch
+                default: 1
+                tab: Blog
+
+            blog_pretitle:
+                label: Pretitle
+                type: text
+                tab: Blog
+                comment: e.g. BLOG
+
+            blog_title:
+                label: Title
+                type: text
+                tab: Blog
+                comment: e.g. Read our news, comments & thoughts
+
+            blog_page:
+                label: Blog page
+                type: section
+                tab: Blog
+
+            blog_ptitle:
+                label: Title
+                type: text
+                tab: Blog
+                comment: e.g. News | Blog | Insights
+
+            blog_plead:
+                label: Lead
+                type: textarea
+                size: small
+                tab: Blog
+                comment: News, insights, and creative culture from Rapido.
+
+            blog_comment:
+                label: Want to manage your Blog? 
+                type: section
+                tab: Blog
+                comment: To manage your Blog, click "Blog" on the admin toolbar. The recommended image size for posts is 1456x818.
+
+            # Clients
+            
+            clients_enable:
+                label: Display this section?
+                type: switch
+                default: 1
+                tab: Clients
+
+            clients_background_color:
+                label: Set a background color for this section?
+                type: switch
+                default: 0
+                tab: Clients
+
+            clients_pretitle:
+                label: Pretitle
+                type: text
+                tab: Clients
+                comment: e.g. CLIENTS
+
+            clients_title:
+                label: Title
+                type: text
+                tab: Clients
+                comment: e.g. Trusted by the world's best
+
+            clients_repeater:
+                label: Slideshow
+                type: repeater
+                prompt: Add a new client
+                form: 
+                    fields:
+                        image:
+                            label: Image (342x114, JPG | JPEG | PNG | SVG)
+                            type: mediafinder
+                            mode: image
+                            span: left
+                        image_alt:
+                            label: Alternative text
+                            type: text
+                            span: right
+                            comment: Describe the image as specifically as possible. Keep character count at arround 125 or less.
+                tab: Clients
+
+            # Contact
+
+            contact_enable:
+                label: Display this section?
+                type: switch
+                default: 1
+                tab: Contact
+
+            contact_background_color:
+                label: Set a background color for this section?
+                type: switch
+                default: 1
+                tab: Contact
+
+            contact_pretitle:
+                label: Pretitle
+                type: text
+                tab: Contact
+                comment: e.g. CONTACT
+
+            contact_title:
+                label: Title
+                type: text
+                tab: Contact
+                comment: e.g. Request a quote
+
+            contact_lead:
+                label: Lead
+                type: textarea
+                size: small
+                tab: Contact
+                comment: e.g. Our estimates are free, professional, and fair. Response time will vary depending on the time of the year and the type of request.
+
+            contact_heading_one:
+                label: Heading 1
+                type: text
+                tab: Contact
+                comment: e.g. Tell us a little bit about yourself
+
+            contact_heading_two:
+                label: Heading 2
+                type: text
+                tab: Contact
+                comment: e.g. What would you like a quote for?
+
+            contact_heading_three:
+                label: Heading 3
+                type: text
+                tab: Contact
+                comment: e.g. And finally...
+
+            contact_consent:
+                label: Consent
+                type: textarea
+                size: small
+                tab: Contact
+                comment: e.g. I consent to have this website collect my submitted information so they can respond to my inquiry.
+
+            # Utility
+
+            terms_page:
+                label: Terms and Conditions page
+                type: section
+                tab: Utility pages
+
+            terms_text:
+                label: Text
+                type: richeditor
+                size: giant
+                tab: Utility pages
+
+            privacy_page:
+                label: Privacy policy page
+                type: section
+                tab: Utility pages
+
+            privacy_text:
+                label: Text
+                type: richeditor
+                size: giant
+                tab: Utility pages
+
+            not_found_page:
+                label: Page not found (404)
+                type: section
+                tab: Utility pages
+
+            not_found_title:
+                label: Title
+                type: text
+                default: 404 - Page not found
+                tab: Utility pages
+                comment: e.g. 404 - Page not found
+
+            not_found_lead:
+                label: Lead
+                type: textarea
+                default: We're sorry, but the page you've requested cannot be found.
+                size: small
+                tab: Utility pages
+                comment: e.g. We're sorry, but the page you've requested cannot be found.
+
+            error_page:
+                label: Error page (500)
+                type: section
+                tab: Utility pages
+
+            error_title:
+                label: Title
+                type: text
+                default: 500 - Error
+                tab: Utility pages
+                comment: e.g. 500 - Error
+
+            error_lead:
+                label: Lead
+                type: textarea
+                default: We're sorry, but something went wrong and the page cannot be displayed.
+                size: small
+                tab: Utility pages
+                comment: e.g. We're sorry, but something went wrong and the page cannot be displayed.
+            
+            maintenance_page:
+                label: Maintenance page
+                type: section
+                tab: Utility pages
+
+            maintenance_logo:
+                label: Maintenance Logo (1152xh, JPG | JPEG | PNG | SVG)
+                type: fileupload
+                mode: image
+                fileTypes : jpg,jpeg,png,svg
+                tab: Utility pages
+                span: left
+
+            maintenance_title:
+                label: Title
+                type: text
+                default: Maintenance
+                tab: Utility pages
+                comment: e.g. Maintenance
+
+            maintenance_lead:
+                label: Lead
+                type: textarea
+                default: We're undergoing a bit of scheduled maintenance. We'll be back up and running as fast as possible.
+                size: small
+                tab: Utility pages
+                comment: e.g. We're undergoing a bit of scheduled maintenance. We'll be back up and running as fast as possible.
+
+            maintenance_primary_button_icon:
+                label: Primary button icon (Font Awesome 5 Free)
+                type: text
+                tab: Utility pages
+                comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
+            
+            maintenance_primary_button_text:
+                label: Primary button text
+                type: text
+                span: left
+                tab: Utility pages
+                comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
+
+            maintenance_primary_button_link:
+                label: Primary button link
+                type: text
+                span: right
+                tab: Utility pages
+                comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
+
+            maintenance_secondary_button_icon:
+                label: Secondary button icon (Font Awesome 5 Free)
+                type: text
+                tab: Utility pages
+                comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
+            
+            maintenance_secondary_button_text:
+                label: Secondary button text
+                type: text
+                span: left
+                tab: Utility pages
+                comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
+
+            maintenance_secondary_button_link:
+                label: Secondary button link
+                type: text
+                span: right
+                tab: Utility pages
+                comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
+
+            # Favicon & App icons
+
+            favicon:
+                label: Favicon (32x32, ICO)
+                type: fileupload
+                mode: image
+                fileTypes : ico
+                tab: Favicon & App icons
+
+            icon:
+                label: Icon (1:1, SVG)
+                type: fileupload
+                mode: image
+                fileTypes : svg
+                tab: Favicon & App icons
+                
+            apple_touch_icon:
+                label: Apple touch icon (180x180, PNG)
+                type: fileupload
+                mode: image
+                fileTypes : png
+                tab: Favicon & App icons

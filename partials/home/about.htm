@@ -1,0 +1,32 @@
+description = "About"
+==
+{# ABOUT #}
+<section id="about" class="space-py-8 overflow-x-hidden">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <header class="mb-3">
+                    <div class="section__preheading">{{ this.theme.about_pretitle }}</div>
+                    <h2 class="mb-0">{{ this.theme.about_title }}</h2>
+                </header>
+            </div>
+            <div class="col-lg-7">
+                <div class="about__text pl-0 pl-lg-3">
+                    {{ this.theme.about_text|raw }}
+                </div>
+            </div>
+        </div>
+        {% if this.theme.about_repeater|length > 0 %}
+            <div class="facts bg-white corner-shape-lg row no-gutters border">
+                {% for item in this.theme.about_repeater %}
+                    <div data-aos="zoom-in" data-aos-once="true" class="col-md-4">
+                        <div class="fact">
+                            <div class="fact__number counter mb-3">{{ item.number }}</div>
+                            <div class="lead">{{ item.title }}</div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</section>

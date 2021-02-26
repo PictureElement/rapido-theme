@@ -1,0 +1,41 @@
+// CONTACT
+// =============================================================================
+
+.contact {
+    border-top: 1px solid transparent;
+    &-form {
+        box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
+        // @include margin-top(-8rem);
+        margin-top: -12vh;
+        position: relative;
+        z-index: 1;
+        border-top: 2px solid $primary;
+        .form-control {
+            background-color: transparent;
+        }
+        .custom-control-label {
+            font-weight: 300;
+            &::before {
+                background-color: transparent;
+                box-shadow: none;
+            }
+        }
+        .custom-control-input:checked~.custom-control-label::before {
+            border-color: $primary;
+            background-color: $primary;
+            box-shadow: none;
+        }
+        button {
+            @media (max-width: 575.98px) {
+                display: block;
+                width: 100%;
+            }
+        }
+        @media (max-width: 575.98px) {
+            label {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+        }
+    }
+}

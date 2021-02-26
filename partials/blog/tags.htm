@@ -1,0 +1,17 @@
+description = "Tag cloud"
+==
+<div class="blog-tags {{ class }}">
+    <h3 class="mb-3">Tag cloud</h3>
+    {% set tags = tags.tags %}
+    {% if tags|length > 0 %}
+        <ul class="list-inline mb-0 corner-shape p-3 elevation-0dp">
+            {% for tag in tags %}
+                <li class="list-inline-item"><a href="{{ 'blog-tag'|page({ slug: tag.slug, page: '' }) }}" class="badge badge-accent">{{ tag.name }} ({{ tag.posts|length }})</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="alert alert-secondary" role="alert">
+            No tags were found.
+        </div>
+    {% endif %}
+</div>

@@ -1,0 +1,67 @@
+description = "Hero"
+==
+{% set numberOfActiveSlides = 0 %}
+
+{% for item in this.theme.hero_repeater %}
+    {% if item.enable %}
+        {% set numberOfActiveSlides = numberOfActiveSlides + 1 %}
+    {% endif %}
+{% endfor %}
+
+{# HERO #}
+<section class="hero">
+    <div {% if numberOfActiveSlides > 1 %}id="heroCarousel"{% endif %} class="hero-carousel {% if numberOfActiveSlides > 1 %}owl-carousel{% endif %}">
+        {% for item in this.theme.hero_repeater %}
+            {% if item.enable %}
+                <div class="hero-carousel__item d-flex flex-column">
+                    <div class="hero-carousel__text-wrapper container order-1 space-py-4">
+                        <h1 class="mb-2" data-aos="fade-up" data-aos-once="true" data-aos-offset="-100">{{ item.title }}</h1>
+                        <p class="lead" data-aos="fade-up" data-aos-delay="100" data-aos-once="true" data-aos-offset="-100">{{ item.lead }}</p>
+                        <div data-aos="fade-up" data-aos-delay="200" data-aos-once="true" data-aos-offset="-100">
+                            {# PRIMARY BUTTON #}
+                            {% if item.primary_button_text %}
+                                <a href="{{ item.primary_button_link }}" class="btn btn-lg btn-accent mx-1 mb-2">{% if item.primary_button_icon != '' %}<i class="{{ item.primary_button_icon }}"></i> {% endif %}{{ item.primary_button_text }}</a>
+                            {% endif %}
+                            {# SECONDARY BUTTON #}
+                            {% if item.secondary_button_text %}
+                                <a href="{{ item.secondary_button_link }}" class="btn btn-lg btn-outline-accent ml-1 mb-2">{% if item.secondary_button_icon != '' %}<i class="{{ item.secondary_button_icon }}"></i> {% endif %}{{ item.secondary_button_text }}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="hero-carousel__image-wrapper order-0">
+                        <img
+                            src="{{ item.image|media|resize(1280, 614) }}"
+                            srcset="{{ item.image|media|resize(1280, 515) }} 1280w,
+        
+                                    {{ item.image|media|resize(950, 515) }} 960w,
+                                    {{ item.image|media|resize(1920, 1030) }} 1920w,
+        
+                                    {{ item.image|media|resize(800, 515) }} 800w,
+                                    {{ item.image|media|resize(1600, 1030) }} 1600w,
+        
+                                    {{ item.image|media|resize(683, 515) }} 683w,
+                                    {{ item.image|media|resize(1366, 1030) }} 1366w,
+        
+                                    {{ item.image|media|resize(600, 614) }} 600w,
+                                    {{ item.image|media|resize(1200, 1228) }} 1199w,
+        
+                                    {{ item.image|media|resize(496, 564) }} 496w,
+                                    {{ item.image|media|resize(992, 1128) }} 991w,
+        
+                                    {{ item.image|media|resize(384, 510) }} 384w,
+                                    {{ item.image|media|resize(768, 1020) }} 768w,
+        
+                                    {{ item.image|media|resize(767, 368) }} 767w,
+                                    {{ item.image|media|resize(1534, 736) }} 1534w,
+        
+                                    {{ item.image|media|resize(575, 276) }} 575w,
+                                    {{ item.image|media|resize(1150, 552) }} 1150w"
+                            sizes="(min-width: 768px) 50vw,
+                                   100vw"
+                            alt="{{ item.image_alt }}">
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>

@@ -1,0 +1,16 @@
+description = "Categories"
+==
+<div class="blog-categories mb-4">
+    <h3 class="mb-3">Categories</h3>
+    {% if blogCategories.categories|length > 0 %}
+        <ul class="list-unstyled mb-0 corner-shape p-3 elevation-0dp">
+            {% for category in blogCategories.categories %}
+                <li>&raquo; <a class="link-no-underline" href="{{ category.url }}">{{ category.name }} ({{ category.post_count }})</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="alert alert-secondary" role="alert">
+            No categories were found.
+        </div>
+    {% endif %}
+</div>

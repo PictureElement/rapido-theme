@@ -1,0 +1,30 @@
+description = "Pagination"
+==
+{% set posts = blogPosts.posts %}
+
+{# PAGINATION #}
+{% if posts.lastPage > 1 %}
+    <div class="d-flex flex-column align-items-center">
+        <nav class="{{ mb }}" aria-label="Blog pagination">
+            <ul class="pagination mb-0">
+                {% if posts.currentPage > 1 %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ this.page.baseFileName | page({ (blogPosts.pageParam): (posts.currentPage-1) }) }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+                {% for page in 1..posts.lastPage %}
+                    <li class="page-item {{ posts.currentPage == page ? 'active' : null }}"><a class="page-link" href="{{ this.page.baseFileName | page({ (blogPosts.pageParam): page }) }}">{{ page }}</a></li>
+                {% endfor %}
+                {% if posts.lastPage > posts.currentPage %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ this.page.baseFileName | page({ (blogPosts.pageParam): (posts.currentPage+1) }) }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+{% endif %}

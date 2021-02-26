@@ -1,0 +1,119 @@
+title = "Post"
+url = "/blog/post/:slug"
+layout = "default"
+meta_title = "Rapido business theme for October CMS - Post"
+meta_description = "Live demo of the Rapido business theme for October CMS."
+is_hidden = 0
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "blog-category"
+
+[registerVisit]
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog-category"
+
+[topPosts]
+period = 2
+category = 0
+postPerPage = 4
+postPage = "post"
+slug = "{{ :slug }}"
+
+[related]
+slug = "{{ :slug }}"
+
+[searchInput]
+useAutoComplete = 0
+autoCompleteResultCount = 5
+showProviderBadge = 1
+searchPage = "search-results.htm"
+
+[tags]
+results = 0
+sortOrder = "created_at desc"
+==
+<?php
+function onEnd()
+{
+    // Optional - set the page title to the post title
+    if (isset($this->post)) {
+        $this->page->title = $this->post->title;
+        $this->page->description = $this->post->summary;
+    }
+    
+    $imageSettings = array();
+    $imageSettings['src'] = array(726, 408);
+    $imageSettings['srcset'] = array(726, 606, 686, 506, 541);
+    $imageSettings['sizes'] = '(min-width: 1200px) 726px, (min-width: 992px) 606px, (min-width: 768px) 686px, (min-width: 576px) 506px, 541px';
+    
+    $this["imageSettings"] = $imageSettings;
+}
+?>
+==
+{% set post = blogPost.post %}
+
+{# COVER #}
+{% partial 'blog/cover' type='post' title=post.title lead=post.summary categories=post.categories %}
+
+<div class="container space-py-4">
+    <div class="row position-relative">
+        <div class="col-lg-8">
+            <section class="single-post">
+                {# AUTHOR #}
+                <div class="d-flex mb-3 align-items-center">
+                    <img class="single-post__profile-image rounded-circle border mr-2" src="{{ post.user.getAvatarThumb(60) }}" srcset="{{ post.user.getAvatarThumb(60) }} 1x, {{ post.user.getAvatarThumb(120) }} 2x" width="60" height="60" alt="{{ post.user.first_name }} {{ post.user.last_name }}">
+                    <div class="media-body">
+                        <div class="m-0">By {{ post.user.first_name }} {{ post.user.last_name }}</div>
+                        <div class="font-light"><i class="fas fa-calendar-day"></i> {{ post.published_at | date('rainlab.blog::lang.post.date_format'|trans) }}</div>
+                    </div>
+                </div>
+                {# CAROUSEL #}
+                <div {% if post.featured_images|length > 1 %}id="singlePostCarousel"{% endif %} class="single-post-carousel owl-carousel owl-theme border corner-shape-lg overflow-hidden">
+                    {% for image in post.featured_images %}
+                        {# CAROUSEL ITEM #}
+                        {% partial 'blog/post-carousel-item' image=image imageSettings=imageSettings %}
+                    {% endfor %}
+                </div>
+                {# CONTENT #}
+                <div class="mt-3">
+                    {{ post.content_html|raw }}
+                </div>
+                <hr class="my-5">
+                {# SHARING LINKS #}
+                {% partial 'blog/sharing-links' %}
+            </section>
+        </div>
+        <div class="col-lg-4 pl-lg-5 sticky-sidebar">
+            <hr class="my-5 d-lg-none">
+            <aside class="aside">
+                {# SEARCH #}
+                {% partial 'searchForm/default' text="Search for posts" class="mb-4" %}
+                {# CATEGORIES #}
+                {% partial 'blog/categories' blogCategories=blogCategories %}
+                {# TAGS #}
+                {% partial 'blog/tags' tags=tags class='mb-4 mb-lg-0' %}
+            </aside>
+        </div>
+        <div class="col-lg-8">
+            <hr class="my-5 d-none d-lg-block">
+            {# SIMILAR #}
+            {% partial 'blog/popular' class="mb-4" title="Similar posts" posts=related isPopular=false %}
+            {# POPULAR #}
+            {% partial 'blog/popular' class="" title="Popular posts" posts=topPosts.mostVisitedPosts isPopular=true %}
+        </div>
+    </div>
+</div>
+
+{# CTA SECONDARY #}
+{% if this.theme.cta_secondary_enable == 1 %}
+    {% partial 'global/cta' cta_title="#{ this.theme.cta_secondary_title }" cta_primary_button_icon="#{ this.theme.cta_secondary_primary_button_icon }" cta_primary_button_text="#{ this.theme.cta_secondary_primary_button_text }" cta_primary_button_link="#{ this.theme.cta_secondary_primary_button_link }" cta_secondary_button_icon="#{ this.theme.cta_secondary_secondary_button_icon }" cta_secondary_button_text="#{ this.theme.cta_secondary_secondary_button_text }" cta_secondary_button_link="#{ this.theme.cta_secondary_secondary_button_link }" %}
+{% endif %}
+
+{# CRITICAL CSS #}
+{% put styles %}
+    {% partial 'critical/post' %}
+{% endput %}

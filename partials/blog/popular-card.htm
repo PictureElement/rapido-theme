@@ -1,0 +1,28 @@
+description = "Popular card"
+==
+<article class="elevation-0dp corner-shape">
+    <div class="card-body">
+        <div class="font-light font-small">
+            {% if post.categories.count %}
+                {% if isPopular %}
+                    {% set categoryLinks = post.categories | map(c => "<a href=\"#{'blog-category'|page({slug: c.slug, page: ''})}\">#{c.name}</a>") | join(', ') %}
+                {% else %}
+                    {% set categoryLinks = post.categories | map(c => "<a href=\"#{'blog-category'|page({slug: c.slug})}\">#{c.name}</a>") | join(', ') %}
+                {% endif %}
+                
+                {{ 'rainlab.blog::lang.post.posted_byline' | trans({
+                    date: post.published_at | date('rainlab.blog::lang.post.date_format' | trans),
+                    categories: categoryLinks
+                }) }}
+            {% else %}
+                {{ 'rainlab.blog::lang.post.posted_byline_no_categories' | trans({
+                    date: post.published_at | date('rainlab.blog::lang.post.date_format' | trans)
+                }) }}
+            {% endif %}
+        </div>
+        <h4 class="mb-0"><a class="link-no-underline font-base" href="{% if isPopular %}{{ post.url }}{% else %}{{ 'post'|page({ slug: post.slug }) }}{% endif %}">{{ post.title }}</a></h4>
+    </div>
+</article>
+
+
+{{ (ability.id in company_abilities) ? 'selected' : '' }}

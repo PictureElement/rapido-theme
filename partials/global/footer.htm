@@ -1,0 +1,66 @@
+description = "Footer"
+==
+{# FOOTER #}
+<footer class="footer position-relative">
+    <div style="z-index:1;" class="container position-relative">
+        <div class="row">
+            <div class="col-12 col-lg mb-4 mb-lg-0">
+                <a aria-label="rapido.msof.me" href="{{ url('/') }}">
+                    {% if this.theme.footer_logo.extension == 'svg' %}
+                        <img class="mb-3" src="{{ this.theme.footer_logo.path }}" height="40" loading="lazy" alt="{{ this.theme.footer_logo.description }}">
+                    {% else %}
+                        <img class="mb-3" src="{{ this.theme.footer_logo.path|resize(logoWidth/2, logoHeight/2) }}" srcset="{{ this.theme.footer_logo.path|resize(logoWidth/2, logoHeight/2) }} 1x, {{ this.theme.footer_logo.path }} 2x" width="{{ logoWidth/2 }}" height="{{ logoHeight/2 }}" loading="lazy" alt="{{ this.theme.footer_logo.description }}">
+                    {% endif %}
+                </a>
+                <p class="footer__statement">{{ this.theme.company_statement }}</p>
+                {% if this.theme.social_repeater|length > 0 %}
+                    <div>
+                        <ul class="list-inline mb-0">
+                            {% for item in this.theme.social_repeater %}
+                                <li class="list-inline-item"><a class="footer__social-link corner-shape-sm" href="{{ item.link }}" aria-label="Visit social channel" target="_blank" rel="noopener noreferrer"><i class="{{ item.channel }}"></i></a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-12 col-md-5 col-lg mb-4 mb-lg-0">
+                <h3 class="mb-3">Contact</h3>
+                <ul class="list-unstyled mb-0">
+                    <li class="d-flex"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-map-marker-alt"></i>
+                        <div class="ml-2">
+                            <a data-fancybox="" data-animation-effect="fade" data-options="{'iframe' : {'css' : {'width' : '80%', 'height' : '80%'}}}" href="https://www.google.com/maps/search/?api=1&amp;query={{ this.theme.map_search_parameters }}">
+                                <address class="mb-0">
+                                    {{ this.theme.address|nl2br }}    
+                                </address>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="d-flex"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-phone-alt"></i><div class="ml-2"><a href="tel:{{ this.theme.phone }}">{{ this.theme.phone }}</a></div></li>
+                    <li class="d-flex"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-at"></i><div class="ml-2"><a href="mailto:{{ this.theme.email }}">{{ this.theme.email }}</a></div></li>
+                    <li class="d-flex"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-clock"></i><div class="ml-2">{{ this.theme.working_hours }}</div></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-3 col-lg mb-4 mb-lg-0">
+                <h3 class="mb-3">Other</h3>
+                <ul class="list-unstyled mb-0">
+                    <li><a href="{{ 'terms-and-conditions'|page }}">Terms & Conditions</a></li>
+                    <li><a href="{{ 'privacy-policy'|page }}">Privacy Policy</a></li>
+                    <li><a href="{{ 'cookie-settings'|page }}">Cookie Settings</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-4 col-lg">
+                <h3 class="mb-3">{{ this.theme.subscribe_title }}</h3>
+                <p>{{ this.theme.subscribe_message }}</p>
+                {% component 'newsletterForm' %}
+            </div>
+        </div>
+        <hr style="background-color:rgba(255,255,255,0.30);" class="my-4">
+        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center">
+            <div><small class="footer__copy-left">© {{ 'now' | date('Y') }} {{ this.theme.site_name }}. All rights reserved.</small></div>
+            <div><small class="footer__copy-right">Rapido theme by <a href="https://www.msof.me/" target="_blank" rel="noopener noreferrer">Marios Sofokleous</a></small></div>
+        </div>
+    </div>
+    <figure class="footer-figure">
+        <img class="img-fluid" src="{{ 'assets/images/isometric-squares.svg'|theme }}" loading="lazy" alt="">
+    </figure>
+</footer>

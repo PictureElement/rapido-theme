@@ -1,0 +1,178 @@
+// BLOG
+// =============================================================================
+
+// Blog carousel
+.blog-carousel {
+    display: flex;
+    .owl-stage-outer {
+        overflow: visible;
+        .owl-stage {
+            padding-left: 0 !important;
+            display: flex;
+            .owl-item {
+                opacity: 1;
+                transition: opacity .15s ease-in-out;
+                &.active {
+                    opacity: 1;
+                }
+                .item {
+                    display: flex;
+                    flex: 1 0 auto;
+                    height: 100%;
+                }
+            }
+        }
+    }
+    .owl-nav {
+        margin-top: 2rem;
+        text-align: left;
+        .owl-prev {
+            padding: 0;
+            margin: 0 .5rem 0 0;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 48px;
+            background: transparent;
+            border: 1px solid $primary;
+            color: $primary;
+            font-size: 20px;
+            &:hover {
+                background: darken($primary, 10%);
+                color: $on-primary;
+            }
+        }
+        .owl-next {
+            padding: 0;
+            margin: 0;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 48px;
+            background: transparent;
+            border: 1px solid $primary;
+            color: $primary;
+            font-size: 20px;
+            &:hover {
+                background: darken($primary, 10%);
+                color: $on-primary;
+            }
+        }
+    }
+}
+
+// Blog grid
+.blog-grid {
+    [class^='col-'] {
+        margin-bottom: 2rem;
+        @media (max-width: 767.98px) {
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+// Blog search
+.blog-search {
+    form {
+        display: flex;
+        align-items: center;
+    }
+}
+
+// Blog tags
+.blog-tags {
+    ul {
+        font-size: 0;
+        .list-inline-item {
+            font-size: 1rem;
+            margin-right: 4px;
+            margin-bottom: 4px;
+            a {
+                text-decoration: none;
+                background-color: rgba($primary, 0.25);
+                &:hover {
+                    background-color: rgba($primary, 1);
+                    color: $on-primary;
+                }
+            }
+        }
+    }
+}
+
+// Single post
+.single-post {
+    &__profile-image {
+        width: 60px;
+        height: 60px;
+    }
+    &__share-link {
+        @include font-size(1.5rem);
+        color: $primary;
+        background-color: $primary-light;
+        width: 48px;
+        height: 48px;
+        display: inline-block;
+        text-align: center;
+        line-height: 48px;
+        transition: color .15s ease-in-out, background-color .15s ease-in-out;
+        &:hover, &:focus {
+            color: $on-primary;
+            background-color: $primary;
+        }       
+    }
+    &-carousel {
+        display: block;
+        position: relative;
+        .owl-nav {
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            .owl-prev {
+                text-align: center;
+                background: transparent !important;
+                border-radius: 50%;
+                color: rgba(white, 0.75);
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+                line-height: 48px;
+                padding: 0;
+                &:hover {
+                    color: rgba(white, 1);
+                }
+            }
+            .owl-next {
+                text-align: center;
+                background: transparent !important;
+                border-radius: 50%;
+                color: rgba(white, 0.75);
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+                line-height: 48px;
+                padding: 0;
+                &:hover {
+                    color: rgba(white, 1);
+                }
+            }
+        }
+    }
+}
+
+.sticky-sidebar {
+    position: sticky;
+    align-self: flex-start;
+    top: 81px;
+    z-index: 1002;
+    @media (max-width: 991.98px) {
+        position: static;
+    }
+}

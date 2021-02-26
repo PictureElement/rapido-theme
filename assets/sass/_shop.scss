@@ -1,0 +1,16 @@
+// Shop
+// =============================================================================
+
+.shop {
+    &__card {
+        z-index: 1;
+        ul li {
+            a {
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

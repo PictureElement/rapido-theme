@@ -1,0 +1,24 @@
+description = "Clients"
+==
+{# CLIENTS #}
+<div id="clients" class="clients">
+    <div class="container">
+        <div class="clients-slideshow">
+            <header class="text-center space-mb-3 max-width-800 mx-auto">
+                <div class="section__preheading left-0">{{ this.theme.clients_pretitle }}</div>
+                <h2 class="mb-0">{{ this.theme.clients_title }}</h2>
+            </header>
+            <div id="clientsCarousel" class="owl-carousel owl-theme text-center">
+                {% for item in this.theme.clients_repeater %}
+                    <div class="item">
+                        {% if item.image|split('.')|last == 'svg' %}
+                            <img class="img-fluid" loading="lazy" src="{{ item.image|media }}" width="171" height="57" alt="{{ item.image_alt }}">
+                        {% else %}
+                            <img class="img-fluid" loading="lazy" src="{{ item.image|media|resize(171, 57) }}" srcset="{{ item.image|media|resize(171, 57) }} 1x, {{ item.image|media }} 2x" width="171" height="57" alt="{{ item.image_alt }}">
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+title = "Maintenance"
+url = "/maintenance"
+meta_title = "Rapido business theme for October CMS - Maintenance"
+meta_description = "Live demo of the Rapido business theme for October CMS."
+is_hidden = 0
+==
+<?php
+use Cms\Classes\Theme;
+
+function onStart() {
+    $imageSettings = array();
+    $imageSettings['srcset'] = array(576, 516, 381, 407);
+    $imageSettings['sizes'] = '(min-width: 992px) 576px, (min-width: 768px) 516px, (min-width: 576px) 381px, 407px';
+    
+    $this["imageSettings"] = $imageSettings;
+}
+
+function onEnd() {
+    $theme = Theme::getActiveTheme();
+    
+    // Get logo size
+    $logo = $theme->maintenance_logo;
+    if ($logo) {
+        $path = storage_path('app/'.$logo->getDiskPath());
+        list($width, $height) = getimagesize($path);
+        $this['logoWidth'] = $width;
+        $this['logoHeight'] = $height;
+    }
+    
+    // Get page file name
+    $this['baseFileName'] = $this->page->baseFileName;
+}
+?>
+==
+<!doctype html>
+<html class="h-100" lang="en">
+    {# HEAD #}
+    {% partial 'global/head' baseFileName=baseFileName %}
+    <body>
+        {# PAGE SPINNER #}
+        {% content 'page-spinner' %}
+        
+        <main>
+            {# COVER #}
+            <div style="min-height:100vh;height:auto;" class="alert-primary text-center d-flex align-items-center" role="alert">
+                <div class="max-width-800 mx-auto">
+                    <div class="container">
+                        {% if this.theme.maintenance_logo.extension == 'svg' %}
+                            <img data-aos="zoom-in" data-aos-once="true" class="img-fluid w-75 mb-4" src="{{ this.theme.maintenance_logo.path }}" width="{{ logoWidth }}" height="{{ logoHeight }}" alt="{{ this.theme.maintenance_logo.description }}">
+                        {% else %}
+                            <img 
+                                data-aos="zoom-in"
+                                data-aos-once="true"
+                                class="img-fluid w-75 mb-4"
+                                width="{{ logoWidth/2 }}"
+                                height="{{ logoHeight/2 }}"
+                                src="{{ this.theme.maintenance_logo.path|resize(logoWidth/2, auto) }}"
+                                srcset="{{ this.theme.maintenance_logo.path|resize(imageSettings.srcset[0], auto) }} {{ imageSettings.srcset[0] }}w,
+                                        {{ this.theme.maintenance_logo.path|resize(imageSettings.srcset[0]*2, auto) }} {{ imageSettings.srcset[0]*2 }}w,
+    
+                                        {{ this.theme.maintenance_logo.path|resize(imageSettings.srcset[1], auto) }} {{ imageSettings.srcset[1] }}w,
+                                        {{ this.theme.maintenance_logo.path|resize(imageSettings.srcset[1]*2, auto) }} {{ imageSettings.srcset[1]*2 }}w,
+                                        
+                                        {{ this.theme.maintenance_logo.path|resize(imageSettings.srcset[2], auto) }} {{ imageSettings.srcset[2] }}w,
+                                        {{ this.theme.maintenance_logo.path|resize(imageSettings.srcset[2]*2, auto) }} {{ imageSettings.srcset[2]*2 }}w,
+                                        
+                                        {{ this.theme.maintenance_logo.path|resize(imageSettings.srcset[3], auto) }} {{ imageSettings.srcset[3] }}w,
+                                        {{ this.theme.maintenance_logo.path|resize(imageSettings.srcset[3]*2, auto) }} {{ imageSettings.srcset[3]*2 }}w"
+                                sizes="{{ imageSettings.sizes }}"
+                                alt="{{ this.theme.maintenance_logo.description }}">
+                        {% endif %}
+                        <h1 data-aos="fade-up" data-aos-once="true" class="alert-heading">{{ this.theme.maintenance_title }}</h1>
+                        <p data-aos="fade-up" data-aos-delay="100" data-aos-once="true" class="lead">{{ this.theme.maintenance_lead }}</p>
+                        <hr data-aos="fade-up" data-aos-delay="100" data-aos-once="true" class='my-4'>
+                        <div data-aos="fade-up" data-aos-delay="200" data-aos-once="true" data-aos-offset="0">
+                            {% if this.theme.maintenance_primary_button_text %}
+                                <a href="{{ this.theme.maintenance_primary_button_link }}" class="btn btn-primary btn-lg mx-1">{% if this.theme.maintenance_primary_button_icon != '' %}<i class="{{ this.theme.maintenance_primary_button_icon }}"></i> {% endif %}{{ this.theme.maintenance_primary_button_text }}</a>
+                            {% endif %}
+                            {% if this.theme.maintenance_secondary_button_text %}
+                                <a href="{{ this.theme.maintenance_secondary_button_link }}" class="btn btn-outline-primary btn-lg mx-1">{% if this.theme.maintenance_secondary_button_icon != '' %}<i class="{{ this.theme.maintenance_secondary_button_icon }}"></i> {% endif %}{{ this.theme.maintenance_secondary_button_text }}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        {# SCRIPTS #}
+        {% partial 'global/scripts' %}
+    </body>
+</html>
+
+{# CRITICAL CSS #}
+{% put styles %}
+    {% partial 'critical/maintenance' %}
+{% endput %}

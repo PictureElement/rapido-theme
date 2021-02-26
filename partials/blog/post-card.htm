@@ -1,0 +1,52 @@
+description = "Post card"
+==
+{% set width = imageSettings.src[0] %}
+{% set height = imageSettings.src[1] %}
+{% set sizes = imageSettings.sizes %}
+{% set featured_image = post.featured_images|first.path %}
+{% set description = post.featured_images|first.description %}
+
+<article class="elevation-1dp corner-shape-lg overflow-hidden bg-white">
+    <div class="position-relative">
+        <img
+            width="{{ width }}"
+            height="{{ height }}"
+            class="img-fluid"  
+            src="{{ featured_image|resize(width, height) }}"
+            srcset="{{ featured_image|resize(imageSettings.srcset[0], auto) }} {{ imageSettings.srcset[0] }}w,
+                    {{ featured_image|resize(imageSettings.srcset[0]*2, auto) }} {{ imageSettings.srcset[0]*2 }}w,
+                    
+                    {{ featured_image|resize(imageSettings.srcset[1], auto) }} {{ imageSettings.srcset[1] }}w,
+                    {{ featured_image|resize(imageSettings.srcset[1]*2, auto) }} {{ imageSettings.srcset[1]*2 }}w,
+                    
+                    {{ featured_image|resize(imageSettings.srcset[2], auto) }} {{ imageSettings.srcset[2] }}w,
+                    {{ featured_image|resize(imageSettings.srcset[2]*2, auto) }} {{ imageSettings.srcset[2]*2 }}w,
+
+                    {{ featured_image|resize(imageSettings.srcset[3], auto) }} {{ imageSettings.srcset[3] }}w,
+                    {{ featured_image|resize(imageSettings.srcset[3]*2, auto) }} {{ imageSettings.srcset[3]*2 }}w,
+
+                    {{ featured_image|resize(imageSettings.srcset[4], auto) }} {{ imageSettings.srcset[4] }}w,
+                    {{ featured_image|resize(imageSettings.srcset[4]*2, auto) }} {{ imageSettings.srcset[4]*2 }}w"
+            sizes="{{ sizes }}"
+            loading="lazy"
+            alt="{{ description }}">
+    </div>
+    <div class="card-body">
+        <div class="font-light font-small">
+            {% if post.categories.count %}
+                {% set categoryLinks = post.categories | map(c => "<a href=\"#{c.url}\">#{c.name}</a>") | join(', ') %}
+
+                {{ 'rainlab.blog::lang.post.posted_byline' | trans({
+                    date: post.published_at | date('rainlab.blog::lang.post.date_format' | trans),
+                    categories: categoryLinks
+                }) }}
+            {% else %}
+                {{ 'rainlab.blog::lang.post.posted_byline_no_categories' | trans({
+                    date: post.published_at | date('rainlab.blog::lang.post.date_format' | trans)
+                }) }}
+            {% endif %}
+        </div>
+        <h3><a class="link-no-underline font-base" href="{{ post.url }}">{{ post.title }}</a></h3>
+        <p class="mb-0">{{ post.summary }}</p>
+    </div>
+</article>

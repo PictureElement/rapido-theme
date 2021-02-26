@@ -1,0 +1,19 @@
+title = "Page not found (404)"
+url = "/404"
+layout = "default"
+meta_title = "Rapido business theme for October CMS - Page not found (404)"
+meta_description = "Live demo of the Rapido business theme for October CMS."
+is_hidden = 0
+==
+{# STATUS COVER #}
+{% partial 'utility/status-cover' class="alert-warning" title="#{ this.theme.not_found_title }" lead="#{ this.theme.not_found_lead }" %}
+
+{# CTA SECONDARY #}
+{% if this.theme.cta_secondary_enable == 1 %}
+    {% partial 'global/cta' cta_title="#{ this.theme.cta_secondary_title }" cta_primary_button_icon="#{ this.theme.cta_secondary_primary_button_icon }" cta_primary_button_text="#{ this.theme.cta_secondary_primary_button_text }" cta_primary_button_link="#{ this.theme.cta_secondary_primary_button_link }" cta_secondary_button_icon="#{ this.theme.cta_secondary_secondary_button_icon }" cta_secondary_button_text="#{ this.theme.cta_secondary_secondary_button_text }" cta_secondary_button_link="#{ this.theme.cta_secondary_secondary_button_link }" %}
+{% endif %}
+
+{# CRITICAL CSS #}
+{% put styles %}
+    {% partial 'critical/page-not-found-404' %}
+{% endput %}

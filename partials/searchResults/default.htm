@@ -1,0 +1,21 @@
+description = "Search results"
+==
+{% set results = __SELF__.results %}
+
+{% if results|length > 0 %}
+    <div class="blog-popular mb-3">
+        <div class="row">
+            {% for result in results %}
+                {# Display all results #}
+                {% partial __SELF__ ~ '::searchresult.htm' result = result isLastIteration = loop.last %}
+            {% endfor %}
+        </div>
+    </div>
+    {% partial __SELF__ ~ '::pagination.htm' results = results %}
+{% else %}
+    {# No results found #}
+    {% partial __SELF__ ~ '::no-results.htm' %}
+{% endif %}
+<div class="text-center mt-4">
+    <a class="btn btn-outline-primary" href="{{ 'blog'|page({ page: '' }) }}">Back to blog overview</a>
+</div>

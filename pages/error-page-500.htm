@@ -1,0 +1,19 @@
+title = "Error page (500)"
+url = "/error"
+layout = "default"
+meta_title = "Rapido business theme for October CMS - Error page (500)"
+meta_description = "Live demo of the Rapido business theme for October CMS."
+is_hidden = 0
+==
+{# STATUS COVER #}
+{% partial 'utility/status-cover' class="alert-danger" title="#{ this.theme.error_title }" lead="#{ this.theme.error_lead }" %}
+
+{# CTA SECONDARY #}
+{% if this.theme.cta_secondary_enable == 1 %}
+    {% partial 'global/cta' cta_title="#{ this.theme.cta_secondary_title }" cta_primary_button_icon="#{ this.theme.cta_secondary_primary_button_icon }" cta_primary_button_text="#{ this.theme.cta_secondary_primary_button_text }" cta_primary_button_link="#{ this.theme.cta_secondary_primary_button_link }" cta_secondary_button_icon="#{ this.theme.cta_secondary_secondary_button_icon }" cta_secondary_button_text="#{ this.theme.cta_secondary_secondary_button_text }" cta_secondary_button_link="#{ this.theme.cta_secondary_secondary_button_link }" %}
+{% endif %}
+
+{# CRITICAL CSS #}
+{% put styles %}
+    {% partial 'critical/error-page-500' %}
+{% endput %}

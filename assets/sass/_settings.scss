@@ -1,0 +1,47 @@
+// Breadcrumb separator
+$breadcrumb-divider: quote(">");
+$breadcrumb-font-size: 14px;
+
+// Typography
+$line-height-base: 1.6;
+$font-weight-base: 400;
+@if $google-fonts-enable == 1 {
+    $font-family-base: $google-fonts-body;
+    $headings-font-family: $google-fonts-heading;
+}
+
+// RFS
+$rfs-base-value: 1rem;
+// $rfs-factor: 50; // Factor of decrease
+
+// Define theme colors
+$theme-colors: (
+    "primary": $primary,
+    "on-primary": $on-primary,
+    "primary-dark": $primary-dark,
+    "on-primary-dark": $on-primary-dark,
+    "primary-light": $primary-light,
+    "accent": $accent,
+    "on-accent": $on-accent
+);
+
+// Enable shadows
+$enable-shadows: true;
+
+// Enable gradients
+$enable-gradients: true;
+
+// Enable responsive font sizes
+$enable-responsive-font-sizes: true;
+
+// Buttons          
+$btn-border-radius: $corner-radius-sm !important;
+
+// Grid
+$grid-gutter-width: 2rem;
+
+// Links
+$link-color: currentcolor;
+$link-decoration: underline;
+$link-hover-color: currentcolor;
+$link-hover-decoration: none;

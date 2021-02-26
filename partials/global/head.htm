@@ -1,0 +1,92 @@
+description = "Head"
+==
+<head>
+    {# REQUIRED #}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Marios Sofokleous">
+    <meta name="description" content="{% if this.page.meta_description %}{{ this.page.meta_description }}{% else %}{{ this.page.description }}{% endif %}">
+    <meta name="theme-color" content="{{ this.theme.primary_dark }}">
+    <title>{% if this.page.meta_title %}{{ this.page.meta_title }}{% else %}{{ this.page.title }} | {{ this.theme.site_name }}{% endif %}</title>
+    
+    {# OPEN GRAPH #}
+    <meta property="og:title" content="{% if this.page.meta_title %}{{ this.page.meta_title }}{% else %}{{ this.page.title }}{% endif %}">
+    <meta property="og:description" content="{% if this.page.meta_description %}{{ this.page.meta_description }}{% else %}{{ this.page.description }}{% endif %}">
+    {% if this.page.baseFileName == 'post' %}
+        <meta property="og:image" content="{% if post.featured_images %}{{ post.featured_images|first.path }}{% else %}{{ this.theme.getPreviewImageUrl() }}{% endif %}">
+        <meta property="og:type" content="article">
+    {% else %}
+        <meta property="og:image" content="{{ this.theme.getPreviewImageUrl() }}">
+        <meta property="og:type" content="website">
+    {% endif %}
+    <meta property="og:url" content="{{ ''|page }}">
+    <meta property="og:site_name" content="{{ this.theme.site_name }}">
+    
+    {# CRITICAL CSS #}
+    {% styles %}
+    
+    {# GOOGLE FONTS LINK #}
+    {% if this.theme.google_fonts_enable == 1 %}
+        {{ this.theme.google_fonts_link|raw }}
+    {% endif %}
+    
+    {# DEFER NON-CRITICAL CSS #}
+    {% if this.page.baseFileName == 'home' or  this.page.baseFileName == 'post' %}
+        <link href="{{ [
+            'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css',
+            'assets/vendor/@fancyapps/fancybox/dist/jquery.fancybox.min.css',
+            'assets/vendor/owl.carousel2/dist/assets/owl.carousel.min.css',
+            'assets/vendor/owl.carousel2/dist/assets/owl.theme.default.min.css',
+            'assets/vendor/aos/dist/aos.css',
+            'assets/sass/rapido.scss'
+        ]|theme }}" rel="stylesheet" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        
+        <noscript>
+            <link href="{{ [
+                'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css',
+                'assets/vendor/@fancyapps/fancybox/dist/jquery.fancybox.min.css',
+                'assets/vendor/owl.carousel2/dist/assets/owl.carousel.min.css',
+                'assets/vendor/owl.carousel2/dist/assets/owl.theme.default.min.css',
+                'assets/vendor/aos/dist/aos.css',
+                'assets/sass/rapido.scss'
+            ]|theme }}" rel="stylesheet">
+        </noscript>
+    {% elseif this.page.baseFileName == 'maintenance'%}
+        <link href="{{ [
+            'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css',
+            'assets/vendor/aos/dist/aos.css',
+            'assets/sass/rapido.scss'
+        ]|theme }}" rel="stylesheet" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        
+        <noscript>
+            <link href="{{ [
+                'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css',
+                'assets/vendor/aos/dist/aos.css',
+                'assets/sass/rapido.scss'
+            ]|theme }}" rel="stylesheet">
+        </noscript>
+    {% else %}
+        <link href="{{ [
+            'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css',
+            'assets/vendor/@fancyapps/fancybox/dist/jquery.fancybox.min.css',
+            'assets/vendor/aos/dist/aos.css',
+            'assets/sass/rapido.scss'
+        ]|theme }}" rel="stylesheet" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        
+        <noscript>
+            <link href="{{ [
+                'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css',
+                'assets/vendor/@fancyapps/fancybox/dist/jquery.fancybox.min.css',
+                'assets/vendor/aos/dist/aos.css',
+                'assets/sass/rapido.scss'
+            ]|theme }}" rel="stylesheet">
+        </noscript>
+    {% endif %}
+    
+    {# FAVICON AND APP ICONS #}
+    <link rel="icon" href="{{ this.theme.favicon.path }}"><!-- 32×32 -->
+    <link rel="icon" href="{{ this.theme.icon.path }}" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="{{ this.theme.apple_touch_icon }}"><!-- 180×180 -->
+    <link rel="manifest" href="{{ 'assets/icons/manifest.webmanifest'|theme }}">
+</head>

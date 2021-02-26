@@ -1,0 +1,16 @@
+description = "Sharing links"
+==
+<div class="d-flex flex-column align-items-center">
+    <div data-aos="zoom-in" data-aos-once="true">
+        <div class="text-center h3 font-heavy font-heading mb-3">Share this post</div>
+        <ul class="list-inline mb-5">
+            <li class="list-inline-item mr-0"><a  target="_blank" rel="noopener noreferrer" class="single-post__share-link corner-shape-sm" href="https://www.facebook.com/sharer/sharer.php?u={{ ''|page }}" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a></li>
+            <li class="list-inline-item mr-0"><a  target="_blank" rel="noopener noreferrer" class="single-post__share-link corner-shape-sm" href="https://twitter.com/share?url={{ ''|page }}" title="Share on Twitter"><i class="fab fa-twitter"></i></a></li>
+            <li class="list-inline-item mr-0"><a  target="_blank" rel="noopener noreferrer" class="single-post__share-link corner-shape-sm" href="https://www.linkedin.com/shareArticle?mini=true&url={{ ''|page }}" title="Share on LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+            <li class="list-inline-item mr-0"><a  target="_blank" rel="noopener noreferrer" class="single-post__share-link corner-shape-sm" href="https://vk.com/share.php?url={{ ''|page }}" title="Share on VK"><i class="fab fa-vk"></i></a></li>
+            <li class="list-inline-item mr-0"><a  target="_blank" rel="noopener noreferrer" class="single-post__share-link corner-shape-sm" href="mailto:?subject=I wanted you to see this web page&amp;body=Check out this web page: {{ ''|page }}." title="Share via Email"><i class="fas fa-envelope"></i></a></li>
+            <li class="list-inline-item mr-0"><a  target="_blank" rel="noopener noreferrer" class="single-post__share-link corner-shape-sm" href="https://www.addtoany.com/share_save?linkurl={{ ''|page }}" title="More sharing options"><i class="fas fa-share-alt"></i></a></li>
+        </ul>
+    </div>
+    <a class="btn btn-outline-primary" href="{{ 'blog'|page({ page: '' }) }}">Back to blog overview</a>
+</div>

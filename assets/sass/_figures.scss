@@ -1,0 +1,46 @@
+.testimonials-figure {
+    position: absolute;
+    bottom: 0.75rem;
+    right: -2.5rem;
+    z-index: 0;
+    @media (max-width: 575.98px) {
+        bottom: 2.75rem;
+        right: -0.5rem;
+    }
+}
+
+.misc-figure {
+    position: absolute;
+    bottom: -2.5rem;
+    left: -2.5rem;
+    @media (max-width: 575.98px) {
+        bottom: -0.75rem;
+        left: -0.6rem;
+    }
+}
+
+.shop-figure {
+    position: absolute;
+    bottom: -2.5rem;
+    right: -2.5rem;
+    @media (max-width: 575.98px) {
+        bottom: -0.75rem;
+        right: -0.6rem;
+    }
+}
+
+.contact-figure {
+    transform: translateY(0);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.footer-figure {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translateY(40%);
+}

@@ -1,0 +1,37 @@
+description = "Project grid"
+==
+<div class="grid__list row px-2">
+    {% for item in portfolioItems %}
+        <div data-aos="zoom-in" data-aos-delay="{% if loop.index % 3 == 1 %}0{% endif %}{% if loop.index % 3 == 2 %}100{% endif %}{% if loop.index % 3 == 0 %}200{% endif %}" data-aos-once="true" class="col-4 col-md-4">
+            <a href="{{ item.images|first.path }}" data-fancybox="gallery" data-animation-effect="fade" data-caption="{{ item.description|raw }}">
+                <img
+                    width="359"
+                    height="202"
+                    class="img-fluid corner-shape elevation-0dp"  
+                    src="{{ item.images|first.path|resize(359,202) }}"
+                    srcset="{{ item.images|first.path|resize(359,202) }} 359w,
+                            {{ item.images|first.path|resize(718,404) }} 718w,
+        
+                            {{ item.images|first.path|resize(299,168) }} 299w,
+                            {{ item.images|first.path|resize(598,336) }} 598w,
+        
+                            {{ item.images|first.path|resize(219,123) }} 219w,
+                            {{ item.images|first.path|resize(438,246) }} 438w,
+        
+                            {{ item.images|first.path|resize(159,89) }} 159w,
+                            {{ item.images|first.path|resize(318,178) }} 318w,
+        
+                            {{ item.images|first.path|resize(170,96) }} 170w,
+                            {{ item.images|first.path|resize(340,192) }} 340w"
+                    sizes="(min-width: 1200px) 359px,
+                        (min-width: 992px) 299px,
+                        (min-width: 768px) 219px,
+                        (min-width: 576px) 159px,
+                        170px"
+                    loading="lazy"
+                    alt="{{ item.title }}">
+            </a>
+        </div>
+    {% endfor %}
+</div>
+{% content 'projects-spinner' %}

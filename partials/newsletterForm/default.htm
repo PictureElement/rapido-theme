@@ -1,0 +1,12 @@
+description = "Newsletter form"
+==
+<form id="newsletterForm" data-request="{{ __SELF__ }}::onFormSubmit" data-aos="fade-up" data-aos-once="true" class="newsletter-form">
+    {{ form_token() }}
+    <div id="{{ __SELF__ }}_forms_flash"></div>
+    <div class="form-group hide-js">
+        <label class="sr-only" for="newsletterEmail">Email address*</label>
+        <input name="email" type="email" class="form-control corner-shape-sm" id="newsletterEmail" aria-describedby="emailHelp" placeholder="Email address*" required>
+    </div>
+    <button type="submit" class="btn btn-block btn-accent corner-shape-sm hide-js">{{ this.theme.subscribe_button_label }}</button>
+    <small id="emailHelp" class="form-text font-light hide-js">We'll never share your email with anyone else.</small>
+</form>

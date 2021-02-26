@@ -1,0 +1,66 @@
+description = "Page cover"
+==
+{# COVER #}
+{% if type == 'post' %}
+    <div class="cover_primary space-py-4">
+        <div class="container">
+            <nav data-aos="fade-up" data-aos-once="true" aria-label="breadcrumb">
+                <ol class="breadcrumb bg-transparent p-0 mb-0">
+                    <li class="breadcrumb-item d-none d-md-block"><a href="{{ 'home'|page }}">Home</a></li>
+                    <li class="breadcrumb-item d-none d-md-block"><a href="{{ 'blog'|page({ page: '' }) }}">Blog</a></li>
+                    <li class="breadcrumb-item">
+                        {% for category in post.categories %}
+                            {% set categoryLink = "<a href=\"#{ category.url }\">#{ category.name }</a>" %}
+                            {% if loop.index > 1 %}
+                                <span style="color:rgba(255, 255, 255, 0.87);">,</span> {{ categoryLink|raw }}
+                            {% else %}
+                                {{ categoryLink|raw }}
+                            {% endif %}
+                        {% endfor %}
+                    </li>
+                    <li class="breadcrumb-item active d-none d-md-block" aria-current="page">{{ title }}</li>
+                </ol>
+            </nav>
+            <h1 data-aos="fade-up" data-aos-delay="100" data-aos-once="true" class="max-width-800">{{ title }}</h1>
+            <p data-aos="fade-up" data-aos-delay="200" data-aos-once="true" class="max-width-800 lead mb-0">{{ lead|raw }}</p>
+        </div>
+    </div>
+{% elseif type == 'category' %}
+    <div class="cover_primary space-py-4">
+        <div class="container">
+            <nav data-aos="fade-up" data-aos-once="true" aria-label="breadcrumb">
+                <ol class="breadcrumb bg-transparent p-0 mb-0">
+                    <li class="breadcrumb-item"><a href="{{ 'home'|page }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ 'blog'|page({ page: '' }) }}">Blog</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+                </ol>
+            </nav>
+            <h1 data-aos="fade-up" data-aos-delay="100" data-aos-once="true" class="max-width-800 {{ (lead != '') ? '' : 'mb-0' }}">{{ title }}</h1>
+            {% if lead != '' %}
+                <p data-aos="fade-up" data-aos-delay="200" data-aos-once="true" class="max-width-800 lead mb-0">{{ lead }}</p>
+            {% endif %}
+        </div>
+    </div>
+{% elseif type == 'tag' %}
+    <div class="cover_primary space-py-4">
+        <div class="container">
+            <nav data-aos="fade-up" data-aos-once="true" aria-label="breadcrumb">
+                <ol class="breadcrumb bg-transparent p-0 mb-0">
+                    <li class="breadcrumb-item"><a href="{{ 'home'|page }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ 'blog'|page({ page: '' }) }}">Blog</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+                </ol>
+            </nav>
+            <h1 data-aos="fade-up" data-aos-delay="100" data-aos-once="true" class="max-width-800 mb-0">Posts tagged “{{ title }}”</h1>
+        </div>
+    </div>
+{% else %}
+    <div class="cover_primary space-py-4">
+        <div class="container">
+            <h1 data-aos="fade-up" data-aos-once="true" class="max-width-800 {{ (lead != '') ? '' : 'mb-0' }}">{{ title }}</h1>
+            {% if lead != '' %}
+                <p data-aos="fade-up" data-aos-delay="100" data-aos-once="true" class="max-width-800 lead mb-0">{{ lead }}</p>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}

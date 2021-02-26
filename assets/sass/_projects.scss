@@ -1,0 +1,48 @@
+// Projects
+// =============================================================================
+
+.grid {
+    &__controls {
+        button {
+            line-height: 1;
+            position: relative;
+            text-decoration: none;
+            &:hover, &:focus {
+                color: $primary;
+                text-decoration: none;
+            }
+            &.active::before {
+                content: '';
+                display: inline-block;
+                width: 100%;
+                height: 1px;
+                background-color: $primary;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+        }
+    }
+    &__wrapper {
+        position: relative;
+    }
+    &__list {
+        [class^='col-'] {
+            margin-bottom: 1rem;
+            padding-right: 0.5rem;
+            padding-left: 0.5rem;
+        }
+    }
+    &__spinner {
+        text-align: center;
+        background-color: rgba($primary, 0.75);
+        position: absolute;
+        display: flex;
+        width: 100%;
+        height: calc(100% - 1rem);
+        top: 0;
+        left: 0;
+        align-items: center;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,45 @@
+description = "Services"
+==
+{# SERVICES #}
+<section id="services" class="space-py-8">
+    <div class="container">
+        <header class="text-center space-mb-3 max-width-800 mx-auto">
+            <div class="section__preheading left-0">{{ this.theme.services_pretitle }}</div>
+            <h2>{{ this.theme.services_title }}</h2>
+            <p class="lead mb-0">{{ this.theme.services_lead }}</p>
+        </header>
+        <div class="row">
+            {% for item in this.theme.services_repeater %}
+                <div class="col-md-6 space-mb-3">
+                    <div class="media {% if (loop.index is odd) %}pr-lg-5{% else %}pl-lg-5{% endif %}">
+                        <figure class="w-100 mr-4" style="max-width: 3.5rem;">
+                            <a href="javascript:;" data-fancybox data-src="#serviceModal{{ loop.index }}" data-modal="true" role="button">
+                                {% if item.icon|split('.')|last == 'svg' %}
+                                    <img class="img-fluid rounded-circle elevation-0dp" src="{{ item.icon|media }}" width="56" height="56" alt="{{ item.icon_alt }}">
+                                {% else %}
+                                    <img class="img-fluid rounded-circle elevation-0dp" src="{{ item.icon|media|resize(56, 56) }}" srcset="{{ item.icon|media|resize(56, 56) }} 1x, {{ item.icon|media }} 2x" width="56" height="56" alt="{{ item.icon_alt }}">
+                                {% endif %}
+                            </a>
+                        </figure>
+                        <div class="media-body">
+                            {% if item.description|length > 2 %}
+                                <a class="media__link" href="javascript:;" data-fancybox data-src="#serviceModal{{ loop.index }}" data-modal="true" role="button"><h3>{{ item.title }}</h3></a>
+                                <p class="mb-0">{{ item.excerpt }}</p>
+                                <div id="serviceModal{{ loop.index }}" class="space-p-4 corner-shape-lg" style="display: none; max-width: 600px;">
+                                    <h3>{{ item.title }}</h3>
+                                    <div>
+                                        {{ item.description|raw }}
+                                    </div>
+                                    <button data-fancybox-close="" class="btn btn-primary">Close</button>
+                                </div>
+                            {% else %}
+                                <h3>{{ item.title }}</h3>
+                                <p class="mb-0">{{ item.excerpt }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

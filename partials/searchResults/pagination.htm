@@ -1,0 +1,29 @@
+description = "Pagination"
+==
+{% if results.hasPages %}
+    <div class="d-flex flex-column align-items-center">
+        <nav class="d-inline-block mb-4" aria-label="Search results pagination">
+            <ul class="pagination mx-auto text-center mb-0">
+                {% if results.currentPage > 1 %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ results.previousPageUrl }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+                {% for page in range(1, results.lastPage) %}
+                    <li class="page-item {{ results.currentPage == page ? 'active' : null }}">
+                        <a class="page-link" href="{{ results.url(page) }}">{{ page }}</a>
+                    </li>
+                {% endfor %}
+                {% if results.hasMorePages %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ results.nextPageUrl }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+{% endif %}

@@ -1,0 +1,14 @@
+description = "Content"
+==
+<div class="col-md-12 {{ isLastIteration ? '' : 'mb-3' }}">
+    <article class="elevation-0dp corner-shape">
+        <div class="card-body">
+            <div class="font-light font-small">
+                {{ 'rainlab.blog::lang.post.posted_byline_no_categories' | trans({
+                    date: result.meta | date('rainlab.blog::lang.post.date_format' | trans)
+                }) }}
+            </div>
+            <h4 class="mb-0"><a class="link-no-underline font-base" href="{{ result.url | app }}">{{ result.title|raw }}</a></h4>
+        </div>
+    </article>
+</div>

@@ -1,0 +1,21 @@
+description = "Popular posts"
+==
+{# POPULAR #}
+<div class="blog-popular {{ class }}">
+    <h3 class="mb-3">{{ title }}</h3>
+    <div class="row">
+        {% if posts|length > 0 %}
+            {% for post in posts %}
+                <div class="col-md-12 {{ loop.last ? '' : 'mb-3' }}">
+                    {% partial 'blog/popular-card' post=post isPopular=isPopular %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-md-12">
+                <div class="alert alert-secondary" role="alert">
+                    No posts were found.
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>

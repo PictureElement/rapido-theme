@@ -1,0 +1,16 @@
+description = "Status cover"
+==
+{# STATUS COVER #}
+<div class="bg-primary-light text-center space-py-8" role="alert">
+    <div class="container max-width-800">
+        <div class="position-relative">
+            <div style="z-index: 1;" class="alert {{ class }} space-py-4 corner-shape-lg elevation-1dp border-0" role="alert">
+                <h1 data-aos="fade-up" data-aos-once="true" class="alert-heading">{{ title }}</h1>
+                <p data-aos="fade-up" data-aos-delay="100" data-aos-once="true" class="lead">{{ lead }}</p>
+                <hr data-aos="fade-up" data-aos-delay="100" data-aos-once="true" class='my-4'>
+                <a data-aos="fade-up" data-aos-delay="200" data-aos-once="true" class="btn btn-primary btn-lg stretched-link" href="{{ url('/') }}" role="button">Return to homepage</a>
+            </div>
+            {% partial 'global/dots' class="misc-figure" %}
+        </div>
+    </div>
+</div>

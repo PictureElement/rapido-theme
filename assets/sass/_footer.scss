@@ -1,0 +1,52 @@
+// FOOTER
+// =============================================================================
+
+.footer {
+    overflow: hidden;
+    background-color: $primary-dark;
+    // @include padding-top(7.5rem);
+    // @include padding-bottom(7.5rem);
+    padding-top: 11vh;
+    padding-bottom: 11vh;
+    color: $on-primary-dark;
+    a {
+        color: $on-primary-dark;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    ul li {
+        margin-bottom: 1rem;
+    }
+    &__statement {
+        max-width: 540px;
+    }
+    &__social-link {
+        display: inline-block;
+        text-align: center;
+        width: 48px;
+        height: 48px;
+        background-color: rgba($on-primary-dark, 0.15);
+        transition: color 0.15s ease-in-out 0s, background-color 0.15s ease-in-out 0s; 
+        &:hover {
+            background-color: $primary;
+            color: $on-primary;
+        }
+        i {
+            line-height: 48px;
+        }
+    }
+    &__copy-left {
+        font-weight: 300;
+    }
+    &__copy-right {
+        font-weight: 300;
+        a {
+            text-decoration: underline;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}

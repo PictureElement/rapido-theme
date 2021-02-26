@@ -1,0 +1,17 @@
+.clients {
+    // @include padding-top(8rem);
+    // @include padding-bottom(16rem);
+    padding-top: 12vh;
+    padding-bottom: 24vh;
+    &-slideshow {
+        img {
+            filter: grayscale(100%);
+            opacity: 0.5;
+            transition: filter .15s ease-in-out, opacity .15s ease-in-out;
+            &:hover {
+                filter: grayscale(0);
+                opacity: 1;
+            }
+        }
+    }
+}

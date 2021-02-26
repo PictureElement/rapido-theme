@@ -1,0 +1,105 @@
+title = "Blog"
+url = "/blog/:page?"
+layout = "default"
+meta_title = "Rapido business theme for October CMS - Blog"
+meta_description = "Live demo of the Rapido business theme for October CMS."
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 8
+noPostsMessage = "No posts were found."
+sortOrder = "published_at desc"
+categoryPage = "blog-category"
+postPage = "post"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 1
+categoryPage = "blog-category"
+
+[topPosts]
+period = 2
+category = 0
+postPerPage = 4
+postPage = "post"
+slug = "{{ :slug }}"
+
+[searchInput]
+useAutoComplete = 0
+autoCompleteResultCount = 5
+showProviderBadge = 1
+searchPage = "search-results.htm"
+
+[tags]
+results = 0
+sortOrder = "created_at desc"
+==
+<?php
+function onStart() {
+    $imageSettings = array();
+    $imageSettings['src'] = array(688, 387);
+    $imageSettings['srcset'] = array(538, 448, 688, 508, 543);
+    $imageSettings['sizes'] = '(min-width: 1200px) 538px, (min-width: 992px) 448px, (min-width: 768px) 688px, (min-width: 576px) 508px, 543px';
+    
+    $this["imageSettings"] = $imageSettings;
+}
+?>
+==
+{% set posts = blogPosts.posts %}
+
+{# COVER #}
+{% partial 'blog/cover' type='blog' title=this.theme.blog_ptitle lead=this.theme.blog_plead %}
+
+{# LATEST POSTS #}
+<section class="space-py-4 bg-primary-light">
+    <div class="container">
+        <header class="mb-4">
+            <h2>Latest posts</h2>
+        </header>
+        <div class="blog-grid row">
+            {% for post in posts %}
+                <div class="col-lg-6">
+                    {% partial 'blog/post-card' post=post imageSettings=imageSettings %}
+                </div>
+            {% else %}
+                <div class="col-12">
+                    <div class="alert alert-secondary" role="alert">
+                        {{ blogPosts.noPostsMessage }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {# PAGINATION #}
+        {% partial 'blog/pagination' mb='mb-0' blogPosts=blogPosts %}
+    </div>
+</section>
+
+<div class="space-py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 order-1 order-lg-0">
+                {# POPULAR #}
+                {% partial 'blog/popular' class="" title="Popular posts" posts=topPosts.mostVisitedPosts isPopular=true %}
+            </div>
+            <div class="col-lg-4 order-0 order-lg-1 pl-lg-5">
+                {# SEARCH #}
+                {% partial 'searchForm/default' text="Search for posts" class="mb-4" %}
+                {# CATEGORIES #}
+                {% partial 'blog/categories' blogCategories=blogCategories %}
+                {# TAGS #}
+                {% partial 'blog/tags' tags=tags class='mb-4' %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{# CTA SECONDARY #}
+{% if this.theme.cta_secondary_enable == 1 %}
+    {% partial 'global/cta' cta_title="#{ this.theme.cta_secondary_title }" cta_primary_button_icon="#{ this.theme.cta_secondary_primary_button_icon }" cta_primary_button_text="#{ this.theme.cta_secondary_primary_button_text }" cta_primary_button_link="#{ this.theme.cta_secondary_primary_button_link }" cta_secondary_button_icon="#{ this.theme.cta_secondary_secondary_button_icon }" cta_secondary_button_text="#{ this.theme.cta_secondary_secondary_button_text }" cta_secondary_button_link="#{ this.theme.cta_secondary_secondary_button_link }" %}
+{% endif %}
+
+{# CRITICAL CSS #}
+{% put styles %}
+    {% partial 'critical/blog' %}
+{% endput %}

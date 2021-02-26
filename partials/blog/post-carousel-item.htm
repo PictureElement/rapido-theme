@@ -1,0 +1,29 @@
+description = "Post carousel item"
+==
+{% set width = imageSettings.src[0] %}
+{% set height = imageSettings.src[1] %}
+{% set sizes = imageSettings.sizes %}
+
+<div class="item"> 
+    <img
+        width="{{ width }}"
+        height="{{ height }}"
+        class="img-fluid"  
+        src="{{ featured_image|resize(width, height) }}"
+        srcset="{{ image.path|resize(imageSettings.srcset[0], auto) }} {{ imageSettings.srcset[0] }}w,
+                {{ image.path|resize(imageSettings.srcset[0]*2, auto) }} {{ imageSettings.srcset[0]*2 }}w,
+                
+                {{ image.path|resize(imageSettings.srcset[1], auto) }} {{ imageSettings.srcset[1] }}w,
+                {{ image.path|resize(imageSettings.srcset[1]*2, auto) }} {{ imageSettings.srcset[1]*2 }}w,
+                
+                {{ image.path|resize(imageSettings.srcset[2], auto) }} {{ imageSettings.srcset[2] }}w,
+                {{ image.path|resize(imageSettings.srcset[2]*2, auto) }} {{ imageSettings.srcset[2]*2 }}w,
+    
+                {{ image.path|resize(imageSettings.srcset[3], auto) }} {{ imageSettings.srcset[3] }}w,
+                {{ image.path|resize(imageSettings.srcset[3]*2, auto) }} {{ imageSettings.srcset[3]*2 }}w,
+    
+                {{ image.path|resize(imageSettings.srcset[4], auto) }} {{ imageSettings.srcset[4] }}w,
+                {{ image.path|resize(imageSettings.srcset[4]*2, auto) }} {{ imageSettings.srcset[4]*2 }}w"
+        sizes="{{ sizes }}"
+        alt="{{ image.description }}">
+</div>

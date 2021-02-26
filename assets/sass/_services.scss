@@ -1,0 +1,12 @@
+// Services
+// =============================================================================
+
+.media {
+    &__link {
+        text-decoration: none;
+        color: $primary;
+        &:hover {
+            color: $primary;
+        }
+    }
+}

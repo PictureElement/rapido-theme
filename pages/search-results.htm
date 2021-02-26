@@ -1,0 +1,53 @@
+title = "Search results"
+url = "/search-results"
+layout = "default"
+meta_title = "Rapido business theme for October CMS - Search results"
+meta_description = "Live demo of the Rapido business theme for October CMS."
+is_hidden = 0
+
+[searchResults]
+resultsPerPage = 8
+showProviderBadge = 1
+noResultsMessage = "Your search returned no results."
+visitPageMessage = "Visit page"
+
+[searchInput]
+useAutoComplete = 0
+autoCompleteResultCount = 4
+showProviderBadge = 1
+searchPage = "search-results.htm"
+==
+<?php
+function onEnd()
+{    
+    // Optional - set the page title to the keyword name
+    if($this->components['searchResults']->query) {
+        $this->page->title = 'Search results for ' . $this->components['searchResults']->query;
+    }
+}
+?>
+==
+{# SECONDARY COVER #}
+{% partial 'utility/secondary-cover' title="Search results for “#{ searchResults.query }”" %}
+
+<section class="space-py-4 max-width-800 mx-auto">
+    <div class="container">
+        <header class="mb-4">
+            <h2>Total results: {{ searchResults.results.total }}</h2>
+        </header>
+        {# SEARCH #}
+        {% partial 'searchForm/default' text="" class="mb-3" %}
+        {# RESULTS + PAGINATION + NO RESULTS ALERT #}
+        {% component 'searchResults' %}
+    </div>
+</section>
+
+{# CTA SECONDARY #}
+{% if this.theme.cta_secondary_enable == 1 %}
+    {% partial 'global/cta' cta_title="#{ this.theme.cta_secondary_title }" cta_primary_button_icon="#{ this.theme.cta_secondary_primary_button_icon }" cta_primary_button_text="#{ this.theme.cta_secondary_primary_button_text }" cta_primary_button_link="#{ this.theme.cta_secondary_primary_button_link }" cta_secondary_button_icon="#{ this.theme.cta_secondary_secondary_button_icon }" cta_secondary_button_text="#{ this.theme.cta_secondary_secondary_button_text }" cta_secondary_button_link="#{ this.theme.cta_secondary_secondary_button_link }" %}
+{% endif %}
+
+{# CRITICAL CSS #}
+{% put styles %}
+    {% partial 'critical/search-results' %}
+{% endput %}

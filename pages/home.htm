@@ -1,0 +1,139 @@
+title = "Home"
+url = "/"
+layout = "default"
+meta_title = "Rapido business theme for October CMS - Home"
+meta_description = "Live demo of the Rapido business theme for October CMS."
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 6
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog-category"
+postPage = "post"
+
+[emptyForm contactForm]
+group = "Main contact"
+messages_success = "Your form was successfully submitted"
+messages_errors = "There were errors with your submission"
+mail_enabled = 1
+mail_replyto = "{{ form.email }}"
+mail_template = "martin.forms::main.notification"
+reset_form = 1
+inline_errors = "disabled"
+js_on_success = "const elemToHideMain = document.querySelectorAll(\"#contact .hide-js\");
+
+elemToHideMain.forEach(function(element) {
+  element.style.display = 'none';
+});"
+sanitize_data = "disabled"
+anonymize_ip = "disabled"
+recaptcha_theme = "light"
+recaptcha_type = "image"
+recaptcha_size = "normal"
+emails_date_format = "Y-m-d"
+==
+<?php
+use ArrizalAmin\Portfolio\Models\Item;
+use ArrizalAmin\Portfolio\Models\Category;
+
+function onStart() {
+    $portfolioCategories = Category::all(); // Get all categories
+    
+    $portfolioCategory = Category::first(); // Get first category
+    $portfolioItems = $portfolioCategory->items;
+    
+    $this["portfolioCategories"] = $portfolioCategories;
+    $this["portfolioCategory"] = $portfolioCategory;
+    $this["portfolioItems"] = $portfolioItems;
+}
+
+function onFilterPortfolio() {
+    $portfolioCategory = Category::find(input('portfolioCategoryId'));
+    $portfolioItems = $portfolioCategory->items;
+    
+    $this["portfolioItems"] = $portfolioItems;
+    // $this["test"] = $portfolioCategory;
+}
+?>
+==
+{% set posts = blogPosts.posts %}
+
+{# HERO #}
+{% if this.theme.hero_enable == 1 %}
+    {% partial 'home/hero' %}
+{% endif %}
+
+{# SERVICES #}
+{% if this.theme.services_enable == 1 %}
+    {% partial 'home/services' %}
+{% endif %}
+
+{# TESTIMONIALS #}
+{% if this.theme.testimonials_enable == 1 %}
+    {% partial 'home/testimonials' %}
+{% endif %}
+
+{# PROJECTS #}
+{% if this.theme.projects_enable == 1 %}
+    <section id="projects" class="space-py-8">
+        <div class="container">
+            <header class="text-center space-mb-3 max-width-800 mx-auto">
+                <div class="section__preheading left-0">{{ this.theme.projects_pretitle }}</div>
+                <h2>{{ this.theme.projects_title }}</h2>
+                <p class="lead mb-0">{{ this.theme.projects_lead }}</p>
+            </header>
+            <div class="grid">
+                <div class="grid__controls mb-3 text-center">
+                    {% for category in portfolioCategories %}
+                        <button data-request-loading="#spinner" data-request-data="portfolioCategoryId: {{ category.id }}" data-request-update="home/project-grid: '#myProjects'" data-request="onFilterPortfolio" type="button" class="btn btn-link shadow-none p-2 {{ loop.index == 1 ? 'active' : '' }}">{{ category.name }}</button>
+                    {% endfor %}
+                </div>
+                <div id="myProjects" class="grid__wrapper">
+                    {% partial 'home/project-grid' %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}
+
+{# CTA PRIMARY #}
+{% if this.theme.cta_primary_enable == 1 %}
+    {% partial 'global/cta' cta_title="#{ this.theme.cta_primary_title }" cta_primary_button_icon="#{ this.theme.cta_primary_primary_button_icon }" cta_primary_button_text="#{ this.theme.cta_primary_primary_button_text }" cta_primary_button_link="#{ this.theme.cta_primary_primary_button_link }" cta_secondary_button_icon="#{ this.theme.cta_primary_secondary_button_icon }" cta_secondary_button_text="#{ this.theme.cta_primary_secondary_button_text }" cta_secondary_button_link="#{ this.theme.cta_primary_secondary_button_link }" %}
+{% endif %}
+
+{# ABOUT #}
+{% if this.theme.about_enable == 1 %}
+    {% partial 'home/about' %}
+{% endif %}
+
+{# SHOP #}
+{% if this.theme.shop_enable == 1 %}
+    {% partial 'home/shop' %}
+{% endif %}
+
+{# FAQs #}
+{% if this.theme.faq_enable == 1 %}
+    {% partial 'home/faq' %}
+{% endif %}
+
+{# BLOG #}
+{% if this.theme.blog_enable == 1 %}
+    {% partial 'home/blog' posts=posts %}
+{% endif %}
+
+{# CLIENTS #}
+{% if this.theme.clients_enable == 1 %}
+    {% partial 'home/clients' %}
+{% endif %}
+
+{# CONTACT #}
+{% if this.theme.contact_enable == 1 %}
+    {% component 'contactForm' %}
+{% endif %}
+
+{# CRITICAL CSS #}
+{% put styles %}
+    {% partial 'critical/home' %}
+{% endput %}

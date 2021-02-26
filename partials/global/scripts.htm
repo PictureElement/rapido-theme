@@ -1,0 +1,42 @@
+description = "Scripts"
+==
+{# JAVASCRIPT #}
+{% if this.page.baseFileName == 'home' %}
+    <script src="{{ [
+        'assets/vendor/jquery/dist/jquery.min.js',
+        '@framework',
+        'assets/vendor/bootstrap/dist/js/bootstrap.min.js',
+        'assets/vendor/@fancyapps/fancybox/dist/jquery.fancybox.min.js',
+        'assets/vendor/owl.carousel2/dist/owl.carousel.min.js',
+        'assets/vendor/aos/dist/aos.js',
+        'assets/vendor/headroom.js/dist/headroom.min.js',
+        'assets/vendor/counterup2/dist/index.js',
+        'assets/vendor/waypoints/lib/jquery.waypoints.min.js',
+        'assets/js/rapido.js'
+    ]|theme }}"></script>
+{% elseif this.page.baseFileName == 'post' %}
+    <script src="{{ [
+        'assets/vendor/jquery/dist/jquery.min.js',
+        'assets/vendor/bootstrap/dist/js/bootstrap.min.js',
+        'assets/vendor/@fancyapps/fancybox/dist/jquery.fancybox.min.js',
+        'assets/vendor/owl.carousel2/dist/owl.carousel.min.js',
+        'assets/vendor/aos/dist/aos.js',
+        'assets/vendor/headroom.js/dist/headroom.min.js',
+        'assets/js/rapido.js'
+    ]|theme }}"></script>
+{% elseif this.page.baseFileName == 'maintenance' %}
+    <script src="{{ [
+        'assets/vendor/jquery/dist/jquery.min.js',
+        'assets/vendor/aos/dist/aos.js',
+        'assets/js/rapido.js'
+    ]|theme }}"></script>
+{% else %}
+    <script src="{{ [
+        'assets/vendor/jquery/dist/jquery.min.js',
+        'assets/vendor/bootstrap/dist/js/bootstrap.min.js',
+        'assets/vendor/@fancyapps/fancybox/dist/jquery.fancybox.min.js',
+        'assets/vendor/aos/dist/aos.js',
+        'assets/vendor/headroom.js/dist/headroom.min.js',
+        'assets/js/rapido.js'
+    ]|theme }}"></script>
+{% endif %}

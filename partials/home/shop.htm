@@ -1,0 +1,42 @@
+description = "Shop"
+==
+{# SHOP #}
+<section id="shop" class="space-py-8 bg-primary-light overflow-hidden">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <header class="mb-3">
+                    <div class="section__preheading">{{ this.theme.shop_pretitle }}</div>
+                    <h2 class="mb-0">{{ this.theme.shop_title }}</h2>
+                </header>
+                <div class="pr-0 pr-lg-3 h-100">
+                    {{ this.theme.shop_text|raw }}
+                </div>
+            </div>
+            <div class="col-lg-5 mt-2 mt-lg-0">
+                <div class="position-relative">
+                    <div data-aos="fade-up" data-aos-once="true" class="shop__card bg-white corner-shape-lg elevation-1dp position-relative space-p-4 h-100 d-flex flex-column justify-content-center">
+                        <ul class="list-unstyled mb-0">
+                            <li class="d-flex mb-2"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-map-marker-alt"></i>
+                                <div class="ml-2">
+                                    <a data-fancybox="" data-animation-effect="fade" data-options="{'iframe' : {'css' : {'width' : '80%', 'height' : '80%'}}}" href="https://www.google.com/maps/search/?api=1&amp;query={{ this.theme.map_search_parameters }}">
+                                        <address class="mb-0">
+                                            {{ this.theme.address|nl2br }}    
+                                        </address>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="d-flex mb-2"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-phone-alt"></i><div class="ml-2"><a href="tel:{{ this.theme.phone }}">{{ this.theme.phone }}</a></div></li>
+                            <li class="d-flex mb-2"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-at"></i><div class="ml-2"><a href="mailto:{{ this.theme.email }}">{{ this.theme.email }}</a></div></li>
+                            <li class="d-flex mb-2"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-clock"></i><div class="ml-2">{{ this.theme.working_hours }}</div></li>
+                        </ul>
+                        {% if this.theme.shop_button_text %}
+                            <a href="{{ this.theme.shop_button_link }}" class="mt-4 btn btn-outline-primary">{% if this.theme.shop_button_icon != '' %}<i class="{{ this.theme.shop_button_icon }}"></i> {% endif %}{{ this.theme.shop_button_text }}</a>
+                        {% endif %}
+                    </div>
+                    {% partial 'global/dots' class="shop-figure" %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

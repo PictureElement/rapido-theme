@@ -1,0 +1,26 @@
+title = "Terms and Conditions"
+url = "/terms-and-conditions"
+layout = "default"
+meta_title = "Rapido business theme for October CMS - Terms and Conditions"
+meta_description = "Live demo of the Rapido business theme for October CMS."
+is_hidden = 0
+==
+{# SECONDARY COVER #}
+{% partial 'utility/secondary-cover' title="Terms and Conditions" %}
+
+<section class="space-py-4 max-width-800 mx-auto">
+    <div class="container">
+        {# CONTENT #}
+        {{ this.theme.terms_text|raw }}
+    </div>
+</section>
+
+{# CTA SECONDARY #}
+{% if this.theme.cta_secondary_enable == 1 %}
+    {% partial 'global/cta' cta_title="#{ this.theme.cta_secondary_title }" cta_primary_button_icon="#{ this.theme.cta_secondary_primary_button_icon }" cta_primary_button_text="#{ this.theme.cta_secondary_primary_button_text }" cta_primary_button_link="#{ this.theme.cta_secondary_primary_button_link }" cta_secondary_button_icon="#{ this.theme.cta_secondary_secondary_button_icon }" cta_secondary_button_text="#{ this.theme.cta_secondary_secondary_button_text }" cta_secondary_button_link="#{ this.theme.cta_secondary_secondary_button_link }" %}
+{% endif %}
+
+{# CRITICAL CSS #}
+{% put styles %}
+    {% partial 'critical/terms-and-conditions' %}
+{% endput %}

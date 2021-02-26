@@ -1,0 +1,11 @@
+description = "Search form"
+==
+<div class="blog-search {{ class }}">
+    {% if title != '' %}
+        <h3 class="mb-3">{{ title }}</h3>
+    {% endif %}
+    <form action="{{ 'search-results' | page }}" method="get">
+        <input class="form-control mr-2 corner-shape-sm" name="q" type="search" placeholder="Search" aria-label="Search" autocomplete="off">
+        <button aria-label="Search" class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+    </form>
+</div>
