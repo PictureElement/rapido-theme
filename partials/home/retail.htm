@@ -1,16 +1,16 @@
-description = "Shop"
+description = "Retail"
 ==
-{# SHOP #}
-<section id="shop" class="space-py-8 bg-primary-light overflow-hidden">
+{# RETAIL #}
+<section id="retail" class="space-py-8 bg-primary-light overflow-hidden">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-7">
                 <header class="mb-3">
-                    <div class="section__preheading">{{ this.theme.shop_pretitle }}</div>
-                    <h2 class="mb-0">{{ this.theme.shop_title }}</h2>
+                    <div class="section__preheading">{{ this.theme.retail_pretitle }}</div>
+                    <h2 class="mb-0">{{ this.theme.retail_title }}</h2>
                 </header>
                 <div class="pr-0 pr-lg-3 h-100">
-                    {{ this.theme.shop_text|raw }}
+                    {{ this.theme.retail_text|raw }}
                 </div>
             </div>
             <div class="col-lg-5 mt-2 mt-lg-0">
@@ -30,8 +30,8 @@ description = "Shop"
                             <li class="d-flex mb-2"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-at"></i><div class="ml-2"><a href="mailto:{{ this.theme.email }}">{{ this.theme.email }}</a></div></li>
                             <li class="d-flex mb-2"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-clock"></i><div class="ml-2">{{ this.theme.working_hours }}</div></li>
                         </ul>
-                        {% if this.theme.shop_button_text %}
-                            <a href="{{ this.theme.shop_button_link }}" class="mt-4 btn btn-outline-primary">{% if this.theme.shop_button_icon != '' %}<i class="{{ this.theme.shop_button_icon }}"></i> {% endif %}{{ this.theme.shop_button_text }}</a>
+                        {% if this.theme.retail_button_text %}
+                            <a href="{{ this.theme.retail_button_link }}" class="mt-4 btn btn-outline-primary">{% if this.theme.retail_button_icon != '' %}<i class="{{ this.theme.retail_button_icon }}"></i> {% endif %}{{ this.theme.retail_button_text }}</a>
                         {% endif %}
                     </div>
                     {% partial 'global/dots' class="shop-figure" %}

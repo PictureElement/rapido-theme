@@ -680,56 +680,56 @@ form:
                 maxItems: 3
                 tab: About
 
-            # Shop
+            # Retail
 
-            shop_enable:
+            retail_enable:
                 label: Display this section?
                 type: switch
                 default: 1
-                tab: Shop
+                tab: Retail
 
-            shop_background_color:
+            retail_background_color:
                 label: Set a background color for this section?
                 type: switch
                 default: 1
-                tab: Shop
+                tab: Retail
 
-            shop_pretitle:
+            retail_pretitle:
                 label: Pretitle
                 type: text
-                tab: Shop
-                comment: e.g. SHOP
+                tab: Retail
+                comment: e.g. RETAIL SHOP
 
-            shop_title:
+            retail_title:
                 label: Title
                 type: text
-                tab: Shop
+                tab: Retail
                 comment: e.g. Pay us a visit
 
-            shop_text:
+            retail_text:
                 label: Text
                 type: richeditor
                 size: huge
-                tab: Shop
+                tab: Retail
 
-            shop_button_icon:
+            retail_button_icon:
                 label: Button icon (Font Awesome 5 Free)
                 type: text
-                tab: Shop
+                tab: Retail
                 comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
 
-            shop_button_text:
+            retail_button_text:
                 label: Button text
                 type: text
                 span: left
-                tab: Shop
-                comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote 
+                tab: Retail
+                comment: e.g. Call us | Email us | Learn More | Product Catalog | Our Blog | Get a Quote 
 
-            shop_button_link:
+            retail_button_link:
                 label: Button link
                 type: text
                 span: right
-                tab: Shop
+                tab: Retail
                 comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm 
 
             # FAQs
