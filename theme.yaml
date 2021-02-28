@@ -6,14 +6,12 @@ code: "rapido"
 previewImage: "assets/images/theme-preview.png"
 require:
     - ToughDeveloper.ImageResizer
-    - Indikator.Backend
     - RainLab.Blog
     - Rahman.BlogTags
     - PolloZen.MostVisited
     - Tallpro.Related
     - ArrizalAmin.Portfolio
     - JanVince.SmallGDPR
-    - RainLab.Sitemap
     - Martin.Forms
     - OFFLINE.SiteSearch
 
