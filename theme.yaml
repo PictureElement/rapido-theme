@@ -74,7 +74,7 @@ form:
                 span: right
                 tab: Global
                 comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
-                default: /#contactForm
+                default: .
 
             phone:
                 label: Phone
@@ -581,8 +581,8 @@ form:
                 type: text
                 span: right
                 tab: CTAs
-                comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | #contactForm
-                default: #contactForm
+                comment: "e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | #contactForm"
+                default: .
 
             cta_primary_secondary_button_icon:
                 label: Secondary button icon (Font Awesome 5 Free)
@@ -602,7 +602,7 @@ form:
                 type: text
                 span: right
                 tab: CTAs
-                comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | #contactForm
+                comment: "e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | #contactForm"
 
             cta_secondary:
                 label: Call-to-action (Secondary)
@@ -772,8 +772,8 @@ form:
                 type: text
                 span: right
                 tab: Retail
-                comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
-                default: #
+                comment: "e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | #contactForm"
+                default: .
 
             # FAQs
 
@@ -1085,13 +1085,15 @@ form:
                 type: text
                 tab: Utility pages
                 comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
-            
+                default: fas fa-envelope
+                
             maintenance_primary_button_text:
                 label: Primary button text
                 type: text
                 span: left
                 tab: Utility pages
                 comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
+                default: Email us
 
             maintenance_primary_button_link:
                 label: Primary button link
@@ -1099,19 +1101,22 @@ form:
                 span: right
                 tab: Utility pages
                 comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
+                default: mailto:mail@example.com
 
             maintenance_secondary_button_icon:
                 label: Secondary button icon (Font Awesome 5 Free)
                 type: text
                 tab: Utility pages
                 comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
-            
+                default: fas fa-phone-alt
+                
             maintenance_secondary_button_text:
                 label: Secondary button text
                 type: text
                 span: left
                 tab: Utility pages
                 comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
+                default: Call us
 
             maintenance_secondary_button_link:
                 label: Secondary button link
@@ -1119,6 +1124,7 @@ form:
                 span: right
                 tab: Utility pages
                 comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
+                default: tel:+1-541-754-3010
 
             # Favicon & App icons
 
