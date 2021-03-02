@@ -1,5 +1,5 @@
 name: "Rapido"
-description: "Meet Rapido, a polished single-page business-oriented theme with blog."
+description: "Meet Rapido, a polished single-page business-oriented theme with a blog."
 author: "Marios Sofokleous"
 homepage: "https://www.msof.me/"
 code: "rapido"
@@ -26,7 +26,7 @@ form:
         site_config_desc:
             label: Rapido Theme Options
             type: section
-            comment: A polished single page business-oriented theme with blog.
+            comment: A polished single-page business-oriented theme with a blog.
 
         site_name:
             label: Site name
@@ -66,6 +66,7 @@ form:
                 span: left
                 tab: Global
                 comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
+                default: Get a Quote
 
             header_button_link:
                 label: Header button link
@@ -73,6 +74,7 @@ form:
                 span: right
                 tab: Global
                 comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
+                default: /#contactForm
 
             phone:
                 label: Phone
@@ -128,6 +130,7 @@ form:
                 comment: Tell visitors why you’re in business. State your mission and values (20-25 words)
                 size: small
                 tab: Global
+                default: Rapido is a polished single-page business-oriented theme with a blog that will help you design a modern website for your business quickly and easily.
 
             social_repeater:
                 label: 'Social channels'
@@ -319,7 +322,7 @@ form:
             hero_enable:
                 label: Display this section?
                 type: switch
-                default: 1
+                default: 0
                 tab: Hero
 
             hero_repeater:
@@ -409,7 +412,7 @@ form:
                 default: We provide the best in class services for our clients.
 
             services_lead:
-                label: Lead
+                label: Lead (Optional)
                 type: textarea
                 tab: Services
                 size: small
@@ -464,7 +467,7 @@ form:
                 type: text
                 tab: Testimonials
                 comment: e.g. TESTIMONIALS
-                defualt: TESTIMONIALS
+                default: TESTIMONIALS
 
             testimonials_title:
                 label: Title
@@ -528,7 +531,7 @@ form:
                 default: Below are some of our best projects.
 
             projects_lead:
-                label: Lead
+                label: Lead (Optional)
                 type: textarea
                 tab: Projects
                 size: small
@@ -578,8 +581,8 @@ form:
                 type: text
                 span: right
                 tab: CTAs
-                comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
-                default: /#contactForm
+                comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | #contactForm
+                default: #contactForm
 
             cta_primary_secondary_button_icon:
                 label: Secondary button icon (Font Awesome 5 Free)
@@ -599,7 +602,7 @@ form:
                 type: text
                 span: right
                 tab: CTAs
-                comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
+                comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | #contactForm
 
             cta_secondary:
                 label: Call-to-action (Secondary)
@@ -617,19 +620,22 @@ form:
                 type: text
                 tab: CTAs
                 comment: e.g. Let’s work together on your next web project.
+                default: Let’s work together on your next web project.
 
             cta_secondary_primary_button_icon:
                 label: Primary button icon (Font Awesome 5 Free)
                 type: text
                 tab: CTAs
                 comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
-            
+                default: fas fa-envelope
+                
             cta_secondary_primary_button_text:
                 label: Primary button text
                 type: text
                 span: left
                 tab: CTAs
                 comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
+                default: Contact us
 
             cta_secondary_primary_button_link:
                 label: Primary button link
@@ -637,6 +643,7 @@ form:
                 span: right
                 tab: CTAs
                 comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
+                default: /#contactForm
 
             cta_secondary_secondary_button_icon:
                 label: Secondary button icon (Font Awesome 5 Free)
@@ -693,7 +700,7 @@ form:
                 tab: About
 
             about_repeater:
-                label: Facts
+                label: Facts (Optional)
                 type: repeater
                 prompt: Add a new fact
                 form:
@@ -750,20 +757,23 @@ form:
                 type: text
                 tab: Retail
                 comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
+                default: fas fa-file-download
 
             retail_button_text:
                 label: Button text
                 type: text
                 span: left
                 tab: Retail
-                comment: e.g. Call us | Email us | Learn More | Product Catalog | Our Blog | Get a Quote 
+                comment: e.g. Call us | Email us | Learn More | Product Catalog | Our Blog | Get a Quote
+                default: Product Catalog
 
             retail_button_link:
                 label: Button link
                 type: text
                 span: right
                 tab: Retail
-                comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm 
+                comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
+                default: #
 
             # FAQs
 
@@ -840,7 +850,7 @@ form:
                 type: text
                 tab: Blog
                 comment: e.g. Read our news, comments and thoughts.
-                defualt: Read our news, comments and thoughts.
+                default: Read our news, comments and thoughts.
 
             blog_page:
                 label: Blog page
@@ -852,6 +862,7 @@ form:
                 type: text
                 tab: Blog
                 comment: e.g. News | Blog | Insights
+                default: Blog
 
             blog_plead:
                 label: Lead
@@ -859,6 +870,7 @@ form:
                 size: small
                 tab: Blog
                 comment: News, insights, and creative culture from Rapido.
+                default: News, insights, and creative culture from Rapido.
 
             blog_comment:
                 label: Want to manage your Blog? 
@@ -941,7 +953,7 @@ form:
                 default: Request a quote
 
             contact_lead:
-                label: Lead
+                label: Lead (Optional)
                 type: textarea
                 size: small
                 tab: Contact
