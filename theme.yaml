@@ -26,7 +26,7 @@ form:
         site_config_desc:
             label: Rapido Theme Options
             type: section
-            comment: A polished single-page business-oriented theme with blog.
+            comment: A polished single page business-oriented theme with blog.
 
         site_name:
             label: Site name
