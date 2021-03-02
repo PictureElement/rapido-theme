@@ -6,7 +6,9 @@ description = "Services"
         <header class="text-center space-mb-3 max-width-800 mx-auto">
             <div class="section__preheading left-0">{{ this.theme.services_pretitle }}</div>
             <h2>{{ this.theme.services_title }}</h2>
-            <p class="lead mb-0">{{ this.theme.services_lead }}</p>
+            {% if this.theme.services_lead %}
+                <p class="lead mb-0">{{ this.theme.services_lead }}</p>
+            {% endif %}
         </header>
         <div class="row">
             {% for item in this.theme.services_repeater %}
