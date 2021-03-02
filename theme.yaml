@@ -80,6 +80,20 @@ form:
                 comment: e.g. +1-541-754-3010
                 tab: Global
                 default: +1-541-754-3010
+                
+            mobile:
+                label: Mobile
+                type: text
+                comment: e.g. +1-541-754-3020
+                tab: Global
+                default: +1-541-754-3020
+                
+            fax:
+                label: Fax
+                type: text
+                comment: e.g. +1-541-754-3030
+                tab: Global
+                default: +1-541-754-3030   
 
             email:
                 label: Email
@@ -142,18 +156,21 @@ form:
                 type: text
                 comment: e.g. Stay in the know
                 tab: Global
+                default: Stay in the know
 
             subscribe_message:
                 label: Subscribe message
                 type: text
                 comment: e.g. Sign up for our monthly newsletter and get news and announcements delivered right to your inbox.
                 tab: Global
+                default: Sign up for our monthly newsletter and get news and announcements delivered right to your inbox.
 
             subscribe_button_label:
                 label: Subscribe button label
                 type: text
                 comment: e.g. Join now
                 tab: Global
+                default: Join now
 
             # Customization
 
@@ -382,12 +399,14 @@ form:
                 type: text
                 tab: Services
                 comment: e.g. SERVICES
+                default: SERVICES
 
             services_title:
                 label: Title
                 type: text
                 tab: Services
-                comment: e.g. What we can help with
+                comment: e.g. We provide the best in class services for our clients.
+                default: We provide the best in class services for our clients.
 
             services_lead:
                 label: Lead
@@ -445,12 +464,14 @@ form:
                 type: text
                 tab: Testimonials
                 comment: e.g. TESTIMONIALS
+                defualt: TESTIMONIALS
 
             testimonials_title:
                 label: Title
                 type: text
                 tab: Testimonials
-                comment: e.g. What our clients say
+                comment: e.g. What our clients say about us.
+                default: What our clients say about us.
 
             testimonials_repeater:
                 label: Testimonials
@@ -497,12 +518,14 @@ form:
                 type: text
                 tab: Projects
                 comment: e.g. PROJECTS
+                default: PROJECTS
 
             projects_title:
                 label: Title
                 type: text
                 tab: Projects
-                comment: e.g. Featured projects
+                comment: e.g. Below are some of our best projects.
+                default: Below are some of our best projects.
 
             projects_lead:
                 label: Lead
@@ -534,7 +557,8 @@ form:
                 type: text
                 tab: CTAs
                 comment: e.g. You are just one click away from a modern website.
-
+                default: You are just one click away from a modern website.
+                
             cta_primary_primary_button_icon:
                 label: Primary button icon (Font Awesome 5 Free)
                 type: text
@@ -547,6 +571,7 @@ form:
                 span: left
                 tab: CTAs
                 comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
+                default: Get a Quote
 
             cta_primary_primary_button_link:
                 label: Primary button link
@@ -554,6 +579,7 @@ form:
                 span: right
                 tab: CTAs
                 comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
+                default: /#contactForm
 
             cta_primary_secondary_button_icon:
                 label: Secondary button icon (Font Awesome 5 Free)
@@ -651,12 +677,14 @@ form:
                 type: text
                 tab: About
                 comment: e.g. ABOUT
+                default: ABOUT
 
             about_title:
                 label: Title
                 type: text
                 tab: About
                 comment: e.g. Meet Rapido, a polished single-page theme with a blog suitable for small businesses.
+                default: Meet Rapido, a polished single-page theme with a blog suitable for small businesses.
 
             about_text:
                 label: Text
@@ -702,13 +730,15 @@ form:
                 type: text
                 tab: Retail
                 comment: e.g. RETAIL SHOP
+                default: RETAIL SHOP
 
             retail_title:
                 label: Title
                 type: text
                 tab: Retail
-                comment: e.g. Pay us a visit
-
+                comment: e.g. Discover our latest products now available at our brand new store.
+                default: Discover our latest products now available at our brand new store.
+                
             retail_text:
                 label: Text
                 type: richeditor
@@ -754,12 +784,14 @@ form:
                 type: text
                 tab: FAQs
                 comment: e.g. FAQs
+                default: FAQs
 
             faq_title:
                 label: Title
                 type: text
                 tab: FAQs
-                comment: e.g. Answers to anything you might ask
+                comment: e.g. Answers to anything you might ask.
+                default: Answers to anything you might ask.
 
             faq_repeater:
                 label: FAQs
@@ -801,12 +833,14 @@ form:
                 type: text
                 tab: Blog
                 comment: e.g. BLOG
+                default: BLOG
 
             blog_title:
                 label: Title
                 type: text
                 tab: Blog
-                comment: e.g. Read our news, comments & thoughts
+                comment: e.g. Read our news, comments and thoughts.
+                defualt: Read our news, comments and thoughts.
 
             blog_page:
                 label: Blog page
@@ -851,12 +885,14 @@ form:
                 type: text
                 tab: Clients
                 comment: e.g. CLIENTS
+                default: CLIENTS
 
             clients_title:
                 label: Title
                 type: text
                 tab: Clients
-                comment: e.g. Trusted by the world's best
+                comment: e.g. We are proud to be trusted by the world's best.
+                default: We are proud to be trusted by the world's best.
 
             clients_repeater:
                 label: Slideshow
@@ -895,12 +931,14 @@ form:
                 type: text
                 tab: Contact
                 comment: e.g. CONTACT
+                default: CONTACT
 
             contact_title:
                 label: Title
                 type: text
                 tab: Contact
                 comment: e.g. Request a quote
+                default: Request a quote
 
             contact_lead:
                 label: Lead
@@ -914,18 +952,21 @@ form:
                 type: text
                 tab: Contact
                 comment: e.g. Tell us a little bit about yourself
+                default: Tell us a little bit about yourself
 
             contact_heading_two:
                 label: Heading 2
                 type: text
                 tab: Contact
                 comment: e.g. What would you like a quote for?
+                default: What would you like a quote for?
 
             contact_heading_three:
                 label: Heading 3
                 type: text
                 tab: Contact
                 comment: e.g. And finally...
+                default: And finally...
 
             contact_consent:
                 label: Consent
@@ -933,6 +974,7 @@ form:
                 size: small
                 tab: Contact
                 comment: e.g. I consent to have this website collect my submitted information so they can respond to my inquiry.
+                default: I consent to have this website collect my submitted information so they can respond to my inquiry.
 
             # Utility
 
