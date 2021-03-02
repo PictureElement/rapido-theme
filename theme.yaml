@@ -79,12 +79,14 @@ form:
                 type: text
                 comment: e.g. +1-541-754-3010
                 tab: Global
+                default: +1-541-754-3010
 
             email:
                 label: Email
                 type: text
                 comment: e.g. email@example.com
                 tab: Global
+                default: email@example.com
 
             address:
                 label: Address
@@ -104,6 +106,7 @@ form:
                 type: text
                 comment: e.g. Mon. to Fri. from 08:00 - 17:00
                 tab: Global
+                default: Mon. to Fri. from 08:00 - 17:00
 
             company_statement:
                 label: Your mission. Your values (Footer)
