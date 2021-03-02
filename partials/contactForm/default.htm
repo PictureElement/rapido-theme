@@ -7,7 +7,9 @@ description = "Contact form"
             <header class="text-center space-mb-3">
                 <div class="section__preheading left-0">{{ this.theme.contact_pretitle }}</div>
                 <h2>{{ this.theme.contact_title }}</h2>
-                <p class="lead mb-0">{{ this.theme.contact_lead }}</p>
+                {% if this.theme.contact_lead %}
+                    <p class="lead mb-0">{{ this.theme.contact_lead }}</p>
+                {% endif %}
             </header>
             {{ form_token() }}
             <div id="{{ __SELF__ }}_forms_flash"></div>
