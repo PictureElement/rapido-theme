@@ -82,7 +82,9 @@ function onFilterPortfolio() {
             <header class="text-center space-mb-3 max-width-800 mx-auto">
                 <div class="section__preheading left-0">{{ this.theme.projects_pretitle }}</div>
                 <h2>{{ this.theme.projects_title }}</h2>
-                <p class="lead mb-0">{{ this.theme.projects_lead }}</p>
+                {% if this.theme.projects_lead %}
+                  <p class="lead mb-0">{{ this.theme.projects_lead }}</p>
+                {% endif %}
             </header>
             <div class="grid">
                 <div class="grid__controls mb-3 text-center">
