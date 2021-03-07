@@ -630,7 +630,7 @@ form:
                 type: text
                 tab: CTAs
                 comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
-                default: fas fa-envelope
+                default: fas fa-external-link-alt
                 
             cta_secondary_primary_button_text:
                 label: Primary button text
@@ -646,7 +646,7 @@ form:
                 span: right
                 tab: CTAs
                 comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
-                default: .
+                default: https://msof.me/
 
             cta_secondary_secondary_button_icon:
                 label: Secondary button icon (Font Awesome 5 Free)
