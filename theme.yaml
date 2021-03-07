@@ -355,7 +355,8 @@ form:
                             comment: Describe the image as specifically as possible. Keep character count at arround 125 or less.
                         title:
                             label: Title
-                            type: text
+                            type: textarea
+                            size: small
                             comment: e.g. Do it better with Rapido.
                         lead:
                             label: Lead
