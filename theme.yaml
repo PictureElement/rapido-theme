@@ -77,6 +77,13 @@ form:
                 comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
                 default: https://github.com/PictureElement/rapido
 
+            header_button_new_tab_enable:
+                label: Open in new tab
+                type: checkbox
+                span: left
+                tab: Global
+                default: false
+
             phone:
                 label: Phone
                 type: text
@@ -368,6 +375,11 @@ form:
                             type: text
                             span: right
                             comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
+                        primary_button_new_tab_enable:
+                            label: Open in new tab
+                            type: checkbox
+                            span: left
+                            default: false
                         secondary_button_icon:
                             label: Secondary button icon (Font Awesome 5 Free)
                             type: text
@@ -382,6 +394,11 @@ form:
                             type: text
                             span: right
                             comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
+                        secondary_button_new_tab_enable:
+                            label: Open in new tab
+                            type: checkbox
+                            span: left
+                            default: false
                 tab: Hero
 
             # Services
@@ -585,6 +602,13 @@ form:
                 comment: "e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | #contactForm"
                 default: https://octobercms.com/theme/msof-rapido
 
+            cta_primary_primary_button_new_tab_enable:
+                label: Open in new tab
+                type: checkbox
+                span: left
+                tab: CTAs
+                default: false
+
             cta_primary_secondary_button_icon:
                 label: Secondary button icon (Font Awesome 5 Free)
                 type: text
@@ -606,6 +630,13 @@ form:
                 tab: CTAs
                 comment: "e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | #contactForm"
                 default: https://github.com/PictureElement/rapido
+
+            cta_primary_secondary_button_new_tab_enable:
+                label: Open in new tab
+                type: checkbox
+                span: left
+                tab: CTAs
+                default: false
 
             cta_secondary:
                 label: Call-to-action (Secondary)
@@ -648,6 +679,13 @@ form:
                 comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
                 default: https://msof.me/
 
+            cta_secondary_primary_button_new_tab_enable:
+                label: Open in new tab
+                type: checkbox
+                span: left
+                tab: CTAs
+                default: false
+
             cta_secondary_secondary_button_icon:
                 label: Secondary button icon (Font Awesome 5 Free)
                 type: text
@@ -667,6 +705,13 @@ form:
                 span: right
                 tab: CTAs
                 comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
+
+            cta_secondary_secondary_button_new_tab_enable:
+                label: Open in new tab
+                type: checkbox
+                span: left
+                tab: CTAs
+                default: false
 
             # About
 
@@ -777,6 +822,13 @@ form:
                 tab: Retail
                 comment: "e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | #contactForm"
                 default: .
+
+            retail_button_new_tab_enable:
+                label: Open in new tab
+                type: checkbox
+                span: left
+                tab: Retail
+                default: false
 
             # FAQs
 

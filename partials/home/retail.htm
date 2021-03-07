@@ -45,7 +45,7 @@ description = "Retail"
                             {% endif %}
                         </ul>
                         {% if this.theme.retail_button_text %}
-                            <a href="{{ this.theme.retail_button_link }}" class="mt-4 btn btn-primary">{% if this.theme.retail_button_icon != '' %}<i class="{{ this.theme.retail_button_icon }}"></i> {% endif %}{{ this.theme.retail_button_text }}</a>
+                            <a {{ this.theme.retail_button_new_tab_enable ? 'target="_blank" rel="noopener noreferrer"' : '' }} href="{{ this.theme.retail_button_link }}" class="mt-4 btn btn-primary">{% if this.theme.retail_button_icon != '' %}<i class="{{ this.theme.retail_button_icon }}"></i> {% endif %}{{ this.theme.retail_button_text }}</a>
                         {% endif %}
                     </div>
                     {% partial 'global/dots' class="shop-figure" %}

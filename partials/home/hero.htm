@@ -22,11 +22,11 @@ description = "Hero"
                                 <div class="d-flex flex-column flex-lg-row" data-aos="fade-up" data-aos-delay="200" data-aos-once="true" data-aos-offset="-300">
 		                            {# PRIMARY BUTTON #}
 		                            {% if item.primary_button_text %}
-		                                <a href="{{ item.primary_button_link }}" class="hero-item__btn btn btn-lg btn-accent mr-2 mb-2">{% if item.primary_button_icon != '' %}<i class="{{ item.primary_button_icon }}"></i> {% endif %}{{ item.primary_button_text }}</a>
+		                                <a {{ item.primary_button_new_tab_enable ? 'target="_blank" rel="noopener noreferrer"' : '' }} href="{{ item.primary_button_link }}" class="hero-item__btn btn btn-lg btn-accent mr-2 mb-2">{% if item.primary_button_icon != '' %}<i class="{{ item.primary_button_icon }}"></i> {% endif %}{{ item.primary_button_text }}</a>
 		                            {% endif %}
 		                            {# SECONDARY BUTTON #}
 		                            {% if item.secondary_button_text %}
-		                                <a href="{{ item.secondary_button_link }}" class="hero-item__btn btn btn-lg btn-outline-accent mb-2">{% if item.secondary_button_icon != '' %}<i class="{{ item.secondary_button_icon }}"></i> {% endif %}{{ item.secondary_button_text }}</a>
+		                                <a {{ item.secondary_button_new_tab_enable ? 'target="_blank" rel="noopener noreferrer"' : '' }} href="{{ item.secondary_button_link }}" class="hero-item__btn btn btn-lg btn-outline-accent mb-2">{% if item.secondary_button_icon != '' %}<i class="{{ item.secondary_button_icon }}"></i> {% endif %}{{ item.secondary_button_text }}</a>
 		                            {% endif %}
 		                        </div>
                             </div>

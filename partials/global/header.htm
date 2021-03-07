@@ -64,7 +64,7 @@ description = "Header"
                 </ul>
                 {# HEADER BUTTON #}
                 {% if this.theme.header_button_text %}
-                    <a href="{{ this.theme.header_button_link }}" class="btn btn-sm btn-accent d-none d-lg-inline-block ml-xl-3">{% if this.theme.header_button_icon != '' %}<i class="{{ this.theme.header_button_icon }}"></i> {% endif %}{{ this.theme.header_button_text }}</a>
+                    <a {{ this.theme.header_button_new_tab_enable ? 'target="_blank" rel="noopener noreferrer"' : '' }} href="{{ this.theme.header_button_link }}" class="btn btn-sm btn-accent d-none d-lg-inline-block ml-xl-3">{% if this.theme.header_button_icon != '' %}<i class="{{ this.theme.header_button_icon }}"></i> {% endif %}{{ this.theme.header_button_text }}</a>
                 {% endif %}
             </div>
         </nav>

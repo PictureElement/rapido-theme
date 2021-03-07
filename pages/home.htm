@@ -102,7 +102,7 @@ function onFilterPortfolio() {
 
 {# CTA PRIMARY #}
 {% if this.theme.cta_primary_enable == 1 %}
-    {% partial 'global/cta' cta_title="#{ this.theme.cta_primary_title }" cta_primary_button_icon="#{ this.theme.cta_primary_primary_button_icon }" cta_primary_button_text="#{ this.theme.cta_primary_primary_button_text }" cta_primary_button_link="#{ this.theme.cta_primary_primary_button_link }" cta_secondary_button_icon="#{ this.theme.cta_primary_secondary_button_icon }" cta_secondary_button_text="#{ this.theme.cta_primary_secondary_button_text }" cta_secondary_button_link="#{ this.theme.cta_primary_secondary_button_link }" %}
+    {% partial 'global/cta' cta_primary_button_new_tab_enable="#{ this.theme.cta_primary_primary_button_new_tab_enable}" cta_secondary_button_new_tab_enable="#{ this.theme.cta_primary_secondary_button_new_tab_enable}" cta_title="#{ this.theme.cta_primary_title }" cta_primary_button_icon="#{ this.theme.cta_primary_primary_button_icon }" cta_primary_button_text="#{ this.theme.cta_primary_primary_button_text }" cta_primary_button_link="#{ this.theme.cta_primary_primary_button_link }" cta_secondary_button_icon="#{ this.theme.cta_primary_secondary_button_icon }" cta_secondary_button_text="#{ this.theme.cta_primary_secondary_button_text }" cta_secondary_button_link="#{ this.theme.cta_primary_secondary_button_link }" %}
 {% endif %}
 
 {# ABOUT #}
