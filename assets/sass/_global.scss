@@ -166,6 +166,11 @@ p {
     &-mb-1 {
         margin-bottom: 1.5vh;
     }
+    &-mb-md-0 {
+        @media (min-width: 768px) {
+            margin-bottom: 0;
+        }
+    }
 }
 
 .max-width-800 {
@@ -326,6 +331,22 @@ figure {
     transition-delay: 0s !important;
 }
 
+.cta-btn {
+    @media (max-width: 575.98px) {
+        display: block;
+        width: 100%
+    }
+}
+
+.muted {
+    &-dark {
+        color: rgba(0,0,0,0.54);
+    }
+    &-light {
+        color: rgba(255,255,255,0.54);
+    }
+}
+
 // SPINNER
 // =============================================================================
 
@@ -365,6 +386,19 @@ figure {
     }
 }
 
+// COOKIES BAR
+// =============================================================================
+
+.cookies-bar {
+    @media (max-width: 575.98px) {
+        text-align: center;
+        .buttons {
+            a {
+                width: 100%;
+            }
+        }
+    }
+}
 
 // FIXES
 // =============================================================================

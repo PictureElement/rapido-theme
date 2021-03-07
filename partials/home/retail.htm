@@ -18,7 +18,7 @@ description = "Retail"
                     <div data-aos="fade-up" data-aos-once="true" class="shop__card bg-white corner-shape-lg elevation-1dp position-relative space-p-4 h-100 d-flex flex-column justify-content-center">
                         <ul class="list-unstyled mb-0">
                             {% if this.theme.address %}
-                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-map-marker-alt"></i>
+                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-map-marker-alt"></i>
                                     <div class="ml-2">
                                         <a data-fancybox="" data-animation-effect="fade" data-options="{'iframe' : {'css' : {'width' : '80%', 'height' : '80%'}}}" href="https://www.google.com/maps/search/?api=1&amp;query={{ this.theme.map_search_parameters }}">
                                             <address class="mb-0">
@@ -29,23 +29,23 @@ description = "Retail"
                                 </li>
                             {% endif %}
                             {% if this.theme.phone %}
-                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-phone-alt"></i><div class="ml-2"><a href="tel:{{ this.theme.phone }}">{{ this.theme.phone }}</a></div></li>
+                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-phone-alt"></i><div class="ml-2"><a href="tel:{{ this.theme.phone }}">{{ this.theme.phone }}</a></div></li>
                             {% endif %}
                             {% if this.theme.mobile %}
-                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-mobile-alt"></i><div class="ml-2"><a href="tel:{{ this.theme.mobile }}">{{ this.theme.mobile }}</a></div></li>
+                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-mobile-alt"></i><div class="ml-2"><a href="tel:{{ this.theme.mobile }}">{{ this.theme.mobile }}</a></div></li>
                             {% endif %}
                             {% if this.theme.fax %}
-                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-fax"></i><div class="ml-2"><a href="tel:{{ this.theme.fax }}">{{ this.theme.fax }}</a></div></li>
+                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-fax"></i><div class="ml-2"><a href="tel:{{ this.theme.fax }}">{{ this.theme.fax }}</a></div></li>
                             {% endif %}
                             {% if this.theme.email %}
-                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-envelope"></i><div class="ml-2"><a href="mailto:{{ this.theme.email }}">{{ this.theme.email }}</a></div></li>
+                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-envelope"></i><div class="ml-2"><a href="mailto:{{ this.theme.email }}">{{ this.theme.email }}</a></div></li>
                             {% endif %}
                             {% if this.theme.working_hours %}
-                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-clock"></i><div class="ml-2">{{ this.theme.working_hours }}</div></li>
+                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-clock"></i><div class="ml-2">{{ this.theme.working_hours }}</div></li>
                             {% endif %}
                         </ul>
                         {% if this.theme.retail_button_text %}
-                            <a href="{{ this.theme.retail_button_link }}" class="mt-4 btn btn-outline-primary">{% if this.theme.retail_button_icon != '' %}<i class="{{ this.theme.retail_button_icon }}"></i> {% endif %}{{ this.theme.retail_button_text }}</a>
+                            <a href="{{ this.theme.retail_button_link }}" class="mt-4 btn btn-primary">{% if this.theme.retail_button_icon != '' %}<i class="{{ this.theme.retail_button_icon }}"></i> {% endif %}{{ this.theme.retail_button_text }}</a>
                         {% endif %}
                     </div>
                     {% partial 'global/dots' class="shop-figure" %}

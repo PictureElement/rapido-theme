@@ -12,7 +12,7 @@ description = "Services"
         </header>
         <div class="row">
             {% for item in this.theme.services_repeater %}
-                <div class="col-md-6 {{ loop.last ? '' : 'space-mb-3' }}">
+                <div class="col-md-6 {{ loop.last ? '' : 'space-mb-3' }} {{ loop.revindex == 2 ? 'space-mb-md-0' : '' }}">
                     <div class="media {% if (loop.index is odd) %}pr-lg-5{% else %}pl-lg-5{% endif %}">
                         <figure class="w-100 mr-4" style="max-width: 3.5rem;">
                             <a href="javascript:;" data-fancybox data-src="#serviceModal{{ loop.index }}" data-modal="true" role="button">

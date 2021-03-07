@@ -559,8 +559,8 @@ form:
                 label: Title
                 type: text
                 tab: CTAs
-                comment: e.g. You are just one click away from a modern website.
-                default: You are just one click away from a modern website.
+                comment: e.g. Download Rapido for free anytime, anywhere.
+                default: Download Rapido for free anytime, anywhere.
                 
             cta_primary_primary_button_icon:
                 label: Primary button icon (Font Awesome 5 Free)

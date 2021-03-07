@@ -19,9 +19,9 @@
             display: none;
         }
         &__author {
-            opacity: 0.54;
             display: block;
             font-size: 80%;
+            color: $primary;
         }
     }
     .owl-stage-outer {

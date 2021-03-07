@@ -4,10 +4,10 @@ description = "Call-to-action"
 <div class="bg-gradient-primary space-py-4">
     <div class="container position-relative">
         <div class="row justify-content-lg-between align-items-lg-center text-center text-lg-left">
-            <div data-aos="fade-up" data-aos-once="true" class="col-lg-6 mb-3 mb-lg-0">
-                <h2 class="text-on-primary mb-0">{{ cta_title }}</h2>
+            <div data-aos="fade-up" data-aos-once="true" class="col-lg-7 mb-3 mb-lg-0">
+                <h2 class="h1 font-light text-on-primary mb-0">{{ cta_title }}</h2>
             </div>
-            <div data-aos="fade-up" data-aos-once="true" data-aos-delay="200" class="col-lg-6 text-lg-right">
+            <div data-aos="fade-up" data-aos-once="true" data-aos-delay="200" class="col-lg-5 text-lg-right">
                 {# PRIMARY BUTTON #}
                 {% if cta_primary_button_text %}
                     <a href="{{ cta_primary_button_link }}" class="btn btn-lg btn-accent mx-1 mb-2">{% if cta_primary_button_icon != '' %}<i class="{{ cta_primary_button_icon }}"></i> {% endif %}{{ cta_primary_button_text }}</a>
