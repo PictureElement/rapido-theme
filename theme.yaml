@@ -462,7 +462,7 @@ form:
                             size: small
                             comment: Excerpts are a summary of your service description (~20 words)
                         description:
-                            label: Description
+                            label: Description (Optional)
                             type: richeditor
                             size: huge
                 tab: Services
@@ -502,7 +502,7 @@ form:
                 form:
                     fields:
                         avatar:
-                            label: Avatar (128x128, JPG | JPEG | PNG | SVG)
+                            label: Avatar (128x128, JPG | JPEG | PNG | SVG, Optional)
                             type: mediafinder
                             mode: image
                             span: left
