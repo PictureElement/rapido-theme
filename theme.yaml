@@ -349,7 +349,7 @@ form:
                         title:
                             label: Title
                             type: text
-                            comment: e.g. Welcome to Rapido, a free single-page business theme.
+                            comment: e.g. Do it better with Rapido.
                         lead:
                             label: Lead
                             type: textarea
