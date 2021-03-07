@@ -1,15 +1,3 @@
-// Corner radius
-/*
-$corner-radius: 1rem 0;
-$corner-radius-sm: 0.5rem 0;
-$corner-radius-lg: 2rem 0;
-*/
-
-// Corner radius
-$corner-radius: 1.5vh 0;
-$corner-radius-sm: 0.75vh 0;
-$corner-radius-lg: 3vh 0;
-
 // Breadcrumb separator
 $breadcrumb-divider: quote(">");
 $breadcrumb-font-size: 14px;
@@ -17,48 +5,19 @@ $breadcrumb-font-size: 14px;
 // Typography
 $line-height-base: 1.6;
 $font-weight-base: 400;
+$system-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+@if $google_fonts_enable == 1 {
+    $font-family-base: $google-fonts-body;
+    $headings-font-family: $google-fonts-heading;
+} @else {
+    $font-family-base: $system-font;
+    $headings-font-family: $system-font;
+}
 
 // RFS
 $rfs-base-value: 1rem;
 // $rfs-factor: 50; // Factor of decrease
-
-// Themes
-$theme-1: (
-    "primary": #008aff,
-    "on-primary": rgba(255,255,255,0.87),
-    "primary-dark": #004580,
-    "on-primary-dark": rgba(255,255,255,0.87),
-    "primary-light": #eff8ff,
-    "accent": #ffb30f,
-    "on-accent": rgba(0,0,0,0.87)
-);
-
-$theme-2: (
-    "primary":#5d21d2,
-    "on-primary": rgba(255,255,255,0.87),
-    "primary-dark": #2e1169,
-    "on-primary-dark": rgba(255,255,255,0.87),
-    "primary-light": #f0eafb,
-    "accent": #a0ebe5,
-    "on-accent": rgba(0,0,0,0.87)
-);
-
-// Theme selection
-$theme: $theme-2;
-
-// Helper function
-@function themable($theme, $color) {
-    @return map-get($theme, $color);
-}
-
-// Color variables
-$primary: themable($theme, "primary");
-$on-primary: themable($theme, "on-primary");
-$primary-dark: themable($theme, "primary-dark");
-$on-primary-dark: themable($theme, "on-primary-dark");
-$primary-light: themable($theme, "primary-light");
-$accent: themable($theme, "accent");
-$on-accent: themable($theme, "on-accent");
 
 // Define theme colors
 $theme-colors: (
