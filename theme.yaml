@@ -59,6 +59,7 @@ form:
                 type: text
                 tab: Global
                 comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
+                default: fas fa-external-link-alt
             
             header_button_text:
                 label: Header button text
@@ -66,7 +67,7 @@ form:
                 span: left
                 tab: Global
                 comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
-                default: Get a Quote
+                default: Public repository
 
             header_button_link:
                 label: Header button link
@@ -74,7 +75,7 @@ form:
                 span: right
                 tab: Global
                 comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
-                default: .
+                default: https://github.com/PictureElement/rapido
 
             phone:
                 label: Phone
@@ -336,7 +337,7 @@ form:
                             type: switch
                             default: 1
                         image:
-                            label: Image (1920x1228, JPG | JPEG | PNG)
+                            label: Image (1534x1022, JPG | JPEG | PNG)
                             type: mediafinder
                             mode: image
                             span: left
@@ -574,7 +575,7 @@ form:
                 span: left
                 tab: CTAs
                 comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
-                default: Get a Quote
+                default: Add to project
 
             cta_primary_primary_button_link:
                 label: Primary button link
@@ -582,7 +583,7 @@ form:
                 span: right
                 tab: CTAs
                 comment: "e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | #contactForm"
-                default: .
+                default: https://octobercms.com/theme/msof-rapido
 
             cta_primary_secondary_button_icon:
                 label: Secondary button icon (Font Awesome 5 Free)
@@ -596,6 +597,7 @@ form:
                 span: left
                 tab: CTAs
                 comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
+                default: Public repository
 
             cta_primary_secondary_button_link:
                 label: Secondary button link
@@ -603,6 +605,7 @@ form:
                 span: right
                 tab: CTAs
                 comment: "e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | #contactForm"
+                default: https://github.com/PictureElement/rapido
 
             cta_secondary:
                 label: Call-to-action (Secondary)
@@ -958,6 +961,7 @@ form:
                 size: small
                 tab: Contact
                 comment: e.g. Our estimates are free, professional, and fair. Response time will vary depending on the time of the year and the type of request.
+                default: Our estimates are free, professional, and fair. Response time will vary depending on the time of the year and the type of request.
 
             contact_heading_one:
                 label: Heading 1
