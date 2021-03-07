@@ -15,13 +15,17 @@ description = "Services"
                 <div class="col-md-6 {{ loop.last ? '' : 'space-mb-3' }} {{ loop.revindex == 2 ? 'space-mb-md-0' : '' }}">
                     <div class="media {% if (loop.index is odd) %}pr-lg-5{% else %}pl-lg-5{% endif %}">
                         <figure class="w-100 mr-4" style="max-width: 3.5rem;">
-                            <a href="javascript:;" data-fancybox data-src="#serviceModal{{ loop.index }}" data-modal="true" role="button">
-                                {% if item.icon|split('.')|last == 'svg' %}
-                                    <img class="img-fluid rounded-circle elevation-0dp" src="{{ item.icon|media }}" width="56" height="56" alt="{{ item.icon_alt }}">
-                                {% else %}
-                                    <img class="img-fluid rounded-circle elevation-0dp" src="{{ item.icon|media|resize(56, 56) }}" srcset="{{ item.icon|media|resize(56, 56) }} 1x, {{ item.icon|media }} 2x" width="56" height="56" alt="{{ item.icon_alt }}">
-                                {% endif %}
-                            </a>
+                            {% if item.description|length > 2 %}
+                                <a href="javascript:;" data-fancybox data-src="#serviceModal{{ loop.index }}" data-modal="true" role="button">
+                            {% endif %}
+                            {% if item.icon|split('.')|last == 'svg' %}
+                                <img class="img-fluid rounded-circle elevation-0dp" src="{{ item.icon|media }}" width="56" height="56" alt="{{ item.icon_alt }}">
+                            {% else %}
+                                <img class="img-fluid rounded-circle elevation-0dp" src="{{ item.icon|media|resize(56, 56) }}" srcset="{{ item.icon|media|resize(56, 56) }} 1x, {{ item.icon|media }} 2x" width="56" height="56" alt="{{ item.icon_alt }}">
+                            {% endif %}
+                            {% if item.description|length > 2 %}
+                                </a>
+                            {% endif %}
                         </figure>
                         <div class="media-body">
                             {% if item.description|length > 2 %}
