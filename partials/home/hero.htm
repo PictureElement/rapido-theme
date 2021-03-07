@@ -34,13 +34,13 @@ description = "Hero"
                     </div>
                     <div class="hero-item__img">
                         {% if item.image|split('.')|last == 'svg' %}
-                            <img {% if loop.index == 1 %}data-aos="fade-left" data-aos-once="true" data-aos-offset="-200"{% endif %} width="3" height="2" class="img-fluid corner-shape-lg" src="{{ item.image|media }}" alt="{{ item.image_alt }}">
+                            <img {% if loop.index == 1 %}data-aos="fade-left" data-aos-once="true" data-aos-offset="-300"{% endif %} width="3" height="2" class="img-fluid corner-shape-lg" src="{{ item.image|media }}" alt="{{ item.image_alt }}">
                         {% else %}
                             <img
                                 {% if loop.index == 1 %}
                                     data-aos="fade-left"
                                     data-aos-once="true"
-                                    data-aos-offset="-200"
+                                    data-aos-offset="-300"
                                 {% endif %}
                                 width="3"
                                 height="2"
