@@ -337,7 +337,7 @@ form:
                             type: switch
                             default: 1
                         image:
-                            label: Image (1534x1022, JPG | JPEG | PNG)
+                            label: Image (1534x1022, JPG | JPEG | PNG | SVG)
                             type: mediafinder
                             mode: image
                             span: left

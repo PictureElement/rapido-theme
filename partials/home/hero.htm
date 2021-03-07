@@ -33,23 +33,31 @@ description = "Hero"
                         </div>
                     </div>
                     <div class="hero-item__img">
-                        <img
-                            width="3"
-                            height="2"
-                            src="{{ item.image|media|resize(991, 661) }}"
-                            srcset="{{ item.image|media|resize(600, 400) }} 600w,
-                            		{{ item.image|media|resize(1200, 800) }} 1200w,
-                                    
-                            		{{ item.image|media|resize(991, 661) }} 991w,
-                                    
-                                    {{ item.image|media|resize(767, 511) }} 767w,
-                                    {{ item.image|media|resize(1534, 1022) }} 1534w,
+                        {% if item.image|split('.')|last == 'svg' %}
+                            <img data-aos="fade-left" data-aos-once="true" data-aos-offset="-200" width="3" height="2" class="img-fluid corner-shape-lg" src="{{ item.image|media }}" alt="{{ item.image_alt }}">
+                        {% else %}
+                            <img
+                                data-aos="fade-left"
+                                data-aos-once="true"
+                                data-aos-offset="-200"
+                                width="3"
+                                height="2"
+                                class="img-fluid corner-shape-lg"
+                                src="{{ item.image|media|resize(991, 661) }}"
+                                srcset="{{ item.image|media|resize(600, 400) }} 600w,
+                                        {{ item.image|media|resize(1200, 800) }} 1200w,
+                                        
+                                        {{ item.image|media|resize(991, 661) }} 991w,
+                                        
+                                        {{ item.image|media|resize(767, 511) }} 767w,
+                                        {{ item.image|media|resize(1534, 1022) }} 1534w,
 
-                                    {{ item.image|media|resize(575, 383) }} 575w,
-                                    {{ item.image|media|resize(1150, 766) }} 1150w"
-                            sizes="(min-width: 992px) 600px,
-                                   100vw"
-                            alt="{{ item.image_alt }}">
+                                        {{ item.image|media|resize(575, 383) }} 575w,
+                                        {{ item.image|media|resize(1150, 766) }} 1150w"
+                                sizes="(min-width: 992px) 600px,
+                                    100vw"
+                                alt="{{ item.image_alt }}">
+                        {% endif %}
                     </div>
                 </article>
             {% endif %}
