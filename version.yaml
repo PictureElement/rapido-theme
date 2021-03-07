@@ -3,3 +3,4 @@
 1.0.3: Change hero style (support illustration). Improvements to Call-to-action, Testimonials, and About sections.
 1.0.4: Update hero and theme.yaml
 1.0.5: Fix bug with hero
+1.0.6: Make fact description field optional. Add "Open in new tab" option.
