@@ -34,6 +34,10 @@ function onEnd() {
 ==
 <!doctype html>
 <html class="h-100" lang="en">
+    {# CRITICAL CSS #}
+    {% put styles %}
+        {% partial 'critical/maintenance' %}
+    {% endput %}
     {# HEAD #}
     {% partial 'global/head' baseFileName=baseFileName %}
     <body>
@@ -89,8 +93,3 @@ function onEnd() {
         {% partial 'global/scripts' %}
     </body>
 </html>
-
-{# CRITICAL CSS #}
-{% put styles %}
-    {% partial 'critical/maintenance' %}
-{% endput %}

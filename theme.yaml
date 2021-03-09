@@ -190,53 +190,53 @@ form:
                 type: section
                 tab: Theming
 
-            primary:
+            color_primary:
                 label: Primary
                 tab: Theming
                 type: colorpicker
                 default: '#5d21d2'
                 assetVar: 'primary'
 
-            on-primary:
+            color_on_primary:
                 label: On-primary
                 tab: Theming
                 type: colorpicker
-                default: 'rgba(255,255,255,0.87)'
+                default: 'rgba(255, 255, 255, 0.87)'
                 assetVar: 'on-primary'
 
-            primary_dark:
+            color_primary_dark:
                 label: Primary dark
                 tab: Theming
                 type: colorpicker
                 default: '#2e1169'
                 assetVar: 'primary-dark'
 
-            on-primary_dark:
+            color_on_primary_dark:
                 label: On-primary dark
                 tab: Theming
                 type: colorpicker
-                default: 'rgba(255,255,255,0.87)'
+                default: 'rgba(255, 255, 255, 0.87)'
                 assetVar: 'on-primary-dark'
 
-            primary_light:
+            color_primary_light:
                 label: Primary light
                 tab: Theming
                 type: colorpicker
                 default: '#f0eafb'
                 assetVar: 'primary-light'
 
-            accent:
+            color_accent:
                 label: Accent
                 tab: Theming
                 type: colorpicker
                 default: '#a0ebe5'
                 assetVar: 'accent'
 
-            on-accent:
+            color_on_accent:
                 label: On-accent
                 tab: Theming
                 type: colorpicker
-                default: 'rgba(0,0,0,0.87)'
+                default: 'rgba(0, 0, 0, 0.87)'
                 assetVar: 'on-accent'
 
             shape:
@@ -250,8 +250,8 @@ form:
                 type: dropdown
                 options:
                     '0': Square shape
-                    '0.75vh': Rounded shape 1
-                    '0.75vh 0 0.75vh 0': Rounded shape 2
+                    '8px': Rounded shape 1
+                    '8px 0 8px 0': Rounded shape 2
                 showSearch: true
                 assetVar: 'corner-radius-sm'
                 comment: Rounded corners of small size components (e.g. inputs and buttons).
@@ -262,8 +262,8 @@ form:
                 type: dropdown
                 options:
                     '0': Square shape
-                    '1.5vh': Rounded shape 1
-                    '1.5vh 0 1.5vh 0': Rounded shape 2
+                    '16px': Rounded shape 1
+                    '16px 0 16px 0': Rounded shape 2
                 showSearch: true
                 assetVar: 'corner-radius'
                 comment: Rounded corners of regular size components (e.g. cards).
@@ -274,8 +274,8 @@ form:
                 type: dropdown
                 options:
                     '0': Square shape
-                    '3vh': Rounded shape 1
-                    '3vh 0 3vh 0': Rounded shape 2
+                    '32px': Rounded shape 1
+                    '32px 0 32px 0': Rounded shape 2
                 showSearch: true
                 assetVar: 'corner-radius-lg'
                 comment: Rounded corners of large size components (e.g. section panels).

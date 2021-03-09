@@ -11,58 +11,60 @@ description = "Hero"
 {# HERO #}
 <section>
     <div {% if numberOfActiveSlides > 1 %}id="heroCarousel"{% endif %} class="hero-carousel {% if numberOfActiveSlides > 1 %}owl-carousel{% endif %}">
-        {% for item in this.theme.hero_repeater %}
-            {% if item.enable %}
-            	<article class="item hero-item">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-7">
-                                <h1 class="mb-2" data-aos="fade-up" data-aos-once="true" data-aos-offset="-300">{{ item.title|nl2br }}</h1>
-                                <p class="lead mb-4" data-aos="fade-up" data-aos-delay="100" data-aos-once="true" data-aos-offset="-300">{{ item.lead }}</p>
-                                <div class="d-flex flex-column flex-lg-row" data-aos="fade-up" data-aos-delay="200" data-aos-once="true" data-aos-offset="-300">
-		                            {# PRIMARY BUTTON #}
-		                            {% if item.primary_button_text %}
-		                                <a {{ item.primary_button_new_tab_enable ? 'target="_blank" rel="noopener noreferrer"' : '' }} href="{{ item.primary_button_link }}" class="hero-item__btn btn btn-lg btn-accent mr-2 mb-2">{% if item.primary_button_icon != '' %}<i class="{{ item.primary_button_icon }}"></i> {% endif %}{{ item.primary_button_text }}</a>
-		                            {% endif %}
-		                            {# SECONDARY BUTTON #}
-		                            {% if item.secondary_button_text %}
-		                                <a {{ item.secondary_button_new_tab_enable ? 'target="_blank" rel="noopener noreferrer"' : '' }} href="{{ item.secondary_button_link }}" class="hero-item__btn btn btn-lg btn-outline-accent mb-2">{% if item.secondary_button_icon != '' %}<i class="{{ item.secondary_button_icon }}"></i> {% endif %}{{ item.secondary_button_text }}</a>
-		                            {% endif %}
-		                        </div>
+        {% if numberOfActiveSlides == 1 %}<div class="owl-item">{% endif %}
+            {% for item in this.theme.hero_repeater %}
+                {% if item.enable %}
+                	<article style="{% if numberOfActiveSlides == 1 %}transform: translateY(0);{% endif %}" class="item hero-item">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-7">
+                                    <h1 class="mb-2" data-aos="fade-up" data-aos-once="true" data-aos-offset="-300">{{ item.title|nl2br }}</h1>
+                                    <p class="lead mb-4" data-aos="fade-up" data-aos-delay="100" data-aos-once="true" data-aos-offset="-300">{{ item.lead }}</p>
+                                    <div class="d-flex flex-column flex-lg-row" data-aos="fade-up" data-aos-delay="200" data-aos-once="true" data-aos-offset="-300">
+    		                            {# PRIMARY BUTTON #}
+    		                            {% if item.primary_button_text %}
+    		                                <a {{ item.primary_button_new_tab_enable ? 'target="_blank" rel="noopener noreferrer"' : '' }} href="{{ item.primary_button_link }}" class="hero-item__btn btn btn-lg btn-accent mr-2 mb-2">{% if item.primary_button_icon != '' %}<i class="{{ item.primary_button_icon }}"></i> {% endif %}{{ item.primary_button_text }}</a>
+    		                            {% endif %}
+    		                            {# SECONDARY BUTTON #}
+    		                            {% if item.secondary_button_text %}
+    		                                <a {{ item.secondary_button_new_tab_enable ? 'target="_blank" rel="noopener noreferrer"' : '' }} href="{{ item.secondary_button_link }}" class="hero-item__btn btn btn-lg btn-outline-accent mb-2">{% if item.secondary_button_icon != '' %}<i class="{{ item.secondary_button_icon }}"></i> {% endif %}{{ item.secondary_button_text }}</a>
+    		                            {% endif %}
+    		                        </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="hero-item__img">
-                        {% if item.image|split('.')|last == 'svg' %}
-                            <img {% if loop.index == 1 %}data-aos="fade-left" data-aos-once="true" data-aos-offset="-300"{% endif %} width="3" height="2" class="img-fluid corner-shape-lg" src="{{ item.image|media }}" alt="{{ item.image_alt }}">
-                        {% else %}
-                            <img
-                                {% if loop.index == 1 %}
-                                    data-aos="fade-left"
-                                    data-aos-once="true"
-                                    data-aos-offset="-300"
-                                {% endif %}
-                                width="3"
-                                height="2"
-                                class="img-fluid corner-shape-lg"
-                                src="{{ item.image|media|resize(991, 661) }}"
-                                srcset="{{ item.image|media|resize(600, 400) }} 600w,
-                                        {{ item.image|media|resize(1200, 800) }} 1200w,
-                                        
-                                        {{ item.image|media|resize(991, 661) }} 991w,
-                                        
-                                        {{ item.image|media|resize(767, 511) }} 767w,
-                                        {{ item.image|media|resize(1534, 1022) }} 1534w,
+                        <div class="hero-item__img">
+                            {% if item.image|split('.')|last == 'svg' %}
+                                <img {% if loop.index == 1 %}data-aos="fade-left" data-aos-once="true" data-aos-offset="-300"{% endif %} width="3" height="2" class="img-fluid w-100 corner-shape-lg" src="{{ item.image|media }}" alt="{{ item.image_alt }}">
+                            {% else %}
+                                <img
+                                    {% if loop.index == 1 %}
+                                        data-aos="fade-left"
+                                        data-aos-once="true"
+                                        data-aos-offset="-300"
+                                    {% endif %}
+                                    width="3"
+                                    height="2"
+                                    class="img-fluid w-100 corner-shape-lg"
+                                    src="{{ item.image|media|resize(991, 661) }}"
+                                    srcset="{{ item.image|media|resize(600, 400) }} 600w,
+                                            {{ item.image|media|resize(1200, 800) }} 1200w,
+                                            
+                                            {{ item.image|media|resize(991, 661) }} 991w,
+                                            
+                                            {{ item.image|media|resize(767, 511) }} 767w,
+                                            {{ item.image|media|resize(1534, 1022) }} 1534w,
 
-                                        {{ item.image|media|resize(575, 383) }} 575w,
-                                        {{ item.image|media|resize(1150, 766) }} 1150w"
-                                sizes="(min-width: 992px) 600px,
-                                    100vw"
-                                alt="{{ item.image_alt }}">
-                        {% endif %}
-                    </div>
-                </article>
-            {% endif %}
-        {% endfor %}
+                                            {{ item.image|media|resize(575, 383) }} 575w,
+                                            {{ item.image|media|resize(1150, 766) }} 1150w"
+                                    sizes="(min-width: 992px) 600px,
+                                        100vw"
+                                    alt="{{ item.image_alt }}">
+                            {% endif %}
+                        </div>
+                    </article>
+                {% endif %}
+            {% endfor %}
+        {% if numberOfActiveSlides == 1 %}</div>{% endif %}
     </div>
 </section>

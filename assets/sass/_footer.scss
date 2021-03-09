@@ -4,10 +4,8 @@
 .footer {
     overflow: hidden;
     background-color: $primary-dark;
-    // @include padding-top(7.5rem);
-    // @include padding-bottom(7.5rem);
-    padding-top: 11vh;
-    padding-bottom: 11vh;
+    padding-top: #{'min(11vh, 118px)'};
+    padding-bottom: #{'min(11vh, 118px)'};
     color: $on-primary-dark;
     a {
         color: $on-primary-dark;

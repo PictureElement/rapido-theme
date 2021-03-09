@@ -34,6 +34,15 @@
             }
         }
     }
+    .nav-cta {
+        @media (max-width: 1199.98px) {
+            .btn {
+                display: block;
+            }
+            text-align: center;
+            padding-top: 8px;
+        }
+    }
 }
 
 .headroom {

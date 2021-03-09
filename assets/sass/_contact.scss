@@ -5,8 +5,7 @@
     border-top: 1px solid transparent;
     &-form {
         box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
-        // @include margin-top(-8rem);
-        margin-top: -12vh;
+        margin-top: #{'max(-12vh, -128px)'};
         position: relative;
         z-index: 1;
         border-top: 2px solid $primary;

@@ -1,8 +1,6 @@
 .clients {
-    // @include padding-top(8rem);
-    // @include padding-bottom(16rem);
-    padding-top: 12vh;
-    padding-bottom: 24vh;
+    padding-top: #{'min(12vh, 128px)'};
+    padding-bottom: #{'min(24vh, 256px)'};
     &-slideshow {
         img {
             filter: grayscale(100%);

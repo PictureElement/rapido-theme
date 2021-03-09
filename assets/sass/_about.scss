@@ -4,22 +4,16 @@
 .facts {
     z-index: 1;
     position: relative;
-    /*
-    @include padding-top(3rem);
-    @include padding-bottom(3rem);
-    @include margin-top(3rem);
-    */
-    padding-top: 4.5vh;
-    padding-bottom: 4.5vh;
-    margin-top: 4.5vh;
+    padding-top: #{'min(4.5vh, 48px)'};
+    padding-bottom: #{'min(4.5vh, 48px)'};
+    margin-top: #{'min(4.5vh, 48px)'};
     [class^='col-']:not(:first-child) {
         border-left: 1px solid #dee2e6;
     }
     @media (max-width: 767.98px) {
         [class^='col-'] {
             &:not(:last-child) {
-                // @include margin-bottom(3rem);
-                margin-bottom: 4.5vh;
+                margin-bottom: #{'min(4.5vh, 48px)'};
             }
             &:not(:first-child) {
                 border: none;
