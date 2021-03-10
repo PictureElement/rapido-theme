@@ -127,7 +127,8 @@ form:
                 
             working_hours:
                 label: Working hours
-                type: text
+                type: textarea
+                size: small
                 comment: e.g. Mon. to Fri. from 08:00 - 17:00
                 tab: Global
                 default: Mon. to Fri. from 08:00 - 17:00
@@ -555,12 +556,6 @@ form:
                 tab: Projects
                 size: small
 
-            projects_comment:
-                label: Want to manage your projects?
-                type: section
-                tab: Projects
-                comment: To manage your projects, click "Portfolio" on the admin toolbar. The recommended image size for portfolio items is 1280x720.
-
             # CTAs
 
             cta_primary:
@@ -785,8 +780,8 @@ form:
                 label: Pretitle
                 type: text
                 tab: Retail
-                comment: e.g. RETAIL SHOP
-                default: RETAIL SHOP
+                comment: e.g. RETAIL
+                default: RETAIL
 
             retail_title:
                 label: Title
@@ -927,12 +922,6 @@ form:
                 tab: Blog
                 comment: News, insights, and creative culture from Rapido.
                 default: News, insights, and creative culture from Rapido.
-
-            blog_comment:
-                label: Want to manage your Blog? 
-                type: section
-                tab: Blog
-                comment: To manage your Blog, click "Blog" on the admin toolbar. The recommended image size for posts is 1456x818.
 
             # Clients
             
@@ -1205,3 +1194,23 @@ form:
                 mode: image
                 fileTypes : png
                 tab: Favicon & App icons
+
+            # Notes
+
+            projects_comment:
+                label: Want to manage your projects?
+                type: section
+                tab: Notes
+                comment: To manage your projects, click "Portfolio" on the admin toolbar. The recommended image size for portfolio items is 1280x720.
+
+            blog_comment:
+                label: Want to manage your Blog? 
+                type: section
+                tab: Notes
+                comment: To manage your Blog, click "Blog" on the admin toolbar. The recommended image size for posts is 1456x818.
+
+            id_comment:
+                label: Want to jump to a specific part of the Homepage?
+                type: section
+                tab: Notes
+                comment: "The homepage has the following marked sections: #services, #testimonials, #projects, #about, #retail, #faqs, #blog, #clients, and #contactForm. You can always define a hyperlink to jump to a specific section."

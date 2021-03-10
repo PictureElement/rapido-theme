@@ -18,47 +18,47 @@ description = "Header"
                 <ul class="navbar-nav ml-auto">
                     {% if this.theme.services_enable == 1 %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}/#services">SERVICES</a>
+                            <a class="nav-link" href="{{ url('/') }}/#services">{{ this.theme.services_pretitle }}</a>
                         </li>
                     {% endif %}
                     {% if this.theme.testimonials_enable == 1 %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}/#testimonials">TESTIMONIALS</a>
+                            <a class="nav-link" href="{{ url('/') }}/#testimonials">{{ this.theme.testimonials_pretitle }}</a>
                         </li>
                     {% endif %}
                     {% if this.theme.projects_enable == 1 %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}/#projects">PROJECTS</a>
+                            <a class="nav-link" href="{{ url('/') }}/#projects">{{ this.theme.projects_pretitle }}</a>
                         </li>
                     {% endif %}
                     {% if this.theme.about_enable == 1 %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}/#about">ABOUT</a>
+                            <a class="nav-link" href="{{ url('/') }}/#about">{{ this.theme.about_pretitle }}</a>
                         </li>
                     {% endif %}
                     {% if this.theme.retail_enable == 1 %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}/#retail">RETAIL</a>
+                            <a class="nav-link" href="{{ url('/') }}/#retail">{{ this.theme.retail_pretitle }}</a>
                         </li>
                     {% endif %}
                     {% if this.theme.faq_enable == 1 %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}/#faqs">FAQs</a>
+                            <a class="nav-link" href="{{ url('/') }}/#faqs">{{ this.theme.faq_pretitle }}</a>
                         </li>
                     {% endif %}
                     {% if this.theme.blog_enable == 1 %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ 'blog'|page }}">BLOG</a>
+                            <a class="nav-link" href="{{ 'blog'|page }}">{{ this.theme.blog_pretitle }}</a>
                         </li>
                     {% endif %}
                     {% if this.theme.clients_enable == 1 %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}/#clients">CLIENTS</a>
+                            <a class="nav-link" href="{{ url('/') }}/#clients">{{ this.theme.clients_pretitle }}</a>
                         </li>
                     {% endif %}
                     {% if this.theme.contact_enable == 1 %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}/#contactForm">CONTACT</a>
+                            <a class="nav-link" href="{{ url('/') }}/#contactForm">{{ this.theme.contact_pretitle }}</a>
                         </li>
                     {% endif %}
                 </ul>
