@@ -11,7 +11,7 @@ description = "About"
                 </header>
             </div>
             <div class="col-lg-7">
-                <div class="about__text pl-0 pl-lg-3">
+                <div class="about__text overflow-hidden pl-0 pl-lg-3">
                     {{ this.theme.about_text|raw }}
                 </div>
             </div>
@@ -22,7 +22,7 @@ description = "About"
                     <div data-aos="zoom-in" data-aos-once="true" class="col-md-4">
                         <div class="fact">
                             <div class="fact__number counter mb-2">{{ item.number }}</div>
-                            <div class="lead">{{ item.title }}</div>
+                            <div class="lead text-truncate">{{ item.title }}</div>
                         </div>
                     </div>
                 {% endfor %}

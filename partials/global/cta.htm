@@ -10,11 +10,11 @@ description = "Call-to-action"
             <div data-aos="fade-up" data-aos-once="true" data-aos-delay="200" class="col-lg-5 text-lg-right">
                 {# PRIMARY BUTTON #}
                 {% if cta_primary_button_text %}
-                    <a {{ cta_primary_button_new_tab_enable ? 'target="_blank" rel="noopener noreferrer"' : '' }} href="{{ cta_primary_button_link }}" class="btn btn-lg btn-accent mx-1 mb-2">{% if cta_primary_button_icon != '' %}<i class="{{ cta_primary_button_icon }}"></i> {% endif %}{{ cta_primary_button_text }}</a>
+                    <a {{ cta_primary_button_new_tab_enable ? 'target="_blank" rel="noopener noreferrer"' : '' }} href="{{ cta_primary_button_link }}" class="cta-btn btn btn-lg btn-accent mx-1 mb-2">{% if cta_primary_button_icon != '' %}<i class="{{ cta_primary_button_icon }}"></i> {% endif %}{{ cta_primary_button_text }}</a>
                 {% endif %}
                 {# SECONDARY BUTTON #}
                 {% if cta_secondary_button_text %}
-                    <a {{ cta_secondary_button_new_tab_enable ? 'target="_blank" rel="noopener noreferrer"' : '' }} href="{{ cta_secondary_button_link }}" class="btn btn-lg btn-outline-accent mx-1 mb-2">{% if cta_secondary_button_icon != '' %}<i class="{{ cta_secondary_button_icon }}"></i> {% endif %}{{ cta_secondary_button_text }}</a>
+                    <a {{ cta_secondary_button_new_tab_enable ? 'target="_blank" rel="noopener noreferrer"' : '' }} href="{{ cta_secondary_button_link }}" class="cta-btn btn btn-lg btn-outline-accent mx-1 mb-2">{% if cta_secondary_button_icon != '' %}<i class="{{ cta_secondary_button_icon }}"></i> {% endif %}{{ cta_secondary_button_text }}</a>
                 {% endif %}
             </div>
         </div>

@@ -60,7 +60,7 @@ function onEnd()
 <div class="container space-py-4">
     <div class="row position-relative">
         <div class="col-lg-8">
-            <section class="single-post">
+            <section class="single-post overflow-hidden">
                 {# AUTHOR #}
                 <div class="d-flex mb-3 align-items-center">
                     <img class="single-post__profile-image rounded-circle border mr-2" src="{{ post.user.getAvatarThumb(60) }}" srcset="{{ post.user.getAvatarThumb(60) }} 1x, {{ post.user.getAvatarThumb(120) }} 2x" width="60" height="60" alt="{{ post.user.first_name }} {{ post.user.last_name }}">

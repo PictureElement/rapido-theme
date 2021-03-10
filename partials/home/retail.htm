@@ -9,7 +9,7 @@ description = "Retail"
                     <div class="section__preheading">{{ this.theme.retail_pretitle }}</div>
                     <h2 class="mb-0">{{ this.theme.retail_title }}</h2>
                 </header>
-                <div class="pr-0 pr-lg-3 h-100">
+                <div class="pr-0 pr-lg-3 h-100 overflow-hidden">
                     {{ this.theme.retail_text|raw }}
                 </div>
             </div>
@@ -29,16 +29,16 @@ description = "Retail"
                                 </li>
                             {% endif %}
                             {% if this.theme.phone %}
-                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-phone-alt"></i><div class="ml-2"><a href="tel:{{ this.theme.phone }}">{{ this.theme.phone }}</a></div></li>
+                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-phone-alt"></i><div class="ml-2 text-truncate"><a href="tel:{{ this.theme.phone }}">{{ this.theme.phone }}</a></div></li>
                             {% endif %}
                             {% if this.theme.mobile %}
-                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-mobile-alt"></i><div class="ml-2"><a href="tel:{{ this.theme.mobile }}">{{ this.theme.mobile }}</a></div></li>
+                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-mobile-alt"></i><div class="ml-2 text-truncate"><a href="tel:{{ this.theme.mobile }}">{{ this.theme.mobile }}</a></div></li>
                             {% endif %}
                             {% if this.theme.fax %}
-                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-fax"></i><div class="ml-2"><a href="tel:{{ this.theme.fax }}">{{ this.theme.fax }}</a></div></li>
+                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-fax"></i><div class="ml-2 text-truncate"><a href="tel:{{ this.theme.fax }}">{{ this.theme.fax }}</a></div></li>
                             {% endif %}
                             {% if this.theme.email %}
-                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-envelope"></i><div class="ml-2"><a href="mailto:{{ this.theme.email }}">{{ this.theme.email }}</a></div></li>
+                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-envelope"></i><div class="ml-2 text-truncate"><a href="mailto:{{ this.theme.email }}">{{ this.theme.email }}</a></div></li>
                             {% endif %}
                             {% if this.theme.working_hours %}
                                 <li class="d-flex mb-2"><i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-clock"></i><div class="ml-2">{{ this.theme.working_hours|nl2br }}</div></li>

@@ -33,7 +33,7 @@ description = "Services"
                                 <p class="mb-0">{{ item.excerpt }}</p>
                                 <div id="serviceModal{{ loop.index }}" class="space-p-4 corner-shape-lg" style="display: none; max-width: 600px;">
                                     <h3>{{ item.title }}</h3>
-                                    <div>
+                                    <div class="overflow-hidden">
                                         {{ item.description|raw }}
                                     </div>
                                     <button data-fancybox-close="" class="btn btn-primary">Close</button>

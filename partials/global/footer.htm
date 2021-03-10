@@ -38,16 +38,16 @@ description = "Footer"
                         </li>
                     {% endif %}
                     {% if this.theme.phone %}
-                        <li class="d-flex"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-phone-alt"></i><div class="ml-2"><a href="tel:{{ this.theme.phone }}">{{ this.theme.phone }}</a></div></li>
+                        <li class="d-flex"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-phone-alt"></i><div class="ml-2 text-truncate"><a href="tel:{{ this.theme.phone }}">{{ this.theme.phone }}</a></div></li>
                     {% endif %}
                     {% if this.theme.mobile %}
-                        <li class="d-flex"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-mobile-alt"></i><div class="ml-2"><a href="tel:{{ this.theme.mobile }}">{{ this.theme.mobile }}</a></div></li>
+                        <li class="d-flex"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-mobile-alt"></i><div class="ml-2 text-truncate"><a href="tel:{{ this.theme.mobile }}">{{ this.theme.mobile }}</a></div></li>
                     {% endif %}
                     {% if this.theme.fax %}
-                        <li class="d-flex"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-fax"></i><div class="ml-2"><a href="tel:{{ this.theme.fax }}">{{ this.theme.fax }}</a></div></li>
+                        <li class="d-flex"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-fax"></i><div class="ml-2 text-truncate"><a href="tel:{{ this.theme.fax }}">{{ this.theme.fax }}</a></div></li>
                     {% endif %}
                     {% if this.theme.email %}
-                        <li class="d-flex"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-envelope"></i><div class="ml-2"><a href="mailto:{{ this.theme.email }}">{{ this.theme.email }}</a></div></li>
+                        <li class="d-flex"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-envelope"></i><div class="ml-2 text-truncate"><a href="mailto:{{ this.theme.email }}">{{ this.theme.email }}</a></div></li>
                     {% endif %}
                     {% if this.theme.working_hours %}
                         <li class="d-flex"><i style="line-height:1.6;" class="flex-shrink-0 fa-fw fas fa-clock"></i><div class="ml-2">{{ this.theme.working_hours|nl2br }}</div></li>
