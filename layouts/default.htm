@@ -54,7 +54,7 @@ function onEnd() {
         {# TO TOP #}
         <button aria-label="Back to top" id="toTop" class="to-top btn"><i class="fas fa-long-arrow-alt-up"></i></button>
         
-        {# COOKIE NOTICE
+        {# COOKIE NOTICE #}
         {% if this.page.baseFileName != 'maintenance' and this.page.baseFileName != 'page-not-found-404' and this.page.baseFileName != 'cookie-settings' and this.page.baseFileName != 'error-page-500' and this.page.baseFileName != 'privacy-policy' %}
             <div id="sg-{{ cookiesBar }}">
                 {% if sgCookies.consent is empty and viewBag.hideCookiesBar == false and page.viewBag.hideCookiesBar == false %}
@@ -67,7 +67,6 @@ function onEnd() {
                 {% partial 'global/run-scripts' %}
             </div>
         {% endif %}
-        #}
         
         {# HEADER #}
         {% partial 'global/header' %}
