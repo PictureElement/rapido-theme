@@ -292,14 +292,15 @@ form:
                 default: 0
                 assetVar: 'google-fonts-enable'
                 tab: Theming
+                comment: Enabling this option hinders performance.
 
             google_fonts_link:
                 label: Google Fonts <link>
                 type: codeeditor
                 size: small
                 language: html
-                default: <link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Poppins:wght@400&display=swap" rel="stylesheet">
-                comment: Choose 300, 400, 600 styles for the Body family. Choose any style for the Heading family.
+                default: <link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+                comment: Choose 300, 400, 600 weights for the Body family. Choose either one weight or two weights for the Heading family based on your weight selections for the primary and secondary headings (see below).
                 tab: Theming
 
             google_fonts_body:
@@ -318,12 +319,20 @@ form:
                 assetVar: 'google-fonts-heading'
                 tab: Theming
 
-            google_fonts_heading_weight:
-                label: Heading weight
+            google_fonts_heading_weight_primary:
+                label: Heading weight (Primary)
                 type: text
                 default: "400"
                 comment: e.g. 100 | 200 | ... | 900
-                assetVar: 'headings-font-weight'
+                assetVar: 'heading-weight-primary'
+                tab: Theming
+
+            google_fonts_heading_weight_secondary:
+                label: Heading weight (Secondary)
+                type: text
+                default: "300"
+                comment: e.g. 100 | 200 | ... | 900
+                assetVar: 'heading-weight-secondary'
                 tab: Theming
 
             # Hero

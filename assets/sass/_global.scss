@@ -9,25 +9,25 @@ body {
 }
 
 h1 {
-    font-weight: $headings-font-weight;
+    font-weight: $heading-weight-primary;
     line-height: 1.2;
     @include font-size(3.5rem);
 }
 
 h2 {
-    font-weight: $headings-font-weight;
+    font-weight: $heading-weight-primary;
     line-height: 1.4;
     @include font-size(1.875rem);
 }
 
 h3 {
-    font-weight: $headings-font-weight;
+    font-weight: $heading-weight-primary;
     line-height: 1.4;
     @include font-size(1.3125rem);
 }
 
 h4 {
-    font-weight: $headings-font-weight;
+    font-weight: $heading-weight-primary;
     line-height: 1.4;
     @include font-size(1.125rem);
 }
@@ -294,10 +294,15 @@ figure {
     transition-delay: 0s !important;
 }
 
-.cta-btn {
-    @media (max-width: 575.98px) {
-        display: block;
-        width: 100%
+.cta {
+    &-title {
+        font-weight: $heading-weight-secondary;
+    }
+    &-btn {
+        @media (max-width: 575.98px) {
+            display: block;
+            width: 100%;
+        }
     }
 }
 
