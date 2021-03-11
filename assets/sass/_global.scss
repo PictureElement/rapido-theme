@@ -9,25 +9,25 @@ body {
 }
 
 h1 {
-    font-weight: $heading-weight-primary;
+    font-weight: $headings-font-weight;
     line-height: 1.2;
     @include font-size(3.5rem);
 }
 
 h2 {
-    font-weight: $heading-weight-primary;
+    font-weight: $headings-font-weight;
     line-height: 1.4;
     @include font-size(1.875rem);
 }
 
 h3 {
-    font-weight: $heading-weight-primary;
+    font-weight: $headings-font-weight;
     line-height: 1.4;
     @include font-size(1.3125rem);
 }
 
 h4 {
-    font-weight: $heading-weight-primary;
+    font-weight: $headings-font-weight;
     line-height: 1.4;
     @include font-size(1.125rem);
 }
@@ -296,7 +296,7 @@ figure {
 
 .cta {
     &-title {
-        font-weight: $heading-weight-secondary;
+        font-weight: $headings-font-weight-secondary;
     }
     &-btn {
         @media (max-width: 575.98px) {

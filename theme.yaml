@@ -324,7 +324,7 @@ form:
                 type: text
                 default: "400"
                 comment: e.g. 100 | 200 | ... | 900
-                assetVar: 'heading-weight-primary'
+                assetVar: 'headings-font-weight'
                 tab: Theming
 
             google_fonts_heading_weight_secondary:
@@ -332,7 +332,7 @@ form:
                 type: text
                 default: "300"
                 comment: e.g. 100 | 200 | ... | 900
-                assetVar: 'heading-weight-secondary'
+                assetVar: 'headings-font-weight-secondary'
                 tab: Theming
 
             # Hero
