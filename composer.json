@@ -2,6 +2,17 @@
     "name": "msof/rapido-theme",
     "type": "october-theme",
     "description": "Polished single-page business-oriented theme with blog",
+    "homepage": "https://octobercms.com/theme/msof-rapido",
+    "keywords": ["october", "octobercms", "business"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marios Sofokleous",
+            "email": "marios.sofokleous@yandex.com",
+            "homepage": "https://www.msof.me/",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "composer/installers": "~1.0",
         "toughdeveloper/imageresizer": "^1.4.1",
