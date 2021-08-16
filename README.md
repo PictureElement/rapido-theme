@@ -1,7 +1,7 @@
 Rapido theme
 ==========
 
-![Screenshot](https://github.com/PictureElement/rapido/blob/master/assets/images/theme-preview.png?raw=true)
+![Screenshot](https://github.com/PictureElement/rapido-theme/blob/master/assets/images/theme-preview.png?raw=true)
 
 A polished single-page business-oriented theme with blog for October CMS.
 
