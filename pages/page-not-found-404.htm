@@ -1,17 +1,42 @@
-title = "Page not found (404)"
 url = "/404"
 layout = "default"
-is_hidden = 0
+title = "Page not found (404)"
 ==
 {# STATUS COVER #}
-{% partial 'utility/status-cover' class="alert-warning" title="#{ this.theme.not_found_title }" lead="#{ this.theme.not_found_lead }" %}
+{% partial 'utility/status-cover'
+    class="alert-warning"
+    title="#{ this.theme.utility_not_found_title }"
+    lead="#{ this.theme.utility_not_found_lead }"
+%}
 
 {# CTA SECONDARY #}
 {% if this.theme.cta_secondary_enable == 1 %}
-    {% partial 'global/cta' cta_primary_button_new_tab_enable="#{ this.theme.cta_secondary_primary_button_new_tab_enable}" cta_secondary_button_new_tab_enable="#{ this.theme.cta_secondary_secondary_button_new_tab_enable}" cta_title="#{ this.theme.cta_secondary_title }" cta_primary_button_icon="#{ this.theme.cta_secondary_primary_button_icon }" cta_primary_button_text="#{ this.theme.cta_secondary_primary_button_text }" cta_primary_button_link="#{ this.theme.cta_secondary_primary_button_link }" cta_secondary_button_icon="#{ this.theme.cta_secondary_secondary_button_icon }" cta_secondary_button_text="#{ this.theme.cta_secondary_secondary_button_text }" cta_secondary_button_link="#{ this.theme.cta_secondary_secondary_button_link }" %}
+    {% partial 'global/cta' 
+        cta_title="#{ this.theme.cta_secondary_title }"
+        cta_primary_button_icon="#{ this.theme.cta_secondary_primary_button_icon }"
+        cta_primary_button_label="#{ this.theme.cta_secondary_primary_button_label }"
+        cta_primary_button_url="#{ this.theme.cta_secondary_primary_button_url }"
+        cta_primary_button_new_tab="#{ this.theme.cta_secondary_primary_button_new_tab}"
+        cta_primary_button_same_host="#{ this.theme.cta_secondary_primary_button_same_host}"
+        cta_secondary_button_icon="#{ this.theme.cta_secondary_secondary_button_icon }"
+        cta_secondary_button_label="#{ this.theme.cta_secondary_secondary_button_label }"
+        cta_secondary_button_url="#{ this.theme.cta_secondary_secondary_button_url }"
+        cta_secondary_button_new_tab="#{ this.theme.cta_secondary_secondary_button_new_tab}"
+        cta_secondary_button_same_host="#{ this.theme.cta_secondary_secondary_button_same_host}"
+    %}
 {% endif %}
 
-{# CRITICAL CSS #}
+{# STYLES #}
 {% put styles %}
-    {% partial 'critical/page-not-found-404' %}
+    <link href="{{ [
+        'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css',
+        'assets/vendor/aos/dist/aos.css',
+        'assets/vendor/cookieconsent/build/cookieconsent.min.css',
+        'assets/sass/rapido.scss'
+    ]|theme }}" rel="stylesheet">
+{% endput %}
+
+{# SCRIPTS #}
+{% put scripts %}
+    <script src="{{ 'assets/vendor/bootstrap/dist/js/bootstrap.min.js'|theme }}"></script>
 {% endput %}

@@ -4,15 +4,13 @@
  */
 @import "settings";
 @import "../vendor/bootstrap/scss/bootstrap";
-// @import "../vendor/rfs/scss";
-// @import "fonts";
 @import "global";
 @import "header";
 @import "hero";
+@import "jump-links";
 @import "services";
 @import "shop";
 @import "clients";
-@import "projects";
 @import "about";
 @import "figures";
 @import "testimonials";
@@ -21,3 +19,4 @@
 @import "contact";
 @import "footer";
 @import "keyframes";
+@import "libraries";

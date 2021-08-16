@@ -1,73 +1,36 @@
-description = "Default layout"
-
-[cookiesBar]
-
-[emptyForm newsletterForm]
-group = "Newsletter"
+[genericForm newsletterForm]
+group = "Newsletter Form"
 messages_success = "Your form was successfully submitted"
 messages_errors = "There were errors with your submission"
 mail_enabled = 1
+mail_recipients[] = "marios.sofokleous@yandex.com"
 mail_replyto = "{{ form.email }}"
-mail_template = "martin.forms::newsletter.notification"
+mail_template = "martin.forms::mail.notification"
 reset_form = 1
 inline_errors = "disabled"
-js_on_success = "const elemToHideMain = document.querySelectorAll(\"#newsletterForm .hide-js\");
-
-elemToHideMain.forEach(function(element) {
-  element.style.display = 'none';
-});"
-sanitize_data = "disabled"
+js_on_success = "const elemToHideNewsletter = document.querySelectorAll(\"#newsletterForm .hide-js\");
+elemToHideNewsletterForm.forEach(function(element) {
+    element.style.display = 'none';
+});\""
+sanitize_data = "htmlspecialchars"
 anonymize_ip = "disabled"
 recaptcha_theme = "light"
 recaptcha_type = "image"
 recaptcha_size = "normal"
 emails_date_format = "Y-m-d"
 ==
-<?php
-use Cms\Classes\Theme;
-
-function onEnd() {
-    $theme = Theme::getActiveTheme();
-    
-    // Get logo size
-    $logo = $theme->header_logo;
-    if ($logo) {
-        $path = storage_path('app/'.$logo->getDiskPath());
-        list($width, $height) = getimagesize($path);
-        $this['logoWidth'] = $width;
-        $this['logoHeight'] = $height;
-    }
-    
-    // Get page file name
-    $this['baseFileName'] = $this->page->baseFileName;
-}
-?>
-==
 <!doctype html>
 <html lang="en">
     {# HEAD #}
-    {% partial 'global/head' baseFileName=baseFileName %}
-    <body>
+    {% partial 'global/head' %}
+    
+    <body {{ this.page.baseFileName == 'home' ? 'data-spy="scroll" data-target="#jumpLinksNavbar" data-offset="120"' : ''}}>
         {# PAGE SPINNER #}
         {% content 'page-spinner' %}
         
         {# TO TOP #}
         <button aria-label="Back to top" id="toTop" class="to-top btn"><i class="fas fa-long-arrow-alt-up"></i></button>
-        
-        {# COOKIE NOTICE #}
-        {% if this.page.baseFileName != 'maintenance' and this.page.baseFileName != 'page-not-found-404' and this.page.baseFileName != 'cookie-settings' and this.page.baseFileName != 'error-page-500' and this.page.baseFileName != 'privacy-policy' %}
-            <div id="sg-{{ cookiesBar }}">
-                {% if sgCookies.consent is empty and viewBag.hideCookiesBar == false and page.viewBag.hideCookiesBar == false %}
-                    <div class="full-screen-overlay">
-                        <div class="fixed-bottom bg-dark">
-                            {% partial cookiesBar ~ '::cookiesbar' %}
-                        </div>
-                    </div>
-                {% endif %}
-                {% partial 'global/run-scripts' %}
-            </div>
-        {% endif %}
-        
+           
         {# HEADER #}
         {% partial 'global/header' %}
         
@@ -78,9 +41,14 @@ function onEnd() {
         
         {# FOOTER #}
         {% partial 'global/footer' %}
-        {# SCRIPTS #}
+
+        {# GLOBAL SCRIPTS #}
         {% partial 'global/scripts' %}
-        {# PLUGIN SCRIPTS #}
+
+        {# SPECIFIC SCRIPTS #}
         {% scripts %}
+
+        {# MAIN SCRIPT #}
+        <script src="{{ 'assets/js/rapido.js'|theme }}"></script>
     </body>
 </html>

@@ -1,150 +1,153 @@
-name: "Rapido"
-description: "Meet Rapido, a polished single-page business-oriented theme with a blog."
-author: "Marios Sofokleous"
-homepage: "https://www.msof.me/"
-code: "rapido"
-previewImage: "assets/images/theme-preview.png"
+name: 'Rapido'
+description: 'Polished single-page business-oriented theme with blog'
+author: 'Marios Sofokleous'
+homepage: 'https://www.msof.me/'
+authorCode: Msof
+code: Rapido
+database: '0'
+previewImage: assets/images/theme-preview.png
 require:
     - ToughDeveloper.ImageResizer
-    - RainLab.Blog
-    - Rahman.BlogTags
-    - PolloZen.MostVisited
-    - Tallpro.Related
-    - ArrizalAmin.Portfolio
-    - JanVince.SmallGDPR
     - Martin.Forms
     - OFFLINE.SiteSearch
-
-#--------------------------------------------------------------------------
-# THEME CONFIGURATION
-#--------------------------------------------------------------------------
+    - Tallpro.Related
+    - PolloZen.MostVisited
+    - Rahman.BlogTags
+    - Msof.Portfolio
+    - RainLab.Blog
 
 form:
     fields:
-
-        # Site
-        site_config_desc:
-            label: Rapido Theme Options
+        section_site_desc:
+            label: 'Rapido theme options'
             type: section
-            comment: A polished single-page business-oriented theme with a blog.
-
-        site_name:
-            label: Site name
-            default: Rapido
-            comment: The website name as it should appear on the front-end
-
+            comment: 'Polished single-page business-oriented theme with blog'
+        
     tabs:
         fields:
-
-            # General
-
-            header_logo:
-                label: Header logo (wx80, JPG | JPEG | PNG | SVG)
-                type: fileupload
-                mode: image
-                fileTypes : jpg,jpeg,png,svg
-                tab: Global
-                span: left
-
-            footer_logo:
-                label: Footer logo (wx80, JPG | JPEG | PNG | SVG)
-                type: fileupload
-                mode: image
-                fileTypes : jpg,jpeg,png,svg
-                tab: Global
-                span: right
-
-            header_button_icon:
-                label: Button icon (Font Awesome 5 Free)
-                type: text
-                tab: Global
-                comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
-                default: fas fa-external-link-alt
             
-            header_button_text:
-                label: Header button text
+            # Global
+            
+            global_site_name:
+                label: 'Site name'
+                tab: Global
+                comment: 'The website name as it should appear on the front-end (Copyright, Meta tags, Manifest)'
+                
+            global_header_logo:
+                label: Header logo (JPG | JPEG | PNG | SVG)
+                type: fileupload
+                mode: image
+                fileTypes : jpg,jpeg,png,svg
+                tab: Global
+                span: left
+                comment: Upload an image of any aspect ratio with a height of at least doubled the rendered height specified in the next field.
+                
+            global_header_logo_height:
+                label: 'Header logo rendered height in pixels'
+                type: number
+                step: 1
+                min: 0
+                tab: Global
+                span: right
+                default: 29
+                
+            global_footer_logo:
+                label: Footer logo (JPG | JPEG | PNG | SVG)
+                type: fileupload
+                mode: image
+                fileTypes : jpg,jpeg,png,svg
+                tab: Global
+                span: left
+                comment: Upload an image of any aspect ratio with a height of at least 58px.
+                
+            global_header_cta_label:
+                label: 'Header CTA label'
                 type: text
                 span: left
+                comment: 'e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote'
+                default: Get a Quote
                 tab: Global
-                comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
-                default: Public repository
-
-            header_button_link:
-                label: Header button link
+               
+            global_header_cta_icon:
+                label: 'Header CTA icon (Optional, Font Awesome 5 HTML)'
                 type: text
-                span: right
+                comment: 'e.g. <i class="fas fa-phone-alt"></i> | <i class="fas fa-envelope"></i> | <i class="fas fa-external-link-square-alt"></i> | <i class="fas fa-download"></i> | <i class="fas fa-paper-plane"></i>'
                 tab: Global
-                comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
-                default: https://github.com/PictureElement/rapido
-
-            header_button_new_tab_enable:
-                label: Open in new tab
+                
+            global_header_cta_url:
+                label: 'Header CTA URL'
+                type: text
+                comment: 'tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contact'
+                tab: Global
+               
+            global_header_cta_new_tab:
+                label: 'Open link in new tab?'
                 type: checkbox
                 span: left
                 tab: Global
                 default: false
-
-            phone:
-                label: Phone
+                
+            global_header_cta_same_host:
+                label: 'Same-host link?'
+                type: checkbox
+                span: right
+                tab: Global
+                default: true
+                
+            global_phone:
+                label: Phone (Optional)
                 type: text
                 comment: e.g. +1-541-754-3010
                 tab: Global
-                default: +1-541-754-3010
                 
-            mobile:
-                label: Mobile
+            global_mobile:
+                label: Mobile (Optional)
                 type: text
                 comment: e.g. +1-541-754-3020
                 tab: Global
-                default: +1-541-754-3020
                 
-            fax:
-                label: Fax
+            global_fax:
+                label: Fax (Optional)
                 type: text
                 comment: e.g. +1-541-754-3030
                 tab: Global
-                default: +1-541-754-3030   
-
-            email:
+                
+            global_email:
                 label: Email
                 type: text
                 comment: e.g. email@example.com
-                tab: Global
                 default: email@example.com
-
-            address:
-                label: Address
+                tab: Global
+                
+            global_address:
+                label: Address (Optional)
                 type: textarea
                 comment: e.g. Rapido, Inc.[/n]1355 Market St, Suite 900[/n]San Francisco, CA 94103
                 tab: Global
-
-            map_search_parameters:
-                label: Google Maps search parameters
-                type: text
-                default: Statue+of+Liberty+National+Monument
+                
+            global_map_search_parameters:
+                label: Google Maps search parameters (Optional)
                 comment: e.g. Statue+of+Liberty+National+Monument | 40.6892494,-74.0445004
                 tab: Global
                 
-            working_hours:
-                label: Working hours
+            global_working_hours:
+                label: Working hours (Optional)
                 type: textarea
                 size: small
                 comment: e.g. Mon. to Fri. from 08:00 - 17:00
                 tab: Global
-                default: Mon. to Fri. from 08:00 - 17:00
-
-            company_statement:
-                label: Your mission. Your values (Footer)
+                
+            global_company_statement:
+                label: Footer statement
                 type: textarea
                 comment: Tell visitors why you’re in business. State your mission and values (20-25 words)
                 size: small
                 tab: Global
-                default: Rapido is a polished single-page business-oriented theme with a blog that will help you design a modern website for your business quickly and easily.
 
-            social_repeater:
-                label: 'Social channels'
+            global_social_repeater:
+                label: 'Social channels (Optional)'
                 type: repeater
-                prompt: 'Add new social channel'
+                prompt: 'Add a new social channel'
                 form:
                     fields:
                         channel:
@@ -154,6 +157,8 @@ form:
                                 'fab fa-instagram': Instagram
                                 'fab fa-linkedin-in': LinkedIn
                                 'fab fa-twitter': Twitter
+                                'fab fa-youtube': YouTube
+                                'fab fa-vimeo': Vimeo
                             showSearch: true
                             span: left
                             type: dropdown
@@ -161,186 +166,39 @@ form:
                             label: Link
                             span: right
                             type: text
+                        label:
+                            label: Label
+                            type: text
+                            comment: 'e.g. Facebook'
                 tab: Global
 
-            subscribe_title:
+            global_subscribe_title:
                 label: Subscribe title
                 type: text
                 comment: e.g. Stay in the know
-                tab: Global
                 default: Stay in the know
+                tab: Global
 
-            subscribe_message:
+            global_subscribe_message:
                 label: Subscribe message
-                type: text
+                type: textarea
+                size: small
                 comment: e.g. Sign up for our monthly newsletter and get news and announcements delivered right to your inbox.
                 tab: Global
-                default: Sign up for our monthly newsletter and get news and announcements delivered right to your inbox.
 
-            subscribe_button_label:
+            global_subscribe_button_label:
                 label: Subscribe button label
                 type: text
                 comment: e.g. Join now
-                tab: Global
                 default: Join now
-
-            # Customization
-
-            colours:
-                label: Colours
-                type: section
-                tab: Theming
-
-            color_primary:
-                label: Primary
-                tab: Theming
-                type: colorpicker
-                default: '#5d21d2'
-                assetVar: 'primary'
-
-            color_on_primary:
-                label: On-primary
-                tab: Theming
-                type: colorpicker
-                default: 'rgba(255, 255, 255, 0.87)'
-                assetVar: 'on-primary'
-
-            color_primary_dark:
-                label: Primary dark
-                tab: Theming
-                type: colorpicker
-                default: '#2e1169'
-                assetVar: 'primary-dark'
-
-            color_on_primary_dark:
-                label: On-primary dark
-                tab: Theming
-                type: colorpicker
-                default: 'rgba(255, 255, 255, 0.87)'
-                assetVar: 'on-primary-dark'
-
-            color_primary_light:
-                label: Primary light
-                tab: Theming
-                type: colorpicker
-                default: '#f0eafb'
-                assetVar: 'primary-light'
-
-            color_accent:
-                label: Accent
-                tab: Theming
-                type: colorpicker
-                default: '#a0ebe5'
-                assetVar: 'accent'
-
-            color_on_accent:
-                label: On-accent
-                tab: Theming
-                type: colorpicker
-                default: 'rgba(0, 0, 0, 0.87)'
-                assetVar: 'on-accent'
-
-            shape:
-                label: Shape
-                type: section
-                tab: Theming
-
-            corner-radius-sm:
-                label: Rounded corners (small)
-                tab: Theming
-                type: dropdown
-                options:
-                    '0': Square shape
-                    '8px': Rounded shape 1
-                    '8px 0 8px 0': Rounded shape 2
-                showSearch: true
-                assetVar: 'corner-radius-sm'
-                comment: Rounded corners of small size components (e.g. inputs and buttons).
-            
-            corner-radius:
-                label: Rounded corners (regular)
-                tab: Theming
-                type: dropdown
-                options:
-                    '0': Square shape
-                    '16px': Rounded shape 1
-                    '16px 0 16px 0': Rounded shape 2
-                showSearch: true
-                assetVar: 'corner-radius'
-                comment: Rounded corners of regular size components (e.g. cards).
-
-            corner-radius-lg:
-                label: Rounded corners (large)
-                tab: Theming
-                type: dropdown
-                options:
-                    '0': Square shape
-                    '32px': Rounded shape 1
-                    '32px 0 32px 0': Rounded shape 2
-                showSearch: true
-                assetVar: 'corner-radius-lg'
-                comment: Rounded corners of large size components (e.g. section panels).
-
-            google_fonts:
-                label: Google Fonts
-                type: section
-                tab: Theming
-
-            google_fonts_enable:
-                label: Use Google Fonts?
-                type: switch
-                default: 0
-                assetVar: 'google-fonts-enable'
-                tab: Theming
-                comment: Enabling this option hinders performance.
-
-            google_fonts_link:
-                label: Google Fonts <link>
-                type: codeeditor
-                size: small
-                language: html
-                default: <link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
-                comment: Choose 300, 400, 600 weights for the Body family. Choose either one weight or two weights for the Heading family based on your weight selections for the primary and secondary headings (see below).
-                tab: Theming
-
-            google_fonts_body:
-                label: Body family
-                type: text
-                default: "'Open Sans', sans-serif"
-                comment: e.g. 'Open Sans', sans-serif
-                assetVar: 'google-fonts-body'
-                tab: Theming
-
-            google_fonts_heading:
-                label: Heading family
-                type: text
-                default: "'Poppins', sans-serif"
-                comment: e.g. 'Poppins', sans-serif
-                assetVar: 'google-fonts-heading'
-                tab: Theming
-
-            google_fonts_heading_weight_primary:
-                label: Heading weight (Primary)
-                type: text
-                default: "400"
-                comment: e.g. 100 | 200 | ... | 900
-                assetVar: 'headings-font-weight'
-                tab: Theming
-
-            google_fonts_heading_weight_secondary:
-                label: Heading weight (Secondary)
-                type: text
-                default: "300"
-                comment: e.g. 100 | 200 | ... | 900
-                assetVar: 'headings-font-weight-secondary'
-                tab: Theming
-
+                tab: Global
+                
             # Hero
 
             hero_enable:
                 label: Display this section?
                 type: switch
-                default: 0
+                default: 1
                 tab: Hero
 
             hero_repeater:
@@ -354,10 +212,11 @@ form:
                             type: switch
                             default: 1
                         image:
-                            label: Image (1534x1022, JPG | JPEG | PNG | SVG)
+                            label: Image (3:2, JPG | JPEG | PNG | SVG)
                             type: mediafinder
                             mode: image
                             span: left
+                            comment: The recommended minimum pixel requirements are 1536 x 1024 (3:2) pixels.
                         image_alt:
                             label: Alternative text
                             type: text
@@ -367,51 +226,81 @@ form:
                             label: Title
                             type: textarea
                             size: small
-                            comment: e.g. Do it better with Rapido.
+                            comment: e.g. A better way to build websites.
                         lead:
                             label: Lead
                             type: textarea
                             size: small
+                        section_primary_button:
+                            label: Primary button
+                            type: section
                         primary_button_icon:
-                            label: Primary button icon (Font Awesome 5 Free)
-                            type: text
-                            comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
-                        primary_button_text:
-                            label: Primary button text
+                            label: Primary button icon (Optional, Font Awesome 5 HTML)
                             type: text
                             span: left
-                            comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
-                        primary_button_link:
-                            label: Primary button link
+                            comment: 'e.g. <i class="fas fa-phone-alt"></i> | <i class="fas fa-envelope"></i> | <i class="fas fa-external-link-square-alt"></i> | <i class="fas fa-download"></i> | <i class="fas fa-paper-plane"></i>'
+                        primary_button_label:
+                            label: Primary button label
                             type: text
                             span: right
-                            comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
-                        primary_button_new_tab_enable:
-                            label: Open in new tab
+                            comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
+                        primary_button_url:
+                            label: Primary button URL
+                            type: text
+                            comment: 'tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contact'
+                        primary_button_new_tab:
+                            label: 'Open link in new tab?'
                             type: checkbox
                             span: left
                             default: false
+                        primary_button_same_host:
+                            label: 'Same-host link?'
+                            type: checkbox
+                            span: right
+                            default: true
+                        section_secondary_button:
+                            label: Secondary button (Optional)
+                            type: section
                         secondary_button_icon:
-                            label: Secondary button icon (Font Awesome 5 Free)
-                            type: text
-                            comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
-                        secondary_button_text:
-                            label: Secondary button text
+                            label: Secondary button icon (Optional, Font Awesome 5 HTML)
                             type: text
                             span: left
-                            comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
-                        secondary_button_link:
-                            label: Secondary button link
+                            comment: 'e.g. <i class="fas fa-phone-alt"></i> | <i class="fas fa-envelope"></i> | <i class="fas fa-external-link-square-alt"></i> | <i class="fas fa-download"></i> | <i class="fas fa-paper-plane"></i>'
+                        secondary_button_label:
+                            label: Secondary button label
                             type: text
                             span: right
-                            comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
-                        secondary_button_new_tab_enable:
-                            label: Open in new tab
+                            comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
+                        secondary_button_url:
+                            label: Secondary button URL
+                            type: text
+                            comment: 'tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contact'
+                        secondary_button_new_tab:
+                            label: 'Open link in new tab?'
                             type: checkbox
                             span: left
                             default: false
+                        secondary_button_same_host:
+                            label: 'Same-host link?'
+                            type: checkbox
+                            span: right
+                            default: true
                 tab: Hero
+            
+            # Jump Links
 
+            jump_links_enable:
+                label: Display this section?
+                type: switch
+                default: 1
+                tab: Jump links
+                
+            jump_links_background_color:
+                label: Set a light background color for this section?
+                type: switch
+                default: 1
+                tab: Jump links
+                
             # Services
 
             services_enable:
@@ -421,7 +310,7 @@ form:
                 tab: Services
 
             services_background_color:
-                label: Set a background color for this section?
+                label: Set a light background color for this section?
                 type: switch
                 default: 0
                 tab: Services
@@ -438,7 +327,6 @@ form:
                 type: text
                 tab: Services
                 comment: e.g. We provide the best in class services for our clients.
-                default: We provide the best in class services for our clients.
 
             services_lead:
                 label: Lead (Optional)
@@ -453,10 +341,11 @@ form:
                 form: 
                     fields:
                         icon:
-                            label: Icon (112x112, JPG | JPEG | PNG | SVG)
+                            label: Icon (1:1, JPG | JPEG | PNG | SVG)
                             type: mediafinder
                             mode: image
                             span: left
+                            comment: The recommended minimum pixel requirements are 112 x 112 (1:1) pixels.
                         icon_alt:
                             label: Alternative text
                             type: text
@@ -476,7 +365,7 @@ form:
                             type: richeditor
                             size: huge
                 tab: Services
-
+                    
             # Testimonials
 
             testimonials_enable:
@@ -484,27 +373,26 @@ form:
                 type: switch
                 default: 1
                 tab: Testimonials
-
+            
             testimonials_background_color:
-                label: Set a background color for this section?
+                label: Set a light background color for this section?
                 type: switch
                 default: 1
                 tab: Testimonials
-
+            
             testimonials_pretitle:
                 label: Pretitle
                 type: text
                 tab: Testimonials
                 comment: e.g. TESTIMONIALS
                 default: TESTIMONIALS
-
+            
             testimonials_title:
                 label: Title
                 type: text
                 tab: Testimonials
                 comment: e.g. What our clients say about us.
-                default: What our clients say about us.
-
+            
             testimonials_repeater:
                 label: Testimonials
                 type: repeater
@@ -512,10 +400,11 @@ form:
                 form:
                     fields:
                         avatar:
-                            label: Avatar (128x128, JPG | JPEG | PNG | SVG, Optional)
+                            label: Avatar (Optional, 1:1, JPG | JPEG | PNG | SVG)
                             type: mediafinder
                             mode: image
                             span: left
+                            comment: The recommended minimum pixel requirements are 128 x 128 (1:1) pixels.
                         avatar_alt:
                             label: Alternative text
                             type: text
@@ -530,194 +419,137 @@ form:
                             type: text
                             comment: e.g. Janet Morris, CEO, Wire Inc.
                 tab: Testimonials
-
+                    
             # Projects
-
+            
             projects_enable:
                 label: Display this section?
                 type: switch
                 default: 1
                 tab: Projects
-
+                comment: To hide this section, you also need to remove the Portfolio List component from the Home page.
+            
             projects_background_color:
-                label: Set a background color for this section?
+                label: Set a light background color for this section?
                 type: switch
                 default: 0
                 tab: Projects
-
+            
             projects_pretitle:
                 label: Pretitle
                 type: text
                 tab: Projects
                 comment: e.g. PROJECTS
                 default: PROJECTS
-
+            
             projects_title:
                 label: Title
                 type: text
                 tab: Projects
                 comment: e.g. Below are some of our best projects.
-                default: Below are some of our best projects.
-
+            
             projects_lead:
                 label: Lead (Optional)
                 type: textarea
                 tab: Projects
                 size: small
-
-            # CTAs
-
-            cta_primary:
-                label: Call-to-action (Primary)
-                type: section
-                tab: CTAs
+                    
+            # CTA primary
 
             cta_primary_enable:
                 label: Display this section?
                 type: switch
                 default: 1
-                tab: CTAs
-
+                tab: CTA primary
+            
             cta_primary_title:
                 label: Title
-                type: text
-                tab: CTAs
+                type: textarea
+                size: tiny
+                tab: CTA primary
                 comment: e.g. Download Rapido for free anytime, anywhere.
                 default: Download Rapido for free anytime, anywhere.
-                
+                    
+            section_cta_primary_primary_button:
+                label: Primary button
+                type: section
+                tab: CTA primary
+                    
             cta_primary_primary_button_icon:
-                label: Primary button icon (Font Awesome 5 Free)
+                label: Button icon (Optional, Font Awesome 5 HTML)
                 type: text
-                tab: CTAs
-                comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
+                tab: CTA primary
+                comment: 'e.g. <i class="fas fa-phone-alt"></i> | <i class="fas fa-envelope"></i> | <i class="fas fa-external-link-square-alt"></i> | <i class="fas fa-download"></i> | <i class="fas fa-paper-plane"></i>'
+                default: '<i class="fab fa-github"></i>'
             
-            cta_primary_primary_button_text:
-                label: Primary button text
+            cta_primary_primary_button_label:
+                label: Button label
                 type: text
                 span: left
-                tab: CTAs
-                comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
-                default: Add to project
-
-            cta_primary_primary_button_link:
-                label: Primary button link
-                type: text
-                span: right
-                tab: CTAs
-                comment: "e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | #contactForm"
-                default: https://octobercms.com/theme/msof-rapido
-
-            cta_primary_primary_button_new_tab_enable:
-                label: Open in new tab
-                type: checkbox
-                span: left
-                tab: CTAs
-                default: false
-
-            cta_primary_secondary_button_icon:
-                label: Secondary button icon (Font Awesome 5 Free)
-                type: text
-                tab: CTAs
-                comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
-            
-            cta_primary_secondary_button_text:
-                label: Secondary button text
-                type: text
-                span: left
-                tab: CTAs
+                tab: CTA primary
                 comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
                 default: Public repository
-
-            cta_primary_secondary_button_link:
-                label: Secondary button link
-                type: text
-                span: right
-                tab: CTAs
-                comment: "e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | #contactForm"
-                default: https://github.com/PictureElement/rapido
-
-            cta_primary_secondary_button_new_tab_enable:
-                label: Open in new tab
-                type: checkbox
-                span: left
-                tab: CTAs
-                default: false
-
-            cta_secondary:
-                label: Call-to-action (Secondary)
-                type: section
-                tab: CTAs
-
-            cta_secondary_enable:
-                label: Display this section?
-                type: switch
-                default: 1
-                tab: CTAs
-
-            cta_secondary_title:
-                label: Title
-                type: text
-                tab: CTAs
-                comment: e.g. Let’s work together on your next web project.
-                default: Let’s work together on your next web project.
-
-            cta_secondary_primary_button_icon:
-                label: Primary button icon (Font Awesome 5 Free)
-                type: text
-                tab: CTAs
-                comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
-                default: fas fa-external-link-alt
-                
-            cta_secondary_primary_button_text:
-                label: Primary button text
-                type: text
-                span: left
-                tab: CTAs
-                comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
-                default: Contact us
-
-            cta_secondary_primary_button_link:
-                label: Primary button link
-                type: text
-                span: right
-                tab: CTAs
-                comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
-                default: https://msof.me/
-
-            cta_secondary_primary_button_new_tab_enable:
-                label: Open in new tab
-                type: checkbox
-                span: left
-                tab: CTAs
-                default: false
-
-            cta_secondary_secondary_button_icon:
-                label: Secondary button icon (Font Awesome 5 Free)
-                type: text
-                tab: CTAs
-                comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
             
-            cta_secondary_secondary_button_text:
-                label: Secondary button text
-                type: text
-                span: left
-                tab: CTAs
-                comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
-
-            cta_secondary_secondary_button_link:
-                label: Secondary button link
+            cta_primary_primary_button_url:
+                label: Button URL
                 type: text
                 span: right
-                tab: CTAs
-                comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
-
-            cta_secondary_secondary_button_new_tab_enable:
-                label: Open in new tab
+                tab: CTA primary
+                comment: "e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contact"
+            
+            cta_primary_primary_button_new_tab:
+                label: 'Open link in new tab?'
                 type: checkbox
                 span: left
-                tab: CTAs
+                tab: CTA primary
                 default: false
-
+                
+            cta_primary_primary_button_same_host:
+                label: 'Same-host link?'
+                type: checkbox
+                span: right
+                tab: CTA primary
+                default: true
+                    
+            section_cta_primary_secondary_button:
+                label: Secondary button (Optional)
+                type: section
+                tab: CTA primary
+                    
+            cta_primary_secondary_button_icon:
+                label: Button icon (Optional, Font Awesome 5 HTML)
+                type: text
+                tab: CTA primary
+                comment: 'e.g. <i class="fas fa-phone-alt"></i> | <i class="fas fa-envelope"></i> | <i class="fas fa-external-link-square-alt"></i> | <i class="fas fa-download"></i> | <i class="fas fa-paper-plane"></i>'
+            
+            cta_primary_secondary_button_label:
+                label: Button label
+                type: text
+                span: left
+                tab: CTA primary
+                comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
+            
+            cta_primary_secondary_button_url:
+                label: Button URL
+                type: text
+                span: right
+                tab: CTA primary
+                comment: "e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contact"
+            
+            cta_primary_secondary_button_new_tab:
+                label: 'Open link in new tab?'
+                type: checkbox
+                span: left
+                tab: CTA primary
+                default: false
+                
+            cta_primary_secondary_button_same_host:
+                label: 'Same-host link?'
+                type: checkbox
+                span: right
+                tab: CTA primary
+                default: true
+            
             # About
 
             about_enable:
@@ -727,9 +559,9 @@ form:
                 tab: About
 
             about_background_color:
-                label: Set a background color for this section?
+                label: Set a light background color for this section?
                 type: switch
-                default: 0
+                default: 1
                 tab: About
 
             about_pretitle:
@@ -743,8 +575,7 @@ form:
                 label: Title
                 type: text
                 tab: About
-                comment: e.g. Meet Rapido, a polished single-page theme with a blog suitable for small businesses.
-                default: Meet Rapido, a polished single-page theme with a blog suitable for small businesses.
+                comment: e.g. Stay focused on your business. Let us handle the design.
 
             about_text:
                 label: Text
@@ -762,7 +593,7 @@ form:
                             label: Number
                             type: text
                             span: left
-                            comment: e.g. 1.234 | 1234 | 1,234.56 | $1,234.56 | 3,5k+ | 85%
+                            comment: e.g. 1.234 | 1234 | 1,234.56 | $1,234.56 | 3,5K | 85%
                         title:
                             label: Title
                             type: text
@@ -770,7 +601,7 @@ form:
                             comment: e.g. Year's experience
                 maxItems: 3
                 tab: About
-
+                    
             # Retail
 
             retail_enable:
@@ -780,9 +611,9 @@ form:
                 tab: Retail
 
             retail_background_color:
-                label: Set a background color for this section?
+                label: Set a light background color for this section?
                 type: switch
-                default: 1
+                default: 0
                 tab: Retail
 
             retail_pretitle:
@@ -797,7 +628,6 @@ form:
                 type: text
                 tab: Retail
                 comment: e.g. Discover our latest products now available at our brand new store.
-                default: Discover our latest products now available at our brand new store.
                 
             retail_text:
                 label: Text
@@ -805,65 +635,74 @@ form:
                 size: huge
                 tab: Retail
 
-            retail_button_icon:
-                label: Button icon (Font Awesome 5 Free)
-                type: text
+            section_retail_button:
+                label: Retail button (Optional)
+                type: section
                 tab: Retail
-                comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
-                default: fas fa-file-download
-
-            retail_button_text:
-                label: Button text
+                    
+            retail_button_icon:
+                label: Retail button icon (Optional, Font Awesome 5 HTML)
                 type: text
                 span: left
+                comment: 'e.g. <i class="fas fa-phone-alt"></i> | <i class="fas fa-envelope"></i> | <i class="fas fa-external-link-square-alt"></i> | <i class="fas fa-download"></i> | <i class="fas fa-paper-plane"></i>'
                 tab: Retail
-                comment: e.g. Call us | Email us | Learn More | Product Catalog | Our Blog | Get a Quote
-                default: Product Catalog
-
-            retail_button_link:
-                label: Button link
+                    
+            retail_button_label:
+                label: Retail button label
                 type: text
                 span: right
+                comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
                 tab: Retail
-                comment: "e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | #contactForm"
-                default: .
-
-            retail_button_new_tab_enable:
-                label: Open in new tab
+                    
+            retail_button_url:
+                label: Retail button URL
+                type: text
+                comment: 'tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contact'
+                tab: Retail
+                    
+            retail_button_new_tab:
+                label: 'Open link in new tab?'
                 type: checkbox
                 span: left
                 tab: Retail
                 default: false
-
+                tab: Retail
+                    
+            retail_button_same_host:
+                label: 'Same-host link?'
+                type: checkbox
+                span: right
+                default: true
+                tab: Retail
+                    
             # FAQs
 
-            faq_enable:
+            faqs_enable:
                 label: Display this section?
                 type: switch
                 default: 1
                 tab: FAQs
-
-            faq_background_color:
-                label: Set a background color for this section?
+            
+            faqs_background_color:
+                label: Set a light background color for this section?
                 type: switch
-                default: 0
+                default: 1
                 tab: FAQs
-
-            faq_pretitle:
+            
+            faqs_pretitle:
                 label: Pretitle
                 type: text
                 tab: FAQs
                 comment: e.g. FAQs
                 default: FAQs
-
-            faq_title:
+            
+            faqs_title:
                 label: Title
                 type: text
                 tab: FAQs
                 comment: e.g. Answers to anything you might ask.
-                default: Answers to anything you might ask.
-
-            faq_repeater:
+               
+            faqs_repeater:
                 label: FAQs
                 type: repeater
                 prompt: Add a new faq
@@ -872,94 +711,91 @@ form:
                         question:
                             label: Question
                             type: text
-                            comment: e.g. I have a technical problem, who do I do?
+                            comment: e.g. Where do you serve your customers?
                         answer:
                             label: Answer
                             type: richeditor
                             size: small
                 tab: FAQs
-
+                    
             # Blog
 
-            blog_section:
-                label: Blog section
+            section_latests_posts_home_page:
+                label: Home page
                 type: section
                 tab: Blog
-
+            
             blog_enable:
                 label: Display this section?
                 type: switch
                 default: 1
                 tab: Blog
-
+            
             blog_background_color:
-                label: Set a background color for this section?
+                label: Set a light background color for this section?
                 type: switch
-                default: 1
+                default: 0
                 tab: Blog
-
+            
             blog_pretitle:
                 label: Pretitle
                 type: text
                 tab: Blog
                 comment: e.g. BLOG
                 default: BLOG
-
+            
             blog_title:
                 label: Title
                 type: text
                 tab: Blog
                 comment: e.g. Read our news, comments and thoughts.
-                default: Read our news, comments and thoughts.
-
-            blog_page:
+            
+            section_latests_posts_blog_page:
                 label: Blog page
                 type: section
                 tab: Blog
-
+            
             blog_ptitle:
                 label: Title
                 type: text
                 tab: Blog
                 comment: e.g. News | Blog | Insights
                 default: Blog
-
+            
             blog_plead:
                 label: Lead
                 type: textarea
                 size: small
                 tab: Blog
-                comment: News, insights, and creative culture from Rapido.
-                default: News, insights, and creative culture from Rapido.
-
+                comment: e.g. News, insights, and creative culture from Rapido.
+                    
             # Clients
-            
+
             clients_enable:
                 label: Display this section?
                 type: switch
                 default: 1
                 tab: Clients
-
+            
             clients_background_color:
-                label: Set a background color for this section?
+                label: Set a light background color for this section?
                 type: switch
-                default: 0
+                default: 1
                 tab: Clients
-
+            
             clients_pretitle:
                 label: Pretitle
                 type: text
                 tab: Clients
                 comment: e.g. CLIENTS
                 default: CLIENTS
-
+            
             clients_title:
                 label: Title
                 type: text
                 tab: Clients
                 comment: e.g. We are proud to be trusted by the world's best.
-                default: We are proud to be trusted by the world's best.
-
+            
             clients_repeater:
                 label: Slideshow
                 type: repeater
@@ -967,19 +803,20 @@ form:
                 form: 
                     fields:
                         image:
-                            label: Image (342x114, JPG | JPEG | PNG | SVG)
+                            label: Image (3:1, JPG | JPEG | PNG | SVG)
                             type: mediafinder
                             mode: image
                             span: left
+                            comment: The recommended minimum pixel requirements are 342 x 114 (3:1) pixels.
                         image_alt:
                             label: Alternative text
                             type: text
                             span: right
                             comment: Describe the image as specifically as possible. Keep character count at arround 125 or less.
                 tab: Clients
-
+            
             # Contact
-
+                    
             contact_enable:
                 label: Display this section?
                 type: switch
@@ -987,11 +824,11 @@ form:
                 tab: Contact
 
             contact_background_color:
-                label: Set a background color for this section?
+                label: Set a light background color for this section?
                 type: switch
-                default: 1
+                default: 0
                 tab: Contact
-
+                
             contact_pretitle:
                 label: Pretitle
                 type: text
@@ -1004,7 +841,6 @@ form:
                 type: text
                 tab: Contact
                 comment: e.g. Request a quote
-                default: Request a quote
 
             contact_lead:
                 label: Lead (Optional)
@@ -1012,7 +848,6 @@ form:
                 size: small
                 tab: Contact
                 comment: e.g. Our estimates are free, professional, and fair. Response time will vary depending on the time of the year and the type of request.
-                default: Our estimates are free, professional, and fair. Response time will vary depending on the time of the year and the type of request.
 
             contact_heading_one:
                 label: Heading 1
@@ -1027,79 +862,156 @@ form:
                 tab: Contact
                 comment: e.g. What would you like a quote for?
                 default: What would you like a quote for?
-
+                    
+            contact_repeater:
+                label: Quote for
+                type: repeater
+                prompt: Add a new item
+                form:
+                    fields:
+                        name:
+                            label: Name
+                            type: text
+                            comment: e.g. Logo Design
+                tab: Contact
+                    
             contact_heading_three:
                 label: Heading 3
                 type: text
                 tab: Contact
                 comment: e.g. And finally...
                 default: And finally...
+            
+            # CTA secondary
 
-            contact_consent:
-                label: Consent
+            cta_secondary_enable:
+                label: Display this section?
+                type: switch
+                default: 1
+                tab: CTA secondary
+            
+            cta_secondary_title:
+                label: Title
                 type: textarea
-                size: small
-                tab: Contact
-                comment: e.g. I consent to have this website collect my submitted information so they can respond to my inquiry.
-                default: I consent to have this website collect my submitted information so they can respond to my inquiry.
-
+                size: tiny
+                tab: CTA secondary
+                comment: e.g. Let’s work together on your next software development project.
+                default: Let’s work together on your next software development project.
+                    
+            section_cta_secondary_primary_button:
+                label: Primary button
+                type: section
+                tab: CTA secondary
+                    
+            cta_secondary_primary_button_icon:
+                label: Button icon (Optional, Font Awesome 5 HTML)
+                type: text
+                tab: CTA secondary
+                comment: 'e.g. <i class="fas fa-phone-alt"></i> | <i class="fas fa-envelope"></i> | <i class="fas fa-external-link-square-alt"></i> | <i class="fas fa-download"></i> | <i class="fas fa-paper-plane"></i>'
+            
+            cta_secondary_primary_button_label:
+                label: Button label
+                type: text
+                span: left
+                tab: CTA secondary
+                comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
+                default: Contact us
+            
+            cta_secondary_primary_button_url:
+                label: Button URL
+                type: text
+                span: right
+                tab: CTA secondary
+                comment: "e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contact"
+            
+            cta_secondary_primary_button_new_tab:
+                label: 'Open link in new tab?'
+                type: checkbox
+                span: left
+                tab: CTA secondary
+                default: false
+                
+            cta_secondary_primary_button_same_host:
+                label: 'Same-host link?'
+                type: checkbox
+                span: right
+                tab: CTA secondary
+                default: true
+                    
+            section_cta_secondary_secondary_button:
+                label: Secondary button (Optional)
+                type: section
+                tab: CTA secondary
+                    
+            cta_secondary_secondary_button_icon:
+                label: Button icon (Optional, Font Awesome 5 HTML)
+                type: text
+                tab: CTA secondary
+                comment: 'e.g. <i class="fas fa-phone-alt"></i> | <i class="fas fa-envelope"></i> | <i class="fas fa-external-link-square-alt"></i> | <i class="fas fa-download"></i> | <i class="fas fa-paper-plane"></i>'
+            
+            cta_secondary_secondary_button_label:
+                label: Button label
+                type: text
+                span: left
+                tab: CTA secondary
+                comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
+            
+            cta_secondary_secondary_button_url:
+                label: Button URL
+                type: text
+                span: right
+                tab: CTA secondary
+                comment: "e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contact"
+            
+            cta_secondary_secondary_button_new_tab:
+                label: 'Open link in new tab?'
+                type: checkbox
+                span: left
+                tab: CTA secondary
+                default: false
+                
+            cta_secondary_secondary_button_same_host:
+                label: 'Same-host link?'
+                type: checkbox
+                span: right
+                tab: CTA secondary
+                default: true
+            
             # Utility
-
-            terms_page:
-                label: Terms and Conditions page
+            
+            section_not_found_page:
+                label: 404 page
                 type: section
                 tab: Utility pages
-
-            terms_text:
-                label: Text
-                type: richeditor
-                size: giant
-                tab: Utility pages
-
-            privacy_page:
-                label: Privacy policy page
-                type: section
-                tab: Utility pages
-
-            privacy_text:
-                label: Text
-                type: richeditor
-                size: giant
-                tab: Utility pages
-
-            not_found_page:
-                label: Page not found (404)
-                type: section
-                tab: Utility pages
-
-            not_found_title:
+        
+            utility_not_found_title:
                 label: Title
                 type: text
                 default: 404 - Page not found
                 tab: Utility pages
                 comment: e.g. 404 - Page not found
-
-            not_found_lead:
+        
+            utility_not_found_lead:
                 label: Lead
                 type: textarea
                 default: We're sorry, but the page you've requested cannot be found.
                 size: small
                 tab: Utility pages
                 comment: e.g. We're sorry, but the page you've requested cannot be found.
-
-            error_page:
-                label: Error page (500)
+            
+            section_error_page:
+                label: 500 page
                 type: section
                 tab: Utility pages
-
-            error_title:
+               
+            utility_error_title:
                 label: Title
                 type: text
-                default: 500 - Error
+                default: 500 - Server error
                 tab: Utility pages
-                comment: e.g. 500 - Error
-
-            error_lead:
+                comment: e.g. 500 - Server error
+        
+            utility_error_lead:
                 label: Lead
                 type: textarea
                 default: We're sorry, but something went wrong and the page cannot be displayed.
@@ -1107,119 +1019,310 @@ form:
                 tab: Utility pages
                 comment: e.g. We're sorry, but something went wrong and the page cannot be displayed.
             
-            maintenance_page:
+            section_maintenance_page:
                 label: Maintenance page
                 type: section
                 tab: Utility pages
-
-            maintenance_logo:
-                label: Maintenance Logo (1152xh, JPG | JPEG | PNG | SVG)
+                    
+            utility_maintenance_logo:
+                label: Logo (JPG | JPEG | PNG | SVG)
                 type: fileupload
                 mode: image
-                fileTypes : jpg,jpeg,png,svg
+                fileTypes: jpg,jpeg,png,svg
                 tab: Utility pages
                 span: left
-
-            maintenance_title:
+                comment: Upload an image of any aspect ratio with a width of at least 496 pixels.
+                
+            utility_maintenance_title:
                 label: Title
                 type: text
                 default: Maintenance
                 tab: Utility pages
                 comment: e.g. Maintenance
-
-            maintenance_lead:
+            
+            utility_maintenance_lead:
                 label: Lead
                 type: textarea
                 default: We're undergoing a bit of scheduled maintenance. We'll be back up and running as fast as possible.
                 size: small
                 tab: Utility pages
                 comment: e.g. We're undergoing a bit of scheduled maintenance. We'll be back up and running as fast as possible.
-
-            maintenance_primary_button_icon:
-                label: Primary button icon (Font Awesome 5 Free)
+                
+            utility_maintenance_primary_button_icon:
+                label: Primary button icon (Optional, Font Awesome 5 HTML)
                 type: text
                 tab: Utility pages
-                comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
-                default: fas fa-envelope
-                
-            maintenance_primary_button_text:
-                label: Primary button text
+                comment: 'e.g. <i class="fas fa-phone-alt"></i> | <i class="fas fa-envelope"></i> | <i class="fas fa-external-link-square-alt"></i> | <i class="fas fa-download"></i> | <i class="fas fa-paper-plane"></i>'
+            
+            utility_maintenance_primary_button_label:
+                label: Primary button label
                 type: text
                 span: left
                 tab: Utility pages
                 comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
-                default: Email us
-
-            maintenance_primary_button_link:
-                label: Primary button link
+            
+            utility_maintenance_primary_button_url:
+                label: Primary button URL
                 type: text
                 span: right
                 tab: Utility pages
-                comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
-                default: mailto:mail@example.com
-
-            maintenance_secondary_button_icon:
-                label: Secondary button icon (Font Awesome 5 Free)
+                comment: "e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contact"
+            
+            utility_maintenance_primary_button_new_tab:
+                label: 'Open link in new tab?'
+                type: checkbox
+                span: left
+                tab: Utility pages
+                default: false
+                
+            utility_maintenance_primary_button_same_host:
+                label: 'Same-host link?'
+                type: checkbox
+                span: right
+                tab: Utility pages
+                default: true
+                    
+            utility_maintenance_secondary_button_icon:
+                label: Secondary button icon (Optional, Font Awesome 5 HTML)
                 type: text
                 tab: Utility pages
-                comment: e.g. fas fa-phone-alt, fas fa-envelope, fas fa-external-link-alt, fas fa-file-download, etc. (More icons at https://fontawesome.com/icons?d=gallery&m=free)
-                default: fas fa-phone-alt
+                comment: 'e.g. <i class="fas fa-phone-alt"></i> | <i class="fas fa-envelope"></i> | <i class="fas fa-external-link-square-alt"></i> | <i class="fas fa-download"></i> | <i class="fas fa-paper-plane"></i>'
                 
-            maintenance_secondary_button_text:
-                label: Secondary button text
+            utility_maintenance_secondary_button_label:
+                label: Secondary button label
                 type: text
                 span: left
                 tab: Utility pages
                 comment: e.g. Call us | Email us | Learn More | Download Catalog | Our Blog | Get a Quote
-                default: Call us
-
-            maintenance_secondary_button_link:
-                label: Secondary button link
+            
+            utility_maintenance_secondary_button_url:
+                label: Secondary button URL
                 type: text
                 span: right
                 tab: Utility pages
-                comment: e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contactForm
-                default: tel:+1-541-754-3010
+                comment: "e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contact"
+            
+            utility_maintenance_secondary_button_new_tab:
+                label: 'Open link in new tab?'
+                type: checkbox
+                span: left
+                tab: Utility pages
+                default: false
+                
+            utility_maintenance_secondary_button_same_host:
+                label: 'Same-host link?'
+                type: checkbox
+                span: right
+                tab: Utility pages
+                default: true
+            
+            section_privacy_page:
+                label: Privacy Policy page
+                type: section
+                tab: Utility pages
+            
+            utility_privacy_text:
+                label: Text (Leave blank to use the default template)
+                type: richeditor
+                size: giant
+                tab: Utility pages
+            
+            # Theming
+
+            section_colours:
+                label: Colours
+                type: section
+                tab: Theming
+
+            theming_color_primary:
+                label: Primary
+                tab: Theming
+                type: colorpicker
+                default: '#1976d2'
+                assetVar: 'primary'
+
+            theming_color_on_primary:
+                label: On-primary
+                tab: Theming
+                type: colorpicker
+                default: 'rgba(255, 255, 255, 0.87)'
+                assetVar: 'on-primary'
+
+            theming_color_primary_dark:
+                label: Primary dark
+                tab: Theming
+                type: colorpicker
+                default: '#232c33'
+                assetVar: 'primary-dark'
+
+            theming_color_on_primary_dark:
+                label: On-primary dark
+                tab: Theming
+                type: colorpicker
+                default: 'rgba(255, 255, 255, 0.87)'
+                assetVar: 'on-primary-dark'
+
+            theming_color_primary_light:
+                label: Light
+                tab: Theming
+                type: colorpicker
+                default: '#ebebeb'
+                assetVar: 'primary-light'
+
+            theming_color_accent:
+                label: Accent
+                tab: Theming
+                type: colorpicker
+                default: '#FFC400'
+                assetVar: 'accent'
+
+            theming_color_on_accent:
+                label: On-accent
+                tab: Theming
+                type: colorpicker
+                default: 'rgba(0, 0, 0, 0.87)'
+                assetVar: 'on-accent'
+                
+            theming_meta_theme_color:
+                label: 'Value for the theme-color meta tag'
+                tab: Theming
+                type: colorpicker
+                default: '#004ba0'
+
+            section_shape:
+                label: Shape
+                type: section
+                tab: Theming
+
+            theming_corner_radius_sm:
+                label: Rounded corners (small)
+                tab: Theming
+                type: dropdown
+                options:
+                    '0': Square shape
+                    '8px': Rounded shape 1
+                    '8px 0 8px 0': Rounded shape 2
+                showSearch: true
+                assetVar: 'corner-radius-sm'
+                comment: Rounded corners of small size components (e.g. inputs and buttons).
+            
+            theming_corner_radius:
+                label: Rounded corners (regular)
+                tab: Theming
+                type: dropdown
+                options:
+                    '0': Square shape
+                    '16px': Rounded shape 1
+                    '16px 0 16px 0': Rounded shape 2
+                showSearch: true
+                assetVar: 'corner-radius'
+                comment: Rounded corners of regular size components (e.g. cards).
+
+            theming_corner_radius_lg:
+                label: Rounded corners (large)
+                tab: Theming
+                type: dropdown
+                options:
+                    '0': Square shape
+                    '32px': Rounded shape 1
+                    '32px 0 32px 0': Rounded shape 2
+                showSearch: true
+                assetVar: 'corner-radius-lg'
+                comment: Rounded corners of large size components (e.g. section panels).
+
+            section_google_fonts:
+                label: Google Fonts
+                type: section
+                tab: Theming
+
+            theming_google_fonts_enable:
+                label: Use Google Fonts?
+                type: switch
+                default: 0
+                assetVar: 'google-fonts-enable'
+                tab: Theming
+                comment: Enabling this option hinders performance.
+
+            theming_google_fonts_link:
+                label: Google Fonts <link>
+                type: codeeditor
+                size: small
+                language: html
+                default: <link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Poppins:wght@400&display=swap" rel="stylesheet">
+                comment: Choose 300, 400 weights for the Body family. Choose one weight for the Heading family.
+                tab: Theming
+
+            theming_google_fonts_body:
+                label: Body family
+                type: text
+                default: "'Open Sans', sans-serif"
+                comment: e.g. 'Open Sans', sans-serif
+                assetVar: 'google-fonts-body'
+                tab: Theming
+
+            theming_google_fonts_heading:
+                label: Heading family
+                type: text
+                default: "'Poppins', sans-serif"
+                comment: e.g. 'Poppins', sans-serif
+                assetVar: 'google-fonts-heading'
+                tab: Theming
+
+            theming_google_fonts_heading_weight_primary:
+                label: Heading weight
+                type: text
+                default: "400"
+                comment: e.g. 100 | 200 | ... | 900
+                assetVar: 'headings-font-weight'
+                tab: Theming
 
             # Favicon & App icons
 
-            favicon:
-                label: Favicon (32x32, ICO)
+            icons_favicon:
+                label: 'Favicon (32x32, ICO)'
                 type: fileupload
                 mode: image
-                fileTypes : ico
-                tab: Favicon & App icons
-
-            icon:
-                label: Icon (1:1, SVG)
-                type: fileupload
-                mode: image
-                fileTypes : svg
-                tab: Favicon & App icons
+                fileTypes: ico
+                tab: 'Favicon & App icons'
                 
-            apple_touch_icon:
-                label: Apple touch icon (180x180, PNG)
+            icons_icon_svg:
+                label: 'Icon (1:1, SVG)'
                 type: fileupload
                 mode: image
-                fileTypes : png
-                tab: Favicon & App icons
-
+                fileTypes: svg
+                tab: 'Favicon & App icons'
+                
+            icons_icon_png:
+                label: 'Icon (1:1, PNG)'
+                type: fileupload
+                mode: image
+                fileTypes: png
+                tab: 'Favicon & App icons'
+                comment: The recommended minimum pixel requirements are 512 x 512 (1:1) pixels.
+                
             # Notes
 
-            projects_comment:
+            section_project_comment:
                 label: Want to manage your projects?
                 type: section
                 tab: Notes
-                comment: To manage your projects, click "Portfolio" on the admin toolbar. The recommended image size for portfolio items is 1280x720.
+                comment: You can manage your projects, via the "Portfolio" plugin. Assuming default settings for the "PortfolioList" component, project preview images can be of any aspect ratio with a width of at least 686 pixels.
 
-            blog_comment:
+            section_blog_comment:
                 label: Want to manage your Blog? 
                 type: section
                 tab: Notes
-                comment: To manage your Blog, click "Blog" on the admin toolbar. The recommended image size for posts is 1456x818.
+                comment: You can manage your posts, via the "Blog" plugin. The recommended minimum pixel requirements for the post "Featured Images" are 1452 x 817 (16:9) pixels.
 
-            id_comment:
+            section_anchor_comment:
                 label: Want to jump to a specific part of the Homepage?
                 type: section
                 tab: Notes
-                comment: "The homepage has the following marked sections: #services, #testimonials, #projects, #about, #retail, #faqs, #blog, #clients, and #contactForm. You can always define a hyperlink to jump to a specific section."
+                comment: "The homepage has the following marked sections: #services, #testimonials, #projects, #about, #retail, #faqs, #blog, #clients, and #contact. You can always define a hyperlink to jump to a specific section."
+                
+            # Misc
+            
+            misc_analytics_id:
+                label: 'Google Analytics property ID'
+                type: text
+                tab: Misc

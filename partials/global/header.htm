@@ -1,71 +1,44 @@
-description = "Header"
-==
 {# HEADER #}
-<header id="pageHeader" class="page-header bg-white headroom">
+<header class="page-header bg-white">
     <div class="container">
-        <nav class="navbar navbar-expand-xl px-0 py-2">
-            <a aria-label="rapido.msof.me" class="navbar-brand py-0 mr-2" href="{{ url('/') }}">
-                {% if this.theme.header_logo.extension == 'svg' %}
-                    <img src="{{ this.theme.header_logo.path }}" height="40" alt="{{ this.theme.header_logo.description }}">
+        <nav class="navbar navbar-expand-md px-0">
+            <a aria-label="Navigate to home page" class="navbar-brand py-0 mr-2" href="{{ url('/') }}">
+                {% if this.theme.global_header_logo.extension == 'svg' %}
+                    <img 
+                        src="{{ this.theme.global_header_logo.path }}"
+                        height="{{ this.theme.global_header_logo_height }}"
+                        alt="{{ this.theme.global_header_logo.description }}">
                 {% else %}
-                    <img src="{{ this.theme.header_logo.path|resize(logoWidth/2, logoHeight/2) }}" srcset="{{ this.theme.header_logo.path|resize(logoWidth/2, logoHeight/2) }} 1x, {{ this.theme.header_logo.path }} 2x" width="{{ logoWidth/2 }}" height="{{ logoHeight/2 }}" alt="{{ this.theme.header_logo.description }}">
+                     <img 
+                        src="{{ this.theme.global_header_logo.path|resize(auto, this.theme.global_header_logo_height) }}"
+                        srcset="{{ this.theme.global_header_logo.path|resize(auto, this.theme.global_header_logo_height) }} 1x,
+                                {{ this.theme.global_header_logo.path|resize(auto, (2 * this.theme.global_header_logo_height)) }} 2x"
+                        height="{{ this.theme.global_header_logo_height }}"
+                        alt="{{ this.theme.global_header_logo.description }}">
                 {% endif %}
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
-            <div class="collapse navbar-collapse pt-2 pt-xl-0" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    {% if this.theme.services_enable == 1 %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}/#services">{{ this.theme.services_pretitle }}</a>
-                        </li>
-                    {% endif %}
-                    {% if this.theme.testimonials_enable == 1 %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}/#testimonials">{{ this.theme.testimonials_pretitle }}</a>
-                        </li>
-                    {% endif %}
-                    {% if this.theme.projects_enable == 1 %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}/#projects">{{ this.theme.projects_pretitle }}</a>
-                        </li>
-                    {% endif %}
-                    {% if this.theme.about_enable == 1 %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}/#about">{{ this.theme.about_pretitle }}</a>
-                        </li>
-                    {% endif %}
-                    {% if this.theme.retail_enable == 1 %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}/#retail">{{ this.theme.retail_pretitle }}</a>
-                        </li>
-                    {% endif %}
-                    {% if this.theme.faq_enable == 1 %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}/#faqs">{{ this.theme.faq_pretitle }}</a>
-                        </li>
-                    {% endif %}
-                    {% if this.theme.blog_enable == 1 %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ 'blog'|page }}">{{ this.theme.blog_pretitle }}</a>
-                        </li>
-                    {% endif %}
-                    {% if this.theme.clients_enable == 1 %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}/#clients">{{ this.theme.clients_pretitle }}</a>
-                        </li>
-                    {% endif %}
-                    {% if this.theme.contact_enable == 1 %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}/#contactForm">{{ this.theme.contact_pretitle }}</a>
-                        </li>
-                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link {{ this.page.baseFileName == 'home' ? 'active' : ''}}" href="{{ url('/') }}">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ this.page.baseFileName == 'blog' ? 'active' : ''}}" href="{{ 'blog'|page }}">BLOG</a>
+                    </li>
                 </ul>
                 {# HEADER BUTTON #}
-                {% if this.theme.header_button_text %}
-                    <div class="nav-cta">
-                        <a {{ this.theme.header_button_new_tab_enable ? 'target="_blank" rel="noopener noreferrer"' : '' }} href="{{ this.theme.header_button_link }}" class="btn btn-sm btn-accent ml-xl-3">{% if this.theme.header_button_icon != '' %}<i class="{{ this.theme.header_button_icon }}"></i> {% endif %}{{ this.theme.header_button_text }}</a>
+                {% if this.theme.global_header_cta_label %}
+                    <div class="navbar-cta">
+                        <a
+                            {{ this.theme.global_header_cta_new_tab ? 'target="_blank"' : '' }}
+                            {{ this.theme.global_header_cta_same_host ? '' : 'rel="noopener noreferrer"' }}
+                            href="{{ this.theme.global_header_cta_url }}"
+                            class="btn btn-accent">
+                                {{ this.theme.global_header_cta_icon ? this.theme.global_header_cta_icon|raw : '' }} {{ this.theme.global_header_cta_label }}
+                        </a>
                     </div>
                 {% endif %}
             </div>

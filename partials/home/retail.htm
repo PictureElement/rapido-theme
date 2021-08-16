@@ -1,7 +1,5 @@
-description = "Retail"
-==
 {# RETAIL #}
-<section id="retail" class="space-py-8 bg-primary-light overflow-hidden">
+<section id="retail" class="space-py-8 overflow-hidden {{ this.theme.retail_background_color ? 'bg-primary-light' : 'bg-white' }}">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-7">
@@ -15,40 +13,83 @@ description = "Retail"
             </div>
             <div class="col-lg-5 mt-2 mt-lg-0">
                 <div class="position-relative">
-                    <div data-aos="fade-up" data-aos-once="true" class="shop__card bg-white corner-shape-lg elevation-1dp position-relative space-p-4 h-100 d-flex flex-column justify-content-center">
+                    <div data-aos="fade-up" data-aos-once="true" class="shop__card corner-shape-lg elevation-1dp position-relative space-p-4 h-100 d-flex flex-column justify-content-center {{ this.theme.retail_background_color ? 'bg-white' : 'bg-primary-light' }}">
                         <ul class="list-unstyled mb-0">
-                            {% if this.theme.address %}
-                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-map-marker-alt"></i>
+                            {% if this.theme.global_address %}
+                                <li class="d-flex mb-2">
+                                    <i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-map-marker-alt"></i>
                                     <div class="ml-2">
-                                        <a data-fancybox="" data-animation-effect="fade" data-options="{'iframe' : {'css' : {'width' : '80%', 'height' : '80%'}}}" href="https://www.google.com/maps/search/?api=1&amp;query={{ this.theme.map_search_parameters }}">
-                                            <address class="mb-0">
-                                                {{ this.theme.address|nl2br }}    
-                                            </address>
+                                        <address class="mb-0">
+                                            {{ this.theme.global_address|nl2br }}
+                                        </address>
+                                    </div>
+                                </li>
+                            {% endif %}
+                            {% if this.theme.global_working_hours %}
+                                <li class="d-flex mb-2">
+                                    <i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-clock"></i>
+                                    <div class="ml-2">
+                                        {{ this.theme.global_working_hours|nl2br }}
+                                    </div>
+                                </li>
+                            {% endif %}
+                            {% if this.theme.global_map_search_parameters %}
+                                <li class="d-flex mb-2">
+                                    <i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-directions"></i>
+                                    <div class="ml-2 text-truncate">
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&amp;query={{ this.theme.global_map_search_parameters }}">
+                                            Get Directions
                                         </a>
                                     </div>
                                 </li>
                             {% endif %}
-                            {% if this.theme.phone %}
-                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-phone-alt"></i><div class="ml-2 text-truncate"><a href="tel:{{ this.theme.phone }}">{{ this.theme.phone }}</a></div></li>
+                            {% if this.theme.global_phone %}
+                                <li class="d-flex mb-2">
+                                    <i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-phone-alt"></i>
+                                    <div class="ml-2 text-truncate">
+                                        <a href="tel:{{ this.theme.global_phone }}">{{ this.theme.global_phone }}</a>
+                                    </div>
+                                </li>
                             {% endif %}
-                            {% if this.theme.mobile %}
-                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-mobile-alt"></i><div class="ml-2 text-truncate"><a href="tel:{{ this.theme.mobile }}">{{ this.theme.mobile }}</a></div></li>
+                            {% if this.theme.global_mobile %}
+                                <li class="d-flex mb-2">
+                                    <i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-mobile-alt"></i>
+                                    <div class="ml-2 text-truncate">
+                                        <a href="tel:{{ this.theme.global_mobile }}">{{ this.theme.global_mobile }}</a>
+                                    </div>
+                                </li>
                             {% endif %}
-                            {% if this.theme.fax %}
-                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-fax"></i><div class="ml-2 text-truncate"><a href="tel:{{ this.theme.fax }}">{{ this.theme.fax }}</a></div></li>
+                            {% if this.theme.global_fax %}
+                                <li class="d-flex mb-2">
+                                    <i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-fax"></i>
+                                    <div class="ml-2 text-truncate">
+                                        <a href="tel:{{ this.theme.global_fax }}">{{ this.theme.global_fax }}</a>
+                                    </div>
+                                </li>
                             {% endif %}
-                            {% if this.theme.email %}
-                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-envelope"></i><div class="ml-2 text-truncate"><a href="mailto:{{ this.theme.email }}">{{ this.theme.email }}</a></div></li>
-                            {% endif %}
-                            {% if this.theme.working_hours %}
-                                <li class="d-flex mb-2"><i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-clock"></i><div class="ml-2">{{ this.theme.working_hours|nl2br }}</div></li>
-                            {% endif %}
+                            <li class="d-flex mb-2">
+                                <i style="line-height:1.6;" class="text-primary flex-shrink-0 fa-fw fas fa-envelope"></i>
+                                <div class="ml-2 text-truncate">
+                                    <a href="mailto:{{ this.theme.global_email }}">
+                                        {{ this.theme.global_email }}
+                                    </a>
+                                </div>
+                            </li>
                         </ul>
-                        {% if this.theme.retail_button_text %}
-                            <a {{ this.theme.retail_button_new_tab_enable ? 'target="_blank" rel="noopener noreferrer"' : '' }} href="{{ this.theme.retail_button_link }}" class="mt-4 btn btn-primary">{% if this.theme.retail_button_icon != '' %}<i class="{{ this.theme.retail_button_icon }}"></i> {% endif %}{{ this.theme.retail_button_text }}</a>
+                        {# RETAIL BUTTON #}
+                        {% if this.theme.retail_button_label %}
+                            <a
+                                {{ this.theme.retail_button_new_tab ? 'target="_blank"' : '' }}
+                                {{ this.theme.retail_button_same_host ? '' : 'rel="noopener noreferrer"' }} 
+                                href="{{ this.theme.retail_button_url }}"
+                                class="mt-4 btn btn-primary">
+                                    {{ this.theme.retail_button_icon ? this.theme.retail_button_icon|raw : '' }} {{ this.theme.retail_button_label }}
+                            </a>
                         {% endif %}
                     </div>
-                    {% partial 'global/dots' class="shop-figure" %}
+                    <figure class="shop-figure">
+                        {% partial 'vectors/dots' %}
+                    </figure>
                 </div>
             </div>
         </div>

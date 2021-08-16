@@ -1,29 +1,25 @@
-description = "Post carousel item"
-==
-{% set width = imageSettings.src[0] %}
-{% set height = imageSettings.src[1] %}
+{% set width = imageSettings.width %}
+{% set widths = imageSettings.widths %}
 {% set sizes = imageSettings.sizes %}
+{% set imagePath = image.path %}
+{% set imageDescription = image.description %}
 
-<div class="item"> 
+<div class="item">
     <img
-        width="{{ width }}"
-        height="{{ height }}"
-        class="img-fluid"  
-        src="{{ featured_image|resize(width, height) }}"
-        srcset="{{ image.path|resize(imageSettings.srcset[0], auto) }} {{ imageSettings.srcset[0] }}w,
-                {{ image.path|resize(imageSettings.srcset[0]*2, auto) }} {{ imageSettings.srcset[0]*2 }}w,
-                
-                {{ image.path|resize(imageSettings.srcset[1], auto) }} {{ imageSettings.srcset[1] }}w,
-                {{ image.path|resize(imageSettings.srcset[1]*2, auto) }} {{ imageSettings.srcset[1]*2 }}w,
-                
-                {{ image.path|resize(imageSettings.srcset[2], auto) }} {{ imageSettings.srcset[2] }}w,
-                {{ image.path|resize(imageSettings.srcset[2]*2, auto) }} {{ imageSettings.srcset[2]*2 }}w,
-    
-                {{ image.path|resize(imageSettings.srcset[3], auto) }} {{ imageSettings.srcset[3] }}w,
-                {{ image.path|resize(imageSettings.srcset[3]*2, auto) }} {{ imageSettings.srcset[3]*2 }}w,
-    
-                {{ image.path|resize(imageSettings.srcset[4], auto) }} {{ imageSettings.srcset[4] }}w,
-                {{ image.path|resize(imageSettings.srcset[4]*2, auto) }} {{ imageSettings.srcset[4]*2 }}w"
+        style="width:100%;height:auto;"
+        width="16"
+        height="9"
+        src="{{ imagePath|resize(width, auto, { mode: 'exact' }) }}"
+        srcset="
+            {% for width in imageSettings.widths %}
+                {% if not loop.last %}
+                    {{ imagePath|resize(width, auto, { mode: 'exact' }) }} {{ width }}w,
+                    {{ imagePath|resize(width*2, auto, { mode: 'exact' }) }} {{ width*2 }}w,
+                {% else %}
+                    {{ imagePath|resize(width, auto, { mode: 'exact' }) }} {{ width }}w,
+                    {{ imagePath|resize(width*2, auto, { mode: 'exact' }) }} {{ width*2 }}w
+                {% endif %}
+            {% endfor %}"
         sizes="{{ sizes }}"
-        alt="{{ image.description }}">
+        alt="{{ imageDescription }}">
 </div>

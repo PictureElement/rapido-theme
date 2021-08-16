@@ -1,6 +1,5 @@
-title = "Maintenance"
 url = "/maintenance"
-is_hidden = 0
+title = "Maintenance"
 ==
 <?php
 use Cms\Classes\Theme;
@@ -9,7 +8,6 @@ function onStart() {
     $imageSettings = array();
     $imageSettings['srcset'] = array(576, 516, 381, 407);
     $imageSettings['sizes'] = '(min-width: 992px) 576px, (min-width: 768px) 516px, (min-width: 576px) 381px, 407px';
-    
     $this["imageSettings"] = $imageSettings;
 }
 
@@ -17,77 +15,97 @@ function onEnd() {
     $theme = Theme::getActiveTheme();
     
     // Get logo size
-    $logo = $theme->maintenance_logo;
+    $logo = $theme->utility_maintenance_logo;
     if ($logo) {
         $path = storage_path('app/'.$logo->getDiskPath());
         list($width, $height) = getimagesize($path);
         $this['logoWidth'] = $width;
         $this['logoHeight'] = $height;
     }
-    
-    // Get page file name
-    $this['baseFileName'] = $this->page->baseFileName;
 }
 ?>
 ==
+{# STYLES #}
+{% put styles %}
+    <link href="{{ [
+        'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css',
+        'assets/vendor/aos/dist/aos.css',
+        'assets/sass/rapido.scss'
+    ]|theme }}" rel="stylesheet">
+{% endput %}
+
 <!doctype html>
 <html class="h-100" lang="en">
-    {# CRITICAL CSS #}
-    {% put styles %}
-        {% partial 'critical/maintenance' %}
-    {% endput %}
     {# HEAD #}
-    {% partial 'global/head' baseFileName=baseFileName %}
+    {% partial 'global/head' %}
+    
     <body>
         {# PAGE SPINNER #}
         {% content 'page-spinner' %}
-        
+
         <main>
-            {# COVER #}
-            <div style="min-height:100vh;height:auto;" class="alert-primary text-center d-flex align-items-center" role="alert">
-                <div class="max-width-800 mx-auto">
-                    <div class="container">
-                        {% if this.theme.maintenance_logo.extension == 'svg' %}
-                            <img data-aos="zoom-in" data-aos-once="true" class="img-fluid w-75 mb-4" src="{{ this.theme.maintenance_logo.path }}" width="{{ logoWidth }}" height="{{ logoHeight }}" alt="{{ this.theme.maintenance_logo.description }}">
-                        {% else %}
-                            <img 
-                                data-aos="zoom-in"
-                                data-aos-once="true"
-                                class="img-fluid w-75 mb-4"
-                                width="{{ logoWidth/2 }}"
-                                height="{{ logoHeight/2 }}"
-                                src="{{ this.theme.maintenance_logo.path|resize(logoWidth/2, auto) }}"
-                                srcset="{{ this.theme.maintenance_logo.path|resize(imageSettings.srcset[0], auto) }} {{ imageSettings.srcset[0] }}w,
-                                        {{ this.theme.maintenance_logo.path|resize(imageSettings.srcset[0]*2, auto) }} {{ imageSettings.srcset[0]*2 }}w,
-    
-                                        {{ this.theme.maintenance_logo.path|resize(imageSettings.srcset[1], auto) }} {{ imageSettings.srcset[1] }}w,
-                                        {{ this.theme.maintenance_logo.path|resize(imageSettings.srcset[1]*2, auto) }} {{ imageSettings.srcset[1]*2 }}w,
-                                        
-                                        {{ this.theme.maintenance_logo.path|resize(imageSettings.srcset[2], auto) }} {{ imageSettings.srcset[2] }}w,
-                                        {{ this.theme.maintenance_logo.path|resize(imageSettings.srcset[2]*2, auto) }} {{ imageSettings.srcset[2]*2 }}w,
-                                        
-                                        {{ this.theme.maintenance_logo.path|resize(imageSettings.srcset[3], auto) }} {{ imageSettings.srcset[3] }}w,
-                                        {{ this.theme.maintenance_logo.path|resize(imageSettings.srcset[3]*2, auto) }} {{ imageSettings.srcset[3]*2 }}w"
-                                sizes="{{ imageSettings.sizes }}"
-                                alt="{{ this.theme.maintenance_logo.description }}">
-                        {% endif %}
-                        <h1 data-aos="fade-up" data-aos-once="true" class="alert-heading">{{ this.theme.maintenance_title }}</h1>
-                        <p data-aos="fade-up" data-aos-delay="100" data-aos-once="true" class="lead">{{ this.theme.maintenance_lead }}</p>
-                        <hr data-aos="fade-up" data-aos-delay="100" data-aos-once="true" class='my-4'>
-                        <div data-aos="fade-up" data-aos-delay="200" data-aos-once="true" data-aos-offset="0">
-                            {% if this.theme.maintenance_primary_button_text %}
-                                <a href="{{ this.theme.maintenance_primary_button_link }}" class="btn btn-primary btn-lg mx-1">{% if this.theme.maintenance_primary_button_icon != '' %}<i class="{{ this.theme.maintenance_primary_button_icon }}"></i> {% endif %}{{ this.theme.maintenance_primary_button_text }}</a>
+            {# STATUS COVER #}
+            <div style="min-height:100vh;height:auto;" class="bg-primary-light text-center space-py-4 d-flex align-items-center" role="alert">
+                <div class="container max-width-800">
+                    <div class="position-relative">
+                        <div style="z-index: 1;" class="alert alert-primary space-py-4 corner-shape-lg elevation-1dp border-0" role="alert">
+                            {% if this.theme.utility_maintenance_logo.extension == 'svg' %}
+                                <img
+                                    data-aos="zoom-in"
+                                    data-aos-once="true"
+                                    src="{{ this.theme.utility_maintenance_logo.path }}"
+                                    width="248"
+                                    alt="{{ this.theme.utility_maintenance_logo.description }}">
+                            {% else %}
+                                <img
+                                    data-aos="zoom-in"
+                                    data-aos-once="true"
+                                    src="{{ this.theme.utility_maintenance_logo.path|resize(248, auto) }}"
+                                    srcset="{{ this.theme.utility_maintenance_logo.path|resize(248, auto) }} 1x, {{ this.theme.utility_maintenance_logo.path|resize(496, auto) }} 2x"
+                                    width="248"
+                                    alt="{{ this.theme.utility_maintenance_logo.description }}">
                             {% endif %}
-                            {% if this.theme.maintenance_secondary_button_text %}
-                                <a href="{{ this.theme.maintenance_secondary_button_link }}" class="btn btn-outline-primary btn-lg mx-1">{% if this.theme.maintenance_secondary_button_icon != '' %}<i class="{{ this.theme.maintenance_secondary_button_icon }}"></i> {% endif %}{{ this.theme.maintenance_secondary_button_text }}</a>
-                            {% endif %}
+                            <h1 data-aos="fade-up" data-aos-once="true" class="alert-heading">{{ this.theme.utility_maintenance_title }}</h1>
+                            <p data-aos="fade-up" data-aos-delay="100" data-aos-once="true" class="lead mb-0">{{ this.theme.utility_maintenance_lead }}</p>
+                            <hr data-aos="fade-up" data-aos-delay="100" data-aos-once="true" class='my-4'>
+                            <div data-aos="fade-up" data-aos-delay="200" data-aos-once="true" data-aos-offset="0">
+                                {# PRIMARY BUTTON #}
+                                {% if this.theme.utility_maintenance_primary_button_label %}
+                                    <a
+                                        {{ this.theme.utility_maintenance_primary_button_new_tab ? 'target="_blank"' : '' }}
+                                        {{ this.theme.utility_maintenance_primary_button_same_host ? '' : 'rel="noopener noreferrer"' }} 
+                                        href="{{ this.theme.utility_maintenance_primary_button_url }}"
+                                        class="btn btn-primary btn-lg mx-1">
+                                            {{ this.theme.utility_maintenance_primary_button_icon ? this.theme.utility_maintenance_primary_button_icon|raw : '' }}
+                                            {{ this.theme.utility_maintenance_primary_button_label }}
+                                    </a>
+                                {% endif %}
+                                {# SECONDARY BUTTON #}
+                                {% if this.theme.utility_maintenance_secondary_button_label %}
+                                    <a
+                                        {{ this.theme.utility_maintenance_secondary_button_new_tab ? 'target="_blank"' : '' }}
+                                        {{ this.theme.utility_maintenance_secondary_button_same_host ? '' : 'rel="noopener noreferrer"' }} 
+                                        href="{{ this.theme.utility_maintenance_secondary_button_url }}"
+                                        class="btn btn-outline-primary btn-lg mx-1">
+                                            {{ this.theme.utility_maintenance_secondary_button_icon ? this.theme.utility_maintenance_secondary_button_icon|raw : '' }}
+                                            {{ this.theme.utility_maintenance_secondary_button_label }}
+                                    </a>
+                                {% endif %}
+                            </div>
                         </div>
+                        <figure class="misc-figure">
+                            {% partial 'vectors/dots' %}
+                        </figure>
                     </div>
                 </div>
             </div>
         </main>
         
         {# SCRIPTS #}
-        {% partial 'global/scripts' %}
+        <script src="{{ [
+            '@jquery',
+            'assets/vendor/aos/dist/aos.js',
+            'assets/js/rapido.js'
+        ]|theme }}"></script>
     </body>
 </html>

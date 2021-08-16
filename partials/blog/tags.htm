@@ -1,5 +1,3 @@
-description = "Tag cloud"
-==
 <div class="blog-tags {{ class }}">
     <h3 class="mb-3">Tag cloud</h3>
     {% set tags = tags.tags %}
@@ -11,7 +9,7 @@ description = "Tag cloud"
         </ul>
     {% else %}
         <div class="alert alert-secondary" role="alert">
-            No tags were found.
+            No tags found
         </div>
     {% endif %}
 </div>

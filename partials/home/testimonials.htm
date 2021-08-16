@@ -1,7 +1,5 @@
-description = "Testimonials"
-==
 {# TESTIMONIALS #}
-<section id="testimonials" class="space-py-8 bg-primary-light overflow-x-hidden">
+<section id="testimonials" class="space-py-8 overflow-x-hidden {{ this.theme.testimonials_background_color ? 'bg-primary-light' : 'bg-white' }}">
     <div class="container position-relative">
         <header class="text-center space-mb-3 max-width-800 mx-auto">
             <div class="section__preheading left-0">{{ this.theme.testimonials_pretitle }}</div>
@@ -10,23 +8,40 @@ description = "Testimonials"
         <div class="position-relative">
             <div id="testimonialsCarousel" class="testimonials-carousel owl-carousel owl-theme">
                 {% for item in this.theme.testimonials_repeater %}
-                    <div class="testimonial corner-shape-lg bg-white elevation-1dp space-p-4">
-                        {% content 'testimonials-quote' %}
+                    <div class="testimonial corner-shape-lg elevation-1dp space-p-4 {{ this.theme.testimonials_background_color ? 'bg-white' : 'bg-primary-light' }}">
+                        <figure class="mb-3">
+                            {% partial "vectors/quote" %}
+                        </figure>
                         {% if item.avatar %}
                             {% if item.avatar|split('.')|last == 'svg' %}
-                                <img src="{{ item.avatar|media }}" width="64" height="64" class="rounded-circle mx-auto d-block mb-3" loading="lazy" alt="{{ item.avatar_alt }}">
+                                <img 
+                                    src="{{ item.avatar|media }}" 
+                                    width="64"
+                                    height="64"
+                                    class="rounded-circle mx-auto d-block mb-3"
+                                    loading="lazy"
+                                    alt="{{ item.avatar_alt }}">
                             {% else %}
-                                <img src="{{ item.avatar|media|resize(64, 64) }}" width="64" height="64" srcset="{{ item.avatar|media|resize(64, 64) }} 1x, {{ item.avatar|media|resize(128, 128) }} 2x" class="rounded-circle mx-auto d-block mb-3" loading="lazy" alt="{{ item.avatar_alt }}">
+                                <img 
+                                    src="{{ item.avatar|media|resize(64, 64) }}"
+                                    width="64"
+                                    height="64"
+                                    srcset="{{ item.avatar|media|resize(64, 64) }} 1x, {{ item.avatar|media|resize(128, 128) }} 2x"
+                                    class="rounded-circle mx-auto d-block mb-3"
+                                    loading="lazy" 
+                                    alt="{{ item.avatar_alt }}">
                             {% endif %}
                         {% endif %}
                         <blockquote class="blockquote max-width-800 mx-auto mb-0 text-center">
-                            <p class="lead">“{{ item.statement }}”</p>
+                            <p class="lead">“{{ item.statement|nl2br }}”</p>
                             <footer class="testimonial__author font-light">― {{ item.author }}</footer>
                         </blockquote>
                     </div>
                 {% endfor %}
             </div>
-            {% partial 'global/dots' class="testimonials-figure" %}
+            <figure class="testimonials-figure">
+                {% partial 'vectors/dots' %}
+            </figure>
         </div>
     </div>
 </section>

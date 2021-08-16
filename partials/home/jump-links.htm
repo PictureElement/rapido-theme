@@ -1,0 +1,55 @@
+{# JUMP LINKS #}
+<section id="jumpLinks" class="jump-links sticky-top {{ this.theme.jump_links_background_color ? 'bg-primary-light' : 'bg-white' }}">
+    <div class="container">
+        <h2 class="text-center border-bottom mb-0 sr-only">On this page</h2>
+        <nav id="jumpLinksNavbar" class="jump-links-navbar">
+            <ul class="jump-links-navbar-nav nav">
+                {% if this.theme.services_enable == 1 %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">SERVICES</a>
+                    </li>
+                {% endif %}
+                {% if this.theme.testimonials_enable == 1 %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">TESTIMONIALS</a>
+                    </li>
+                {% endif %}
+                {% if this.theme.projects_enable == 1 %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">PROJECTS</a>
+                    </li>
+                {% endif %}
+                {% if this.theme.about_enable == 1 %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">ABOUT</a>
+                    </li>
+                {% endif %}
+                {% if this.theme.retail_enable == 1 %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#retail">RETAIL</a>
+                    </li>
+                {% endif %}
+                {% if this.theme.faqs_enable == 1 %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faqs">FAQs</a>
+                    </li>
+                {% endif %}
+                {% if this.theme.blog_enable == 1 %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#blog">BLOG</a>
+                    </li>
+                {% endif %}
+                {% if this.theme.clients_enable == 1 %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#clients">CLIENTS</a>
+                    </li>
+                {% endif %}
+                {% if this.theme.contact_enable == 1 %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">CONTACT</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</section>

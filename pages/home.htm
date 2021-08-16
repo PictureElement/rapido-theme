@@ -1,66 +1,74 @@
-title = "Home"
 url = "/"
 layout = "default"
-is_hidden = 0
+title = "Home"
+meta_description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nibh orci, pulvinar sit amet fermentum ac, facilisis eget ligula."
 
 [blogPosts]
 pageNumber = "{{ :page }}"
-postsPerPage = 6
+postsPerPage = 9
 noPostsMessage = "No posts found"
 sortOrder = "published_at desc"
 categoryPage = "blog-category"
 postPage = "post"
 
 [emptyForm contactForm]
-group = "Main contact"
+group = "Contact Form"
 messages_success = "Your form was successfully submitted"
 messages_errors = "There were errors with your submission"
 mail_enabled = 1
 mail_replyto = "{{ form.email }}"
-mail_template = "martin.forms::main.notification"
+mail_template = "martin.forms::mail.notification"
 reset_form = 1
 inline_errors = "disabled"
-js_on_success = "const elemToHideMain = document.querySelectorAll(\"#contact .hide-js\");
-
-elemToHideMain.forEach(function(element) {
-  element.style.display = 'none';
-});"
-sanitize_data = "disabled"
+js_on_success = "const elemToHideContactForm = document.querySelectorAll(\"#contact .hide-js\");
+elemToHideContactForm.forEach(function(element) {
+    element.style.display = 'none';
+});\""
+sanitize_data = "htmlspecialchars"
 anonymize_ip = "disabled"
 recaptcha_theme = "light"
 recaptcha_type = "image"
 recaptcha_size = "normal"
 emails_date_format = "Y-m-d"
+
+[PortfolioList]
+width = 343
+widths[] = 343
+widths[] = 288
+widths[] = 332
+widths[] = 245
+widths[] = 262
+widths[] = 184
+widths[] = 158
+sizes = "(min-width: 1200px) 343px, (min-width: 992px) 288px, (min-width: 768px) 332px, (min-width: 576px) 245px, calc(48.46vw - 16px)"
+titleFontSize = "clamp(1rem, 0.8182rem + 0.9091vw, 1.5rem)"
+titleTopMargin = "8px"
+itemTopMargin = "24px"
+itemWidthXs = "calc((100% - 16px) / 2)"
+itemWidthSm = "calc((100% - 16px) / 2)"
+itemWidthMd = "calc((100% - 24px) / 2)"
+itemWidthLg = "calc((100% - 48px) / 3)"
+itemWidthXl = "calc((100% - 48px) / 3)"
+gutterSizeXs = "16px"
+gutterSizeSm = "16px"
+gutterSizeMd = "24px"
+gutterSizeLg = "24px"
+gutterSizeXl = "24px"
+modalPadding = "clamp(2rem, 1.2727rem + 3.6364vw, 4rem)"
+modalBorderRadius = "32px"
+spinnerColor = "#1976d2"
+stageLoaderBgColor = "rgba(255,255,255,0.9)"
+imageBorderRadius = "16px"
+horizontalOrder = 1
 ==
-<?php
-use ArrizalAmin\Portfolio\Models\Item;
-use ArrizalAmin\Portfolio\Models\Category;
-
-function onStart() {
-    $portfolioCategories = Category::all(); // Get all categories
-    
-    $portfolioCategory = Category::first(); // Get first category
-    $portfolioItems = $portfolioCategory->items;
-    
-    $this["portfolioCategories"] = $portfolioCategories;
-    $this["portfolioCategory"] = $portfolioCategory;
-    $this["portfolioItems"] = $portfolioItems;
-}
-
-function onFilterPortfolio() {
-    $portfolioCategory = Category::find(input('portfolioCategoryId'));
-    $portfolioItems = $portfolioCategory->items;
-    
-    $this["portfolioItems"] = $portfolioItems;
-    // $this["test"] = $portfolioCategory;
-}
-?>
-==
-{% set posts = blogPosts.posts %}
-
 {# HERO #}
 {% if this.theme.hero_enable == 1 %}
     {% partial 'home/hero' %}
+{% endif %}
+
+{# JUMP LINKS #}
+{% if this.theme.jump_links_enable == 1 %}
+    {% partial 'home/jump-links' %}
 {% endif %}
 
 {# SERVICES #}
@@ -75,32 +83,35 @@ function onFilterPortfolio() {
 
 {# PROJECTS #}
 {% if this.theme.projects_enable == 1 %}
-    <section id="projects" class="space-py-8">
+    <section id="projects" class="space-py-8 {{ this.theme.projects_background_color ? 'bg-primary-light' : '' }}">
         <div class="container">
             <header class="text-center space-mb-3 max-width-800 mx-auto">
                 <div class="section__preheading left-0">{{ this.theme.projects_pretitle }}</div>
                 <h2>{{ this.theme.projects_title }}</h2>
                 {% if this.theme.projects_lead %}
-                  <p class="lead mb-0">{{ this.theme.projects_lead }}</p>
+                    <p class="lead mb-0">{{ this.theme.projects_lead|nl2br }}</p>
                 {% endif %}
             </header>
-            <div class="grid">
-                <div class="grid__controls mb-3 text-center">
-                    {% for category in portfolioCategories %}
-                        <button data-request-loading="#spinner" data-request-data="portfolioCategoryId: {{ category.id }}" data-request-update="home/project-grid: '#myProjects'" data-request="onFilterPortfolio" type="button" class="btn btn-link shadow-none p-2 {{ loop.index == 1 ? 'active' : '' }}">{{ category.name }}</button>
-                    {% endfor %}
-                </div>
-                <div id="myProjects" class="grid__wrapper">
-                    {% partial 'home/project-grid' %}
-                </div>
-            </div>
+            {% component 'PortfolioList' %}
         </div>
     </section>
 {% endif %}
 
 {# CTA PRIMARY #}
 {% if this.theme.cta_primary_enable == 1 %}
-    {% partial 'global/cta' cta_primary_button_new_tab_enable="#{ this.theme.cta_primary_primary_button_new_tab_enable}" cta_secondary_button_new_tab_enable="#{ this.theme.cta_primary_secondary_button_new_tab_enable}" cta_title="#{ this.theme.cta_primary_title }" cta_primary_button_icon="#{ this.theme.cta_primary_primary_button_icon }" cta_primary_button_text="#{ this.theme.cta_primary_primary_button_text }" cta_primary_button_link="#{ this.theme.cta_primary_primary_button_link }" cta_secondary_button_icon="#{ this.theme.cta_primary_secondary_button_icon }" cta_secondary_button_text="#{ this.theme.cta_primary_secondary_button_text }" cta_secondary_button_link="#{ this.theme.cta_primary_secondary_button_link }" %}
+    {% partial 'global/cta' 
+        cta_title="#{ this.theme.cta_primary_title }"
+        cta_primary_button_icon="#{ this.theme.cta_primary_primary_button_icon }"
+        cta_primary_button_label="#{ this.theme.cta_primary_primary_button_label }"
+        cta_primary_button_url="#{ this.theme.cta_primary_primary_button_url }"
+        cta_primary_button_new_tab="#{ this.theme.cta_primary_primary_button_new_tab}"
+        cta_primary_button_same_host="#{ this.theme.cta_primary_primary_button_same_host}"
+        cta_secondary_button_icon="#{ this.theme.cta_primary_secondary_button_icon }"
+        cta_secondary_button_label="#{ this.theme.cta_primary_secondary_button_label }"
+        cta_secondary_button_url="#{ this.theme.cta_primary_secondary_button_url }"
+        cta_secondary_button_new_tab="#{ this.theme.cta_primary_secondary_button_new_tab}"
+        cta_secondary_button_same_host="#{ this.theme.cta_primary_secondary_button_same_host}"
+    %}
 {% endif %}
 
 {# ABOUT #}
@@ -114,8 +125,8 @@ function onFilterPortfolio() {
 {% endif %}
 
 {# FAQs #}
-{% if this.theme.faq_enable == 1 %}
-    {% partial 'home/faq' %}
+{% if this.theme.faqs_enable == 1 %}
+    {% partial 'home/faqs' %}
 {% endif %}
 
 {# BLOG #}
@@ -133,7 +144,52 @@ function onFilterPortfolio() {
     {% component 'contactForm' %}
 {% endif %}
 
-{# CRITICAL CSS #}
-{% put styles %}
-    {% partial 'critical/home' %}
-{% endput %}
+{% if this.theme.projects_enable == 1 %}
+    {# STYLES #}
+    {% put styles %}
+        <link href="{{ [
+            'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css',
+            'assets/vendor/owl.carousel2/dist/assets/owl.carousel.min.css',
+            'assets/vendor/owl.carousel2/dist/assets/owl.theme.default.min.css',
+            'assets/vendor/aos/dist/aos.css',
+            'assets/vendor/cookieconsent/build/cookieconsent.min.css',
+            'assets/sass/rapido.scss'
+        ]|theme }}" rel="stylesheet">
+    {% endput %}
+
+    {# SCRIPTS #}
+    {% put scripts %}
+        <script src="{{ [
+            '@framework',
+            'assets/vendor/bootstrap/dist/js/bootstrap.min.js',
+            'assets/vendor/owl.carousel2/dist/owl.carousel.min.js',
+            'assets/vendor/counterup2/dist/index.js',
+            'assets/vendor/waypoints/lib/jquery.waypoints.min.js'
+        ]|theme }}"></script>
+    {% endput %}
+{% else %}
+    {# STYLES #}
+    {% put styles %}
+        <link href="{{ [
+            'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css',
+            'assets/vendor/owl.carousel2/dist/assets/owl.carousel.min.css',
+            'assets/vendor/owl.carousel2/dist/assets/owl.theme.default.min.css',
+            'assets/vendor/aos/dist/aos.css',
+            'assets/vendor/cookieconsent/build/cookieconsent.min.css',
+            'assets/vendor/@fancyapps/fancybox/dist/jquery.fancybox.min.css',
+            'assets/sass/rapido.scss'
+        ]|theme }}" rel="stylesheet">
+    {% endput %}
+
+    {# SCRIPTS #}
+    {% put scripts %}
+        <script src="{{ [
+            '@framework',
+            'assets/vendor/bootstrap/dist/js/bootstrap.min.js',
+            'assets/vendor/owl.carousel2/dist/owl.carousel.min.js',
+            'assets/vendor/counterup2/dist/index.js',
+            'assets/vendor/waypoints/lib/jquery.waypoints.min.js',
+            'assets/vendor/@fancyapps/fancybox/dist/jquery.fancybox.min.js'
+        ]|theme }}"></script>
+    {% endput %}
+{% endif %}

@@ -1,7 +1,5 @@
-description = "Clients"
-==
 {# CLIENTS #}
-<div id="clients" class="clients">
+<div id="clients" class="clients {{ this.theme.clients_background_color ? 'bg-primary-light' : 'bg-white' }}">
     <div class="container">
         <div class="clients-slideshow">
             <header class="text-center space-mb-3 max-width-800 mx-auto">
@@ -12,9 +10,39 @@ description = "Clients"
                 {% for item in this.theme.clients_repeater %}
                     <div class="item">
                         {% if item.image|split('.')|last == 'svg' %}
-                            <img class="img-fluid" loading="lazy" src="{{ item.image|media }}" width="171" height="57" alt="{{ item.image_alt }}">
+                            <img
+                                style="width:100%;height:auto;"
+                                loading="lazy"
+                                src="{{ item.image|media }}"
+                                width="3"
+                                height="1"
+                                alt="{{ item.image_alt }}">
                         {% else %}
-                            <img class="img-fluid" loading="lazy" src="{{ item.image|media|resize(171, 57) }}" srcset="{{ item.image|media|resize(171, 57) }} 1x, {{ item.image|media }} 2x" width="171" height="57" alt="{{ item.image_alt }}">
+                            <img
+                                width="3"
+                                height="1"
+                                style="width:100%;height:auto;"
+                                src="{{ item.image|media|resize(171, 57) }}"
+                                srcset="{{ item.image|media|resize(171, 57) }} 171w,
+                                        {{ item.image|media|resize(342, 114) }} 342w,
+
+                                        {{ item.image|media|resize(141, 47) }} 141w,
+                                        {{ item.image|media|resize(282, 94) }} 282w,
+
+                                        {{ item.image|media|resize(160, 53) }} 160w,
+                                        {{ item.image|media|resize(320, 107) }} 320w,
+
+                                        {{ item.image|media|resize(158, 53) }} 158w,
+                                        {{ item.image|media|resize(316, 105) }} 316w,
+
+                                        {{ item.image|media|resize(116, 39) }} 116w,
+                                        {{ item.image|media|resize(232, 77) }} 232w,
+
+                                        {{ item.image|media|resize(98, 33) }} 98w,
+                                        {{ item.image|media|resize(196, 65) }} 196w"
+                                sizes="(min-width: 1200px) 171px, (min-width: 992px) 141px, (min-width: 768px) 160px, (min-width: 576px) 158px, calc((100vw - 64px) / 3)"
+                                loading="lazy"
+                                alt="{{ item.image_alt }}">
                         {% endif %}
                     </div>
                 {% endfor %}

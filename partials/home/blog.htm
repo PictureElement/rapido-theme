@@ -1,20 +1,18 @@
-description = "Blog"
+[viewBag]
 ==
 <?php
 function onStart() {
     $imageSettings = array();
-    $imageSettings['src'] = array(640, 359);
-    $imageSettings['srcset'] = array(514, 424, 640, 460, 495);
-    $imageSettings['sizes'] = '(min-width: 1200px) 514px, (min-width: 992px) 424px, (min-width: 768px) 640px, (min-width: 576px) 460px, 495px';
+    $imageSettings['width'] = 640;
+    $imageSettings['widths'] = array(514, 424, 640, 460, 334, 280);
+    $imageSettings['sizes'] = '(min-width: 1200px) 514px, (min-width: 992px) 424px, (min-width: 768px) 640px, (min-width: 576px) 460px, calc(100% - 80px)';
     
     $this["imageSettings"] = $imageSettings;
 }
 ?>
 ==
-{% set count = 0 %}
-
 {# BLOG #}
-<section id="blog" class="space-py-8 bg-primary-light overflow-x-hidden">
+<section id="blog" class="space-py-8 overflow-x-hidden {{ this.theme.blog_background_color ? 'bg-primary-light' : 'bg-white' }}">
     <div class="container position-relative">
         <header class="space-mb-3 max-width-800">
             <div class="section__preheading">{{ this.theme.blog_pretitle }}</div>
@@ -22,9 +20,8 @@ function onStart() {
         </header>
         <div id="blogCarousel" class="blog-carousel owl-carousel owl-theme">
             {% for post in posts %}
-                {% set count = count + 1 %}
                 <div class="item">
-                    {% partial 'blog/post-card' post=post imageSettings=imageSettings %}
+                    {% partial 'blog/post-card' article_bg_color="#{ this.theme.blog_background_color ? 'bg-white' : 'bg-primary-light' }" loading='lazy' post=post imageSettings=imageSettings %}
                 </div>
             {% endfor %}
         </div>

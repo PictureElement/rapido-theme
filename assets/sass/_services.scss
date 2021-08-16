@@ -1,12 +1,20 @@
 // Services
 // =============================================================================
 
-.media {
+.service-card {
     &__link {
+        display: block;
         text-decoration: none;
-        color: $primary;
         &:hover {
-            color: $primary;
+            .service-card__title {
+                text-decoration: underline;
+            }
         }
+    }
+}
+
+.service-modal {
+    > div {
+        padding: #{'clamp(1rem, 0.6364rem + 1.8182vw, 2rem)'};
     }
 }

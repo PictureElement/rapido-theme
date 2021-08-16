@@ -1,42 +1,69 @@
-description = "Scripts"
-==
-{# JAVASCRIPT #}
-{% if this.page.baseFileName == 'home' %}
-    <script src="{{ [
-        'assets/vendor/jquery/dist/jquery.min.js',
-        '@framework',
-        'assets/vendor/bootstrap/dist/js/bootstrap.min.js',
-        'assets/vendor/@fancyapps/fancybox/dist/jquery.fancybox.min.js',
-        'assets/vendor/owl.carousel2/dist/owl.carousel.min.js',
-        'assets/vendor/aos/dist/aos.js',
-        'assets/vendor/headroom.js/dist/headroom.min.js',
-        'assets/vendor/counterup2/dist/index.js',
-        'assets/vendor/waypoints/lib/jquery.waypoints.min.js',
-        'assets/js/rapido.js'
-    ]|theme }}"></script>
-{% elseif this.page.baseFileName == 'post' %}
-    <script src="{{ [
-        'assets/vendor/jquery/dist/jquery.min.js',
-        'assets/vendor/bootstrap/dist/js/bootstrap.min.js',
-        'assets/vendor/@fancyapps/fancybox/dist/jquery.fancybox.min.js',
-        'assets/vendor/owl.carousel2/dist/owl.carousel.min.js',
-        'assets/vendor/aos/dist/aos.js',
-        'assets/vendor/headroom.js/dist/headroom.min.js',
-        'assets/js/rapido.js'
-    ]|theme }}"></script>
-{% elseif this.page.baseFileName == 'maintenance' %}
-    <script src="{{ [
-        'assets/vendor/jquery/dist/jquery.min.js',
-        'assets/vendor/aos/dist/aos.js',
-        'assets/js/rapido.js'
-    ]|theme }}"></script>
-{% else %}
-    <script src="{{ [
-        'assets/vendor/jquery/dist/jquery.min.js',
-        'assets/vendor/bootstrap/dist/js/bootstrap.min.js',
-        'assets/vendor/@fancyapps/fancybox/dist/jquery.fancybox.min.js',
-        'assets/vendor/aos/dist/aos.js',
-        'assets/vendor/headroom.js/dist/headroom.min.js',
-        'assets/js/rapido.js'
-    ]|theme }}"></script>
-{% endif %}
+<script src="{{ [
+    '@jquery',
+    'assets/vendor/aos/dist/aos.js',
+    'assets/vendor/cookieconsent/build/cookieconsent.min.js'
+]|theme }}"></script>
+
+<script>
+    // Add Analytics
+    function addAnalytics() {
+        window['ga-disable-{{ this.theme.misc_analytics_id }}'] = false;
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ this.theme.misc_analytics_id }}');
+    }
+
+    // Disable Analytics
+    function disableAnalytics() {
+        // Disable google analytics, existing cookies will not be deleted.
+        // Existing cookies will neither be updated nor sent to google.
+        window['ga-disable-{{ this.theme.misc_analytics_id }}'] = true;
+    }
+
+    window.addEventListener("load", function () {
+        // Initialise cookie consent
+        window.cookieconsent.initialise({
+            "palette": {
+                "popup": {
+                    "background": "#000000",
+                    "text": "#fff"
+                },
+                "button": {
+                    "background": "#ffc400",
+                    "text": "#000"
+                }
+            },
+            "theme": "block",
+            "position": "bottom-left",
+            "type": "opt-in",
+            "content": {
+                "message": "We use cookies to ensure you get the best experience on our website.",
+                "dismiss": "Got it!",
+                "allow": "Allow cookies",
+                "link": "Privacy Policy",
+                "href": "privacy-policy"
+            },
+            onInitialise: function (status) {
+                var type = this.options.type;
+                var didConsent = this.hasConsented();
+                if (type == 'opt-in' && didConsent) {
+                    addAnalytics();
+                }
+            },
+            onStatusChange: function(status, chosenBefore) {
+                var type = this.options.type;
+                var didConsent = this.hasConsented();
+                if (type == 'opt-in' && didConsent) {
+                    addAnalytics();
+                }
+            },
+            onRevokeChoice: function() {
+                var type = this.options.type;
+                if (type == 'opt-in') {
+                    disableAnalytics();
+                }
+            }
+        });
+    });
+</script>

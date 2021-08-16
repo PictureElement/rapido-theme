@@ -8,3 +8,4 @@
 1.0.8: Update theme preview image
 1.0.9: Change the field type of working hours. By default, meta title and description fields are now empty for all pages. Add Notes tab to the theme customizer. Make side-by-side cards equal to the highest card. Set menu items based on pretitle fields.
 1.1.0: Truncate specific texts with an ellipsis. Do not allow rich text overflow its container. Responsive improvements to call-to-action.
+1.2.0: Implement support for October CMS v2.0. Replace ArrizalAmin.Portfolio dependency with Msof.Portfolio. Various UI/UX improvements.

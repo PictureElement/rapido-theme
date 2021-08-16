@@ -1,12 +1,11 @@
-title = "Blog"
 url = "/blog/:page?"
 layout = "default"
-is_hidden = 0
+title = "Blog"
 
 [blogPosts]
 pageNumber = "{{ :page }}"
 postsPerPage = 8
-noPostsMessage = "No posts were found."
+noPostsMessage = "No posts found"
 sortOrder = "published_at desc"
 categoryPage = "blog-category"
 postPage = "post"
@@ -17,7 +16,7 @@ displayEmpty = 1
 categoryPage = "blog-category"
 
 [topPosts]
-period = 2
+period = 5
 category = 0
 postPerPage = 4
 postPage = "post"
@@ -36,9 +35,9 @@ sortOrder = "created_at desc"
 <?php
 function onStart() {
     $imageSettings = array();
-    $imageSettings['src'] = array(688, 387);
-    $imageSettings['srcset'] = array(538, 448, 688, 508, 543);
-    $imageSettings['sizes'] = '(min-width: 1200px) 538px, (min-width: 992px) 448px, (min-width: 768px) 688px, (min-width: 576px) 508px, 543px';
+    $imageSettings['width'] = 688;
+    $imageSettings['widths'] = array(538, 448, 688, 508, 382, 328);
+    $imageSettings['sizes'] = '(min-width: 1200px) 538px, (min-width: 992px) 448px, (min-width: 768px) 688px, (min-width: 576px) 508px, calc(100vw - 32px)';
     
     $this["imageSettings"] = $imageSettings;
 }
@@ -58,7 +57,11 @@ function onStart() {
         <div class="blog-grid row">
             {% for post in posts %}
                 <div class="col-lg-6">
-                    {% partial 'blog/post-card' post=post imageSettings=imageSettings %}
+                    {% if loop.index > 4 %}
+                        {% partial 'blog/post-card' article_bg_color='bg-white' loading='lazy' post=post imageSettings=imageSettings %}
+                    {% else %}
+                        {% partial 'blog/post-card' article_bg_color='bg-white' loading='eager' post=post imageSettings=imageSettings %}
+                    {% endif %}
                 </div>
             {% else %}
                 <div class="col-12">
@@ -94,10 +97,32 @@ function onStart() {
 
 {# CTA SECONDARY #}
 {% if this.theme.cta_secondary_enable == 1 %}
-    {% partial 'global/cta' cta_primary_button_new_tab_enable="#{ this.theme.cta_secondary_primary_button_new_tab_enable}" cta_secondary_button_new_tab_enable="#{ this.theme.cta_secondary_secondary_button_new_tab_enable}" cta_title="#{ this.theme.cta_secondary_title }" cta_primary_button_icon="#{ this.theme.cta_secondary_primary_button_icon }" cta_primary_button_text="#{ this.theme.cta_secondary_primary_button_text }" cta_primary_button_link="#{ this.theme.cta_secondary_primary_button_link }" cta_secondary_button_icon="#{ this.theme.cta_secondary_secondary_button_icon }" cta_secondary_button_text="#{ this.theme.cta_secondary_secondary_button_text }" cta_secondary_button_link="#{ this.theme.cta_secondary_secondary_button_link }" %}
+    {% partial 'global/cta' 
+        cta_title="#{ this.theme.cta_secondary_title }"
+        cta_primary_button_icon="#{ this.theme.cta_secondary_primary_button_icon }"
+        cta_primary_button_label="#{ this.theme.cta_secondary_primary_button_label }"
+        cta_primary_button_url="#{ this.theme.cta_secondary_primary_button_url }"
+        cta_primary_button_new_tab="#{ this.theme.cta_secondary_primary_button_new_tab}"
+        cta_primary_button_same_host="#{ this.theme.cta_secondary_primary_button_same_host}"
+        cta_secondary_button_icon="#{ this.theme.cta_secondary_secondary_button_icon }"
+        cta_secondary_button_label="#{ this.theme.cta_secondary_secondary_button_label }"
+        cta_secondary_button_url="#{ this.theme.cta_secondary_secondary_button_url }"
+        cta_secondary_button_new_tab="#{ this.theme.cta_secondary_secondary_button_new_tab}"
+        cta_secondary_button_same_host="#{ this.theme.cta_secondary_secondary_button_same_host}"
+    %}
 {% endif %}
 
-{# CRITICAL CSS #}
+{# STYLES #}
 {% put styles %}
-    {% partial 'critical/blog' %}
+    <link href="{{ [
+        'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css',
+        'assets/vendor/aos/dist/aos.css',
+        'assets/vendor/cookieconsent/build/cookieconsent.min.css',
+        'assets/sass/rapido.scss'
+    ]|theme }}" rel="stylesheet">
+{% endput %}
+
+{# SCRIPTS #}
+{% put scripts %}
+    <script src="{{ 'assets/vendor/bootstrap/dist/js/bootstrap.min.js'|theme }}"></script>
 {% endput %}

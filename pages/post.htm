@@ -1,7 +1,6 @@
-title = "Post"
 url = "/blog/post/:slug"
 layout = "default"
-is_hidden = 0
+title = "Post"
 
 [blogPost]
 slug = "{{ :slug }}"
@@ -15,13 +14,10 @@ displayEmpty = 0
 categoryPage = "blog-category"
 
 [topPosts]
-period = 2
+period = 5
 category = 0
 postPerPage = 4
 postPage = "post"
-slug = "{{ :slug }}"
-
-[related]
 slug = "{{ :slug }}"
 
 [searchInput]
@@ -33,8 +29,21 @@ searchPage = "search-results.htm"
 [tags]
 results = 0
 sortOrder = "created_at desc"
+
+[relatedPosts]
+slug = "{{ :slug }}"
+results = 4
 ==
 <?php
+function onStart() {
+    $imageSettings = array();
+    $imageSettings['width'] = 726;
+    $imageSettings['widths'] = array(726, 606, 686, 506, 380, 326);
+    $imageSettings['sizes'] = '(min-width: 1200px) 726px, (min-width: 992px) 606px, (min-width: 768px) 686px, (min-width: 576px) 506px, calc(100vw - 34px)';
+    
+    $this["imageSettings"] = $imageSettings;
+}
+
 function onEnd()
 {
     // Optional - set the page title to the post title
@@ -42,13 +51,6 @@ function onEnd()
         $this->page->title = $this->post->title;
         $this->page->description = $this->post->summary;
     }
-    
-    $imageSettings = array();
-    $imageSettings['src'] = array(726, 408);
-    $imageSettings['srcset'] = array(726, 606, 686, 506, 541);
-    $imageSettings['sizes'] = '(min-width: 1200px) 726px, (min-width: 992px) 606px, (min-width: 768px) 686px, (min-width: 576px) 506px, 541px';
-    
-    $this["imageSettings"] = $imageSettings;
 }
 ?>
 ==
@@ -63,9 +65,17 @@ function onEnd()
             <section class="single-post overflow-hidden">
                 {# AUTHOR #}
                 <div class="d-flex mb-3 align-items-center">
-                    <img class="single-post__profile-image rounded-circle border mr-2" src="{{ post.user.getAvatarThumb(60) }}" srcset="{{ post.user.getAvatarThumb(60) }} 1x, {{ post.user.getAvatarThumb(120) }} 2x" width="60" height="60" alt="{{ post.user.first_name }} {{ post.user.last_name }}">
+                    {% if post.user %}
+                        <img
+                            class="single-post__profile-image rounded-circle border mr-2"
+                            src="{{ post.user.getAvatarThumb(60) }}"
+                            srcset="{{ post.user.getAvatarThumb(60) }} 1x, {{ post.user.getAvatarThumb(120) }} 2x"
+                            width="60"
+                            height="60"
+                            alt="{{ post.user.first_name }} {{ post.user.last_name }}">
+                    {% endif %}
                     <div class="media-body">
-                        <div class="m-0">By {{ post.user.first_name }} {{ post.user.last_name }}</div>
+                        {% if post.user %}<div class="m-0">By {{ post.user.first_name }} {{ post.user.last_name }}</div>{% endif %}
                         <div class="font-light"><i class="fas fa-calendar-day"></i> {{ post.published_at | date('rainlab.blog::lang.post.date_format'|trans) }}</div>
                     </div>
                 </div>
@@ -99,7 +109,7 @@ function onEnd()
         <div class="col-lg-8">
             <hr class="my-5 d-none d-lg-block">
             {# SIMILAR #}
-            {% partial 'blog/popular' class="mb-4" title="Similar posts" posts=related isPopular=false %}
+            {% partial 'blog/popular' class="mb-4" title="Similar posts" posts=relatedPosts.posts isPopular=false %}
             {# POPULAR #}
             {% partial 'blog/popular' class="" title="Popular posts" posts=topPosts.mostVisitedPosts isPopular=true %}
         </div>
@@ -108,10 +118,38 @@ function onEnd()
 
 {# CTA SECONDARY #}
 {% if this.theme.cta_secondary_enable == 1 %}
-    {% partial 'global/cta' cta_primary_button_new_tab_enable="#{ this.theme.cta_secondary_primary_button_new_tab_enable}" cta_secondary_button_new_tab_enable="#{ this.theme.cta_secondary_secondary_button_new_tab_enable}" cta_title="#{ this.theme.cta_secondary_title }" cta_primary_button_icon="#{ this.theme.cta_secondary_primary_button_icon }" cta_primary_button_text="#{ this.theme.cta_secondary_primary_button_text }" cta_primary_button_link="#{ this.theme.cta_secondary_primary_button_link }" cta_secondary_button_icon="#{ this.theme.cta_secondary_secondary_button_icon }" cta_secondary_button_text="#{ this.theme.cta_secondary_secondary_button_text }" cta_secondary_button_link="#{ this.theme.cta_secondary_secondary_button_link }" %}
+    {% partial 'global/cta' 
+        cta_title="#{ this.theme.cta_secondary_title }"
+        cta_primary_button_icon="#{ this.theme.cta_secondary_primary_button_icon }"
+        cta_primary_button_label="#{ this.theme.cta_secondary_primary_button_label }"
+        cta_primary_button_url="#{ this.theme.cta_secondary_primary_button_url }"
+        cta_primary_button_new_tab="#{ this.theme.cta_secondary_primary_button_new_tab}"
+        cta_primary_button_same_host="#{ this.theme.cta_secondary_primary_button_same_host}"
+        cta_secondary_button_icon="#{ this.theme.cta_secondary_secondary_button_icon }"
+        cta_secondary_button_label="#{ this.theme.cta_secondary_secondary_button_label }"
+        cta_secondary_button_url="#{ this.theme.cta_secondary_secondary_button_url }"
+        cta_secondary_button_new_tab="#{ this.theme.cta_secondary_secondary_button_new_tab}"
+        cta_secondary_button_same_host="#{ this.theme.cta_secondary_secondary_button_same_host}"
+    %}
 {% endif %}
 
-{# CRITICAL CSS #}
+{# STYLES #}
 {% put styles %}
-    {% partial 'critical/post' %}
+    <link href="{{ [
+        'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css',
+        'assets/vendor/owl.carousel2/dist/assets/owl.carousel.min.css',
+        'assets/vendor/owl.carousel2/dist/assets/owl.theme.default.min.css',
+        'assets/vendor/aos/dist/aos.css',
+        'assets/vendor/cookieconsent/build/cookieconsent.min.css',
+        'assets/sass/rapido.scss'
+    ]|theme }}" rel="stylesheet">
+{% endput %}
+
+{# SCRIPTS #}
+{% put scripts %}
+    <script src="{{ [
+        'assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js',
+        'assets/vendor/owl.carousel2/dist/owl.carousel.min.js',
+        'assets/vendor/clipboard/dist/clipboard.min.js'
+    ]|theme }}"></script>
 {% endput %}

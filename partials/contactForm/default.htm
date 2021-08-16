@@ -1,9 +1,7 @@
-description = "Contact form"
-==
 {# CONTACT #}
-<section id="contact" class="contact bg-primary-light position-relative pb-0">
+<section class="contact position-relative pb-0 {{ this.theme.contact_background_color ? 'bg-primary-light' : 'bg-white' }}">
     <div class="container">
-        <form id="contactForm" data-aos="fade-up" data-aos-once="true" data-request="{{ __SELF__ }}::onFormSubmit" class="bg-white corner-shape-lg contact-form max-width-800 mx-auto space-p-4">
+        <form id="contact" data-aos="fade-up" data-aos-once="true" data-request="{{ __SELF__ }}::onFormSubmit" class="corner-shape-lg contact-form max-width-800 mx-auto space-p-4 {{ this.theme.contact_background_color ? 'bg-white' : 'bg-primary-light' }}">
             <header class="text-center space-mb-3">
                 <div class="section__preheading left-0">{{ this.theme.contact_pretitle }}</div>
                 <h2>{{ this.theme.contact_title }}</h2>
@@ -40,26 +38,24 @@ description = "Contact form"
                     </div>
                 </div>
             </div>
-            {% if portfolioCategories|length > 0 %}
-                <div class="hide-js">
-                    <h3 class="my-4">{{ this.theme.contact_heading_two }}</h3>
-                    <fieldset class="form-group mb-0">
-                        <div class="row">
-                            <label class="col-form-label col-sm-3 mb-2">Service*</label>
-                            <div class="col-sm-9">
-                                {% for category in portfolioCategories %}
-                                    <div class="custom-control custom-radio py-2 {{ loop.last ? 'py-sm-2' : '' }}">
-                                        <input class="custom-control-input" type="radio" name="service" id="service{{ loop.index }}" value="{{ category.name }}" {{ loop.first ? 'required' : '' }}>
-                                        <label class="custom-control-label" for="service{{ loop.index }}">
-                                            {{ category.name }}
-                                        </label>
-                                    </div>
-                                {% endfor %}    
-                            </div>
+            <div class="hide-js">
+                <h3 class="my-4">{{ this.theme.contact_heading_two }}</h3>
+                <fieldset class="form-group mb-0">
+                    <div class="row">
+                        <label class="col-form-label col-sm-3 mb-2">Service*</label>
+                        <div class="col-sm-9">
+                            {% for item in this.theme.contact_repeater %}
+                                <div class="custom-control custom-radio py-2 {{ loop.last ? 'py-sm-2' : '' }}">
+                                    <input class="custom-control-input" type="radio" name="service" id="service{{ loop.index }}" value="{{ item.name }}" {{ loop.first ? 'required' : '' }}>
+                                    <label class="custom-control-label" for="service{{ loop.index }}">
+                                        {{ item.name }}
+                                    </label>
+                                </div>
+                            {% endfor %}    
                         </div>
-                    </fieldset>
-                </div>
-            {% endif %}
+                    </div>
+                </fieldset>
+            </div>
             <div class="hide-js">
                 <h3 class="my-4">{{ this.theme.contact_heading_three }}</h3>
                 <div class="form-group row">
@@ -73,7 +69,7 @@ description = "Contact form"
                     <div class="col-sm-9">
                         <div class="custom-control custom-checkbox">
                             <input name="consent" type="checkbox" class="custom-control-input" id="inputConsent" required>
-                            <label class="custom-control-label" for="inputConsent">{{ this.theme.contact_consent }} I have read and accept the <a target="_blank" href="{{ 'privacy-policy'|page }}">Privacy Policy</a> and <a target="_blank" href="{{ 'terms-and-conditions'|page }}">Terms and Conditions</a>.</label>
+                            <label class="custom-control-label" for="inputConsent">I consent to have this website collect my submitted information so they can respond to my inquiry. I have read and accept the <a target="_blank" href="{{ 'privacy-policy'|page }}">Privacy Policy</a>.</label>
                         </div>
                     </div>
                 </div>
@@ -82,8 +78,6 @@ description = "Contact form"
         </form>
     </div>
     <figure class="contact-figure">
-        <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 300" enable-background="new 0 0 1920 300" xml:space="preserve">
-            <polygon class="fill-primary-dark" points="0,300 1920,300 1920,0 "></polygon>
-        </svg>
+        {% partial "vectors/slope" %}
     </figure>
 </section>

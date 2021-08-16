@@ -1,0 +1,16 @@
+{
+    "name": "msof/rapido-theme",
+    "type": "october-theme",
+    "description": "Polished single-page business-oriented theme with blog",
+    "require": {
+        "composer/installers": "~1.0",
+        "toughdeveloper/imageresizer": "^1.4.1",
+        "martin/forms": "^1.5.1",
+        "offline/sitesearch": "^1.5.6",
+        "tallpro/related": "^1.0.1",
+        "pollozen/mostvisited": "^1.0.2",
+        "rahman/blogtags": "^1.0.11",
+        "msof/portfolio": "^1.0.1",
+        "rainlab/blog": "^1.5.2"
+    }
+}

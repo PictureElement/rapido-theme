@@ -1,20 +1,28 @@
-description = "Call-to-action"
-==
 {# CTA #}
 <div class="bg-gradient-primary space-py-4">
-    <div class="container position-relative">
-        <div class="row justify-content-lg-between align-items-lg-center text-center text-lg-left">
-            <div data-aos="fade-up" data-aos-once="true" class="col-lg-7 mb-3 mb-lg-0">
-                <h2 class="cta-title h1 text-on-primary mb-0">{{ cta_title }}</h2>
+    <div class="container">
+        <div class="text-center">
+            <div data-aos="fade-up" data-aos-once="true" class="mb-4">
+                <h2 class="cta-title h1 text-on-primary mb-0">{{ cta_title|nl2br }}</h2>
             </div>
-            <div data-aos="fade-up" data-aos-once="true" data-aos-delay="200" class="col-lg-5 text-lg-right">
+            <div data-aos="fade-up" data-aos-once="true" data-aos-delay="200">
                 {# PRIMARY BUTTON #}
-                {% if cta_primary_button_text %}
-                    <a {{ cta_primary_button_new_tab_enable ? 'target="_blank" rel="noopener noreferrer"' : '' }} href="{{ cta_primary_button_link }}" class="cta-btn btn btn-lg btn-accent mx-1 mb-2">{% if cta_primary_button_icon != '' %}<i class="{{ cta_primary_button_icon }}"></i> {% endif %}{{ cta_primary_button_text }}</a>
-                {% endif %}
+                <a
+                    {{ cta_primary_button_new_tab ? 'target="_blank"' : '' }}
+                    {{ cta_primary_button_same_host ? '' : 'rel="noopener noreferrer"' }} 
+                    href="{{ cta_primary_button_url }}"
+                    class="cta-btn btn btn-lg btn-accent mx-1 mb-2">
+                        {{ cta_primary_button_icon ? cta_primary_button_icon|raw : '' }} {{ cta_primary_button_label }}
+                </a>
                 {# SECONDARY BUTTON #}
-                {% if cta_secondary_button_text %}
-                    <a {{ cta_secondary_button_new_tab_enable ? 'target="_blank" rel="noopener noreferrer"' : '' }} href="{{ cta_secondary_button_link }}" class="cta-btn btn btn-lg btn-outline-accent mx-1 mb-2">{% if cta_secondary_button_icon != '' %}<i class="{{ cta_secondary_button_icon }}"></i> {% endif %}{{ cta_secondary_button_text }}</a>
+                {% if cta_secondary_button_label %}
+                    <a
+                        {{ cta_secondary_button_new_tab ? 'target="_blank"' : '' }}
+                        {{ cta_secondary_button_same_host ? '' : 'rel="noopener noreferrer"' }} 
+                        href="{{ cta_secondary_button_url }}"
+                        class="cta-btn btn btn-lg btn-outline-accent mx-1 mb-2">
+                            {{ cta_secondary_button_icon ? cta_secondary_button_icon|raw : '' }} {{ cta_secondary_button_label }}
+                    </a>
                 {% endif %}
             </div>
         </div>

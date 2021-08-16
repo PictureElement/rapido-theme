@@ -1,7 +1,5 @@
-description = "About"
-==
 {# ABOUT #}
-<section id="about" class="space-py-8 overflow-x-hidden">
+<section id="about" class="space-py-8 overflow-x-hidden {{ this.theme.about_background_color ? 'bg-primary-light' : 'bg-white' }}">
     <div class="container">
         <div class="row">
             <div class="col-lg-5">
@@ -17,7 +15,7 @@ description = "About"
             </div>
         </div>
         {% if this.theme.about_repeater|length > 0 %}
-            <div class="facts bg-white corner-shape-lg row no-gutters border">
+            <div class="facts corner-shape-lg row no-gutters border {{ this.theme.about_background_color ? 'bg-white' : 'bg-primary-light' }}">
                 {% for item in this.theme.about_repeater %}
                     <div data-aos="zoom-in" data-aos-once="true" class="col-md-4">
                         <div class="fact">

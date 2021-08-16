@@ -1,0 +1,36 @@
+{# FAQs #}
+<section id="faqs" class="space-py-8 {{ this.theme.faqs_background_color ? 'bg-primary-light' : 'bg-white' }}">
+    <div class="container">
+        <header class="mb-3 max-width-800">
+            <div class="section__preheading">{{ this.theme.faqs_pretitle }}</div>
+            <h2>{{ this.theme.faqs_title }}</h2>
+        </header>
+        {% if this.theme.faqs_repeater|length > 0 %}
+            <div class="accordion" id="accordionFaq">
+                {% for item in this.theme.faqs_repeater %}
+                    <div class="faq">
+                        <div class="d-flex">
+                            <i class="faq__icon fas fa-question-circle"></i>
+                            <button 
+                                class="faq__btn btn btn-link btn-block rounded-0 text-left p-0 ml-2 lead"
+                                data-toggle="collapse"
+                                data-target="#collapse-{{ loop.index }}"
+                                aria-expanded="false"
+                                aria-controls="collapse-{{ loop.index }}"
+                                type="button">
+                                    {{ item.question }}
+                            </button>
+                        </div>
+                        <hr>
+                        <div class="collapse" id="collapse-{{ loop.index }}" data-parent="#accordionFaq">
+                            <div class="faq__ans overflow-hidden">
+                                {{ item.answer|raw }}
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</section>
