@@ -3,6 +3,7 @@ description: 'Polished single-page business-oriented theme with blog'
 author: 'Marios Sofokleous'
 homepage: 'https://www.msof.me/'
 authorCode: Msof
+code: rapido
 database: '0'
 previewImage: assets/images/theme-preview.png
 require:
