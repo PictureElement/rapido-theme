@@ -215,7 +215,14 @@ $(document).ready(function() {
         observer.observe(el);
     }
 
-    // 13. Copyright
+    // 13. Detect document height change and refresh AOS
+    const resizeObserver = new ResizeObserver(entries => {
+        AOS.refresh();
+    });
+
+    resizeObserver.observe(document.body);
+
+    // 14. Copyright
     window.console.log.apply(console, ["%c Made by Marios Sofokleous | msof.me %c %c🤘 %c\n", "color: #fff; background: #114F7F; padding:5px 0;", "color: #fff; background: #000; padding:5px 0 5px 5px;", "background: #000; padding:5px 0", "background: #000; padding:5px 5px 5px 0"]);
 });
 
