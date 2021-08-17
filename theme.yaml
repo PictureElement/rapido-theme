@@ -1138,7 +1138,7 @@ form:
                 label: Primary
                 tab: Theming
                 type: colorpicker
-                default: '#1976d2'
+                default: '#1565c0'
                 assetVar: 'primary'
 
             theming_color_on_primary:
@@ -1173,7 +1173,7 @@ form:
                 label: Accent
                 tab: Theming
                 type: colorpicker
-                default: '#FFC400'
+                default: '#ffd600'
                 assetVar: 'accent'
 
             theming_color_on_accent:
