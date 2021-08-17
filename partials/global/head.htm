@@ -7,6 +7,9 @@
     {# ESSENTIAL #}
     <title>{% if this.page.meta_title %}{{ this.page.meta_title }}{% else %}{{ this.page.title ~ ' | ' ~ this.theme.global_site_name }}{% endif %}</title>
     <meta charset="utf-8">
+    {% if this.page.baseFileName == 'page-not-found-404' || this.page.baseFileName == 'error-500' || this.page.baseFileName == 'maintenance' || this.page.baseFileName == 'search-results'  %}
+        <meta name="robots" content="noindex">
+    {% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="author" content="Marios Sofokleous">
