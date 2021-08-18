@@ -18,6 +18,6 @@
                 }) }}
             {% endif %}
         </div>
-        <h4 class="mb-0"><a class="link-no-underline font-base" href="{% if isPopular %}{{ post.url }}{% else %}{{ 'post'|page({ slug: post.slug }) }}{% endif %}">{{ post.title }}</a></h4>
+        <h4 class="mb-0"><a class="link-no-underline font-base d-block" href="{% if isPopular %}{{ post.url }}{% else %}{{ 'post'|page({ slug: post.slug }) }}{% endif %}">{{ post.title }}</a></h4>
     </div>
 </article>
