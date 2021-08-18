@@ -1,4 +1,4 @@
-Rapido theme
+Rapido Theme for October CMS
 ==========
 
 ![Screenshot](https://github.com/PictureElement/rapido-theme/blob/master/assets/images/theme-preview.png?raw=true)
