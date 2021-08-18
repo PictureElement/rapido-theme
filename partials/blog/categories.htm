@@ -3,7 +3,7 @@
     {% if blogCategories.categories|length > 0 %}
         <ul class="list-unstyled mb-0 corner-shape p-3 elevation-0dp">
             {% for category in blogCategories.categories %}
-                <li>&raquo; <a class="link-no-underline" href="{{ category.url }}">{{ category.name }} ({{ category.post_count }})</a></li>
+                <li>»&nbsp;<a class="link-no-underline {{ loop.last ? '' : 'mb-2' }}" href="{{ category.url }}">{{ category.name }} ({{ category.post_count }})</a></li>
             {% endfor %}
         </ul>
     {% else %}

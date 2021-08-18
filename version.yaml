@@ -10,3 +10,4 @@
 1.1.0: Truncate specific texts with an ellipsis. Do not allow rich text overflow its container. Responsive improvements to call-to-action.
 1.2.0: Implement support for October CMS v2.0. Replace ArrizalAmin.Portfolio dependency with Msof.Portfolio. Various UI/UX improvements.
 1.2.1: Fix issue where AOS animation doesn't trigger when the height of the page changes.
+1.2.2: Improve accessibility for tag and category tap targets

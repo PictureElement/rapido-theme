@@ -2,9 +2,9 @@
     <h3 class="mb-3">Tag cloud</h3>
     {% set tags = tags.tags %}
     {% if tags|length > 0 %}
-        <ul class="list-inline mb-0 corner-shape p-3 elevation-0dp">
+        <ul class="list-inline mb-0 corner-shape px-3 pt-3 pb-2 elevation-0dp">
             {% for tag in tags %}
-                <li class="list-inline-item"><a href="{{ 'blog-tag'|page({ slug: tag.slug, page: '' }) }}" class="badge badge-accent">{{ tag.name }} ({{ tag.posts|length }})</a></li>
+                <li class="list-inline-item mr-2 mb-2"><a href="{{ 'blog-tag'|page({ slug: tag.slug, page: '' }) }}" class="badge badge-accent">{{ tag.name }} ({{ tag.posts|length }})</a></li>
             {% endfor %}
         </ul>
     {% else %}

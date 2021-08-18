@@ -81,6 +81,18 @@
     }
 }
 
+// Blog categories
+.blog-categories {
+    ul {
+        li {
+            display: flex;
+            a {
+                flex: 1;
+            }
+        }
+    }
+}
+
 // Blog tags
 .blog-tags {
     ul {
