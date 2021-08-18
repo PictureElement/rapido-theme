@@ -45,7 +45,7 @@ function onEnd() {
 
         <main>
             {# STATUS COVER #}
-            <div style="min-height:100vh;height:auto;" class="bg-primary-light text-center space-py-4 d-flex align-items-center" role="alert">
+            <div style="min-height:100vh;height:auto;" class="bg-primary-light text-center space-py-4 d-flex align-items-center">
                 <div class="container max-width-800">
                     <div class="position-relative">
                         <div style="z-index: 1;" class="alert alert-primary space-py-4 corner-shape-lg elevation-1dp border-0" role="alert">
@@ -65,7 +65,7 @@ function onEnd() {
                                     width="248"
                                     alt="{{ this.theme.utility_maintenance_logo.description }}">
                             {% endif %}
-                            <h1 data-aos="fade-up" data-aos-once="true" class="alert-heading">{{ this.theme.utility_maintenance_title }}</h1>
+                            <h1 data-aos="fade-up" data-aos-once="true" class="alert-heading my-2">{{ this.theme.utility_maintenance_title }}</h1>
                             <p data-aos="fade-up" data-aos-delay="100" data-aos-once="true" class="lead mb-0">{{ this.theme.utility_maintenance_lead }}</p>
                             <hr data-aos="fade-up" data-aos-delay="100" data-aos-once="true" class='my-4'>
                             <div data-aos="fade-up" data-aos-delay="200" data-aos-once="true" data-aos-offset="0">
@@ -75,7 +75,7 @@ function onEnd() {
                                         {{ this.theme.utility_maintenance_primary_button_new_tab ? 'target="_blank"' : '' }}
                                         {{ this.theme.utility_maintenance_primary_button_same_host ? '' : 'rel="noopener noreferrer"' }} 
                                         href="{{ this.theme.utility_maintenance_primary_button_url }}"
-                                        class="btn btn-primary btn-lg mx-1">
+                                        class="cta-btn btn btn-primary btn-lg mx-1 mb-2">
                                             {{ this.theme.utility_maintenance_primary_button_icon ? this.theme.utility_maintenance_primary_button_icon|raw : '' }}
                                             {{ this.theme.utility_maintenance_primary_button_label }}
                                     </a>
@@ -86,7 +86,7 @@ function onEnd() {
                                         {{ this.theme.utility_maintenance_secondary_button_new_tab ? 'target="_blank"' : '' }}
                                         {{ this.theme.utility_maintenance_secondary_button_same_host ? '' : 'rel="noopener noreferrer"' }} 
                                         href="{{ this.theme.utility_maintenance_secondary_button_url }}"
-                                        class="btn btn-outline-primary btn-lg mx-1">
+                                        class="cta-btn btn btn-outline-primary btn-lg mx-1 mb-2">
                                             {{ this.theme.utility_maintenance_secondary_button_icon ? this.theme.utility_maintenance_secondary_button_icon|raw : '' }}
                                             {{ this.theme.utility_maintenance_secondary_button_label }}
                                     </a>
