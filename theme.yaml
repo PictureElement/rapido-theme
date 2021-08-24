@@ -1323,6 +1323,7 @@ form:
             # Misc
             
             misc_analytics_id:
-                label: 'Google Analytics property ID'
+                label: 'Google Analytics tracking ID'
                 type: text
+                comment: The tracking ID is a string like UA-000000000-2.
                 tab: Misc
