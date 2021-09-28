@@ -1,5 +1,5 @@
 name: 'Rapido'
-description: 'Polished single-page business-oriented theme with blog'
+description: 'Polished single-page business-oriented theme with a blog.'
 author: 'Marios Sofokleous'
 homepage: 'https://www.msof.me/'
 authorCode: Msof
@@ -21,7 +21,7 @@ form:
         section_site_desc:
             label: 'Rapido theme options'
             type: section
-            comment: 'Polished single-page business-oriented theme with blog'
+            comment: 'Polished single-page business-oriented theme with a blog.'
         
     tabs:
         fields:

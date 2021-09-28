@@ -1,7 +1,7 @@
 {
     "name": "msof/rapido-theme",
     "type": "october-theme",
-    "description": "Polished single-page business-oriented theme with blog",
+    "description": "Polished single-page business-oriented theme with a blog.",
     "homepage": "https://octobercms.com/theme/msof-rapido",
     "keywords": ["october", "octobercms", "business"],
     "license": "MIT",

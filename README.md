@@ -1,12 +1,20 @@
-Rapido Theme for October CMS
+Rapido
 ==========
+Rapido is a polished single-page business-oriented theme with a blog.
 
-![Screenshot](https://github.com/PictureElement/rapido-theme/blob/master/assets/images/theme-preview.png?raw=true)
+## Homepage sections
+* Hero
+* Services
+* Testimonials
+* Projects
+* About
+* Retail
+* FAQs
+* Blog
+* Clients
+* Contact
 
-A polished single-page business-oriented theme with blog for October CMS.
-
-## Features/Highlights
-
+## Features
 * Free and open-source
 * Blog (Categories, Tags, Popular posts, Related posts, Search function, Social share buttons)
 * Easy theming
@@ -18,13 +26,46 @@ A polished single-page business-oriented theme with blog for October CMS.
 * BEM naming (Sass files included)
 * System/Google fonts selection
 * Masonry portfolio with category filters
-* GDPR compliance
+* Opt-in cookie consent with Google Analytics
 * Open Graph support
 * Contact & Subscription forms
 * 404, 500 & Maintenance pages
 
-## License
+## Performance considerations
+* Image resize on the fly
+* Image compression with TinyPNG (requires developer key)
+* Offer multiple sizes of the same image (using `srcset` and `sizes`)
 
-You can fork this repo is completely free. Code released under the [MIT](LICENSE) license.
+## Pages
+* Home
+* Blog
+* Blog category
+* Blog tag
+* Post
+* Search results
+* Privacy Policy
+* Page not found (404)
+* Error page (500)
+* Maintenance
 
-Developed by [Marios Sofokleous](https://www.msof.me/).
+## Required plugins
+* [msof.portfolio](https://octobercms.com/plugin/msof-portfolio) - Ajax-powered Masonry portfolio with category filters and a modal dialog.
+* [Martin.Forms](https://octobercms.com/plugin/martin-forms) - Create easy AJAX forms.
+* [OFFLINE.SiteSearch](https://octobercms.com/plugin/offline-sitesearch) - Global search for your frontend.
+* [Tallpro.Related](https://octobercms.com/plugin/tallpro-related) - Get related articles by category.
+* [PolloZen.MostVisited](https://octobercms.com/plugin/pollozen-mostvisited) - Register visit to RainLab Blog publication and retrieve the most visited publications.
+* [Rahman.BlogTags](https://octobercms.com/plugin/rahman-blogtags) - Blog tags for rainlab.blog plugin.
+* [RainLab.Blog](https://octobercms.com/plugin/rainlab-blog) - A robust blogging platform.
+
+## Recommended plugins
+* [ToughDeveloper.ImageResizer](https://octobercms.com/plugin/toughdeveloper-imageresizer) - Provides Twig filter to resize images on the fly.
+
+## Contribution
+The GitHub repository for this theme can be found [here](https://github.com/PictureElement/rapido-theme). Please feel free to contribute or report any bugs.
+
+## You may like my other plugins/themes
+- [msof.droneworks](https://octobercms.com/theme/msof-droneworks) - Single-page drone & UAV business services theme with a blog.
+- [msof.portfolio](https://octobercms.com/plugin/msof-portfolio) - Ajax-powered Masonry portfolio with category filters and a modal dialog.
+
+## About me
+My name is [Marios Sofokleous](https://www.msof.me/), and I am a web developer with industry experience building custom websites.
