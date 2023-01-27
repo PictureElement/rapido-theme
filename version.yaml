@@ -14,3 +14,4 @@
 1.2.3: Fix issue where some cookies were misusing the recommended sameSite Attribute.
 1.2.4: Update theme preview, theme.yaml, composer.json and README.md file.
 2.0.0: Compatibility with OCv3.1
+2.0.1: Update composer.json
