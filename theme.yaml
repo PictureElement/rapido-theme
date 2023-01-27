@@ -7,8 +7,7 @@ code: rapido
 database: '0'
 previewImage: assets/images/theme-preview.png
 require:
-    - ToughDeveloper.ImageResizer
-    - Martin.Forms
+    - BlakeJones.MagicForms
     - OFFLINE.SiteSearch
     - Tallpro.Related
     - PolloZen.MostVisited
@@ -664,7 +663,6 @@ form:
                 label: 'Open link in new tab?'
                 type: checkbox
                 span: left
-                tab: Retail
                 default: false
                 tab: Retail
                     
