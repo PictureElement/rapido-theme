@@ -7,7 +7,6 @@ code: rapido
 database: '0'
 previewImage: assets/images/theme-preview.png
 require:
-    - ToughDeveloper.ImageResizer
     - BlakeJones.MagicForms
     - OFFLINE.SiteSearch
     - Tallpro.Related

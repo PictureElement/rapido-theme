@@ -1,19 +1,20 @@
-1.0.1: First Rapido Theme version
+1.0.1: First Rapido Theme version.
 1.0.2: Specify default theme values. Add mobile and fax. Fix padding issue.
 1.0.3: Change hero style (support illustration). Improvements to Call-to-action, Testimonials, and About sections.
-1.0.4: Update hero and theme.yaml
-1.0.5: Fix bug with hero
+1.0.4: Update hero and theme.yaml.
+1.0.5: Fix bug with hero.
 1.0.6: Make fact description field optional. Add "Open in new tab" option.
 1.0.7: Responsive improvements. Navbar improvements. Fix issue with single hero images from not showing correctly.
-1.0.8: Update theme preview image
+1.0.8: Update theme preview image.
 1.0.9: Change the field type of working hours. By default, meta title and description fields are now empty for all pages. Add Notes tab to the theme customizer. Make side-by-side cards equal to the highest card. Set menu items based on pretitle fields.
 1.1.0: Truncate specific texts with an ellipsis. Do not allow rich text overflow its container. Responsive improvements to call-to-action.
 1.2.0: Implement support for October CMS v2.0. Replace ArrizalAmin.Portfolio dependency with Msof.Portfolio. Various UI/UX improvements.
 1.2.1: Fix issue where AOS animation doesn't trigger when the height of the page changes.
-1.2.2: Improve accessibility for tag and category tap targets
+1.2.2: Improve accessibility for tag and category tap targets.
 1.2.3: Fix issue where some cookies were misusing the recommended sameSite Attribute.
 1.2.4: Update theme preview, theme.yaml, composer.json and README.md file.
-2.0.0: Compatibility with OCv3.1
-2.0.1: Update composer.json
-3.0.0: Remove Magic Forms dependency
-4.0.0: Add ToughDeveloper.ImageResizer and BlakeJones.MagicForms dependencies
+2.0.0: Compatibility with OCv3.1.
+2.0.1: Update composer.json.
+3.0.0: Remove Magic Forms dependency.
+4.0.0: Add ToughDeveloper.ImageResizer and BlakeJones.MagicForms dependencies.
+4.0.1: Remove ToughDeveloper.ImageResizer dependency as it's no longer maintained.

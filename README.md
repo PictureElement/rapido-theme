@@ -16,13 +16,13 @@ Rapido is a polished single-page business-oriented theme with a blog.
 
 ## Features
 * Free and open-source
+* Custom design
 * Blog (Categories, Tags, Popular posts, Related posts, Search function, Social share buttons)
 * Easy theming
 * Optimized for speed
 * CSS animations
 * High quality
 * SEO friendly
-* Responsive Web Design
 * BEM naming (Sass files included)
 * System/Google fonts selection
 * Masonry portfolio with category filters
@@ -32,9 +32,7 @@ Rapido is a polished single-page business-oriented theme with a blog.
 * 404, 500 & Maintenance pages
 
 ## Performance considerations
-* Image resize on the fly
-* Image compression with TinyPNG (requires developer key)
-* Offer multiple sizes of the same image (using `srcset` and `sizes`)
+* Responsive images
 
 ## Pages
 * Home
@@ -56,9 +54,6 @@ Rapido is a polished single-page business-oriented theme with a blog.
 * [PolloZen.MostVisited](https://octobercms.com/plugin/pollozen-mostvisited) - Register visit to RainLab Blog publication and retrieve the most visited publications.
 * [Rahman.BlogTags](https://octobercms.com/plugin/rahman-blogtags) - Blog tags for rainlab.blog plugin.
 * [RainLab.Blog](https://octobercms.com/plugin/rainlab-blog) - A robust blogging platform.
-
-## Recommended plugins
-* [ToughDeveloper.ImageResizer](https://octobercms.com/plugin/toughdeveloper-imageresizer) - Provides Twig filter to resize images on the fly.
 
 ## Contribution
 The GitHub repository for this theme can be found [here](https://github.com/PictureElement/rapido-theme). Please feel free to contribute or report any bugs.
