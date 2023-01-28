@@ -1,3 +1,19 @@
+[emptyForm newsletterForm]
+group = "Newsletter Form"
+messages_success = "Your form was successfully submitted"
+messages_errors = "There were errors with your submission"
+mail_enabled = 1
+mail_replyto = "{{ form.email }}"
+mail_template = ""
+reset_form = 1
+inline_errors = "disabled"
+js_on_success = "const elemToHideNewsletterForm=document.querySelectorAll(\"#newsletterForm .hide-js\");elemToHideNewsletterForm.forEach(function(e){e.style.display=\"none\"});"
+sanitize_data = "htmlspecialchars"
+anonymize_ip = "disabled"
+recaptcha_theme = "light"
+recaptcha_type = "image"
+recaptcha_size = "normal"
+emails_date_format = "Y-m-d"
 ==
 <!doctype html>
 <html lang="en">

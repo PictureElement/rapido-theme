@@ -49,8 +49,8 @@ Rapido is a polished single-page business-oriented theme with a blog.
 * Maintenance
 
 ## Required plugins
-* [msof.portfolio](https://octobercms.com/plugin/msof-portfolio) - Ajax-powered Masonry portfolio with category filters and a modal dialog.
-* [Martin.Forms](https://octobercms.com/plugin/martin-forms) - Create easy AJAX forms.
+* [Msof.Portfolio](https://octobercms.com/plugin/msof-portfolio) - Ajax-powered Masonry portfolio with category filters and a modal dialog.
+* [BlakeJones.MagicForms](https://octobercms.com/plugin/blakejones-magicforms) - Create easy AJAX forms.
 * [OFFLINE.SiteSearch](https://octobercms.com/plugin/offline-sitesearch) - Global search for your frontend.
 * [Tallpro.Related](https://octobercms.com/plugin/tallpro-related) - Get related articles by category.
 * [PolloZen.MostVisited](https://octobercms.com/plugin/pollozen-mostvisited) - Register visit to RainLab Blog publication and retrieve the most visited publications.

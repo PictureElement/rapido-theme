@@ -16,3 +16,4 @@
 2.0.0: Compatibility with OCv3.1
 2.0.1: Update composer.json
 3.0.0: Remove Magic Forms dependency
+4.0.0: Add ToughDeveloper.ImageResizer and BlakeJones.MagicForms dependencies
