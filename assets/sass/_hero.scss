@@ -41,6 +41,7 @@
 }
 
 .hero-carousel {
+    touch-action: manipulation; 
     .owl-item {
         background: linear-gradient(125deg, $primary 70%, lighten($primary, 5%) 30%);
         background-position: top center;

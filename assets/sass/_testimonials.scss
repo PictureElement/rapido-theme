@@ -2,6 +2,7 @@
 // =============================================================================
 
 .testimonials-carousel {
+    touch-action: manipulation; 
     position: relative;
     padding-bottom: calc(2rem + 24px);
     .testimonial {

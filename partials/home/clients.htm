@@ -6,7 +6,7 @@
                 <div class="section__preheading left-0">{{ this.theme.clients_pretitle }}</div>
                 <h2 class="mb-0">{{ this.theme.clients_title }}</h2>
             </header>
-            <div id="clientsCarousel" class="owl-carousel owl-theme text-center">
+            <div id="clientsCarousel" class="clients-carousel owl-carousel owl-theme text-center">
                 {% for item in this.theme.clients_repeater %}
                     <div class="item">
                         {% if item.image|split('.')|last == 'svg' %}

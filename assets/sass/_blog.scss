@@ -3,6 +3,7 @@
 
 // Blog carousel
 .blog-carousel {
+    touch-action: manipulation; 
     display: flex;
     .owl-stage-outer {
         overflow: visible;
