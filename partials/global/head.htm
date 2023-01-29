@@ -21,10 +21,10 @@
     <meta property="og:description" content="{% if this.page.meta_description %}{{ this.page.meta_description }}{% else %}{{ this.page.description }}{% endif %}">
     {% if this.page.baseFileName == 'post' %}
         {% set featured_image = post.featured_images.first.path %}
-        <meta property="og:image" content="{% if featured_image %}{{ featured_image }}{% else %}{{ this.theme.getPreviewImageUrl() }}{% endif %}">
+        <meta property="og:image" content="{% if featured_image %}{{ featured_image }}{% else %}{{ 'assets/images/theme-preview.png'|theme }}{% endif %}">
         <meta property="og:type" content="article">
     {% else %}
-        <meta property="og:image" content="{{ this.theme.getPreviewImageUrl() }}">
+        <meta property="og:image" content="{{ 'assets/images/theme-preview.png'|theme }}">
         <meta property="og:type" content="website">
     {% endif %}
     <meta property="og:url" content="{{ ''|page }}">

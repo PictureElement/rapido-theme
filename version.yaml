@@ -21,3 +21,4 @@
 4.0.2: Update README.
 4.0.3: Fix issue with Maintenance page.
 4.0.4: Correct minor grammatical mistakes.
+4.0.5: Get the theme's preview image URL using the |theme filter.
