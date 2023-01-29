@@ -18,4 +18,5 @@
 3.0.0: Remove Magic Forms dependency.
 4.0.0: Add ToughDeveloper.ImageResizer and BlakeJones.MagicForms dependencies.
 4.0.1: Remove ToughDeveloper.ImageResizer dependency as it's no longer maintained.
-4.0.2: Update README
+4.0.2: Update README.
+4.0.3: Fix issue with Maintenance page.

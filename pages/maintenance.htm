@@ -2,30 +2,6 @@ url = "/maintenance"
 title = "Maintenance"
 meta_description = "Live demo of the Rapido business theme for October CMS."
 ==
-<?php
-use Cms\Classes\Theme;
-
-function onStart() {
-    $imageSettings = array();
-    $imageSettings['srcset'] = array(576, 516, 381, 407);
-    $imageSettings['sizes'] = '(min-width: 992px) 576px, (min-width: 768px) 516px, (min-width: 576px) 381px, 407px';
-    $this["imageSettings"] = $imageSettings;
-}
-
-function onEnd() {
-    $theme = Theme::getActiveTheme();
-    
-    // Get logo size
-    $logo = $theme->utility_maintenance_logo;
-    if ($logo) {
-        $path = storage_path('app/'.$logo->getDiskPath());
-        list($width, $height) = getimagesize($path);
-        $this['logoWidth'] = $width;
-        $this['logoHeight'] = $height;
-    }
-}
-?>
-==
 {# STYLES #}
 {% put styles %}
     <link href="{{ [
