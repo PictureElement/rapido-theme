@@ -80,14 +80,14 @@ form:
                 tab: Global
                
             global_header_cta_new_tab:
-                label: 'Open link in new tab?'
+                label: 'Open link in new tab'
                 type: checkbox
                 span: left
                 tab: Global
                 default: false
                 
             global_header_cta_same_host:
-                label: 'Same-host link?'
+                label: 'Same-host link'
                 type: checkbox
                 span: right
                 tab: Global
@@ -248,12 +248,12 @@ form:
                             type: text
                             comment: 'tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contact'
                         primary_button_new_tab:
-                            label: 'Open link in new tab?'
+                            label: 'Open link in new tab'
                             type: checkbox
                             span: left
                             default: false
                         primary_button_same_host:
-                            label: 'Same-host link?'
+                            label: 'Same-host link'
                             type: checkbox
                             span: right
                             default: true
@@ -275,12 +275,12 @@ form:
                             type: text
                             comment: 'tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contact'
                         secondary_button_new_tab:
-                            label: 'Open link in new tab?'
+                            label: 'Open link in new tab'
                             type: checkbox
                             span: left
                             default: false
                         secondary_button_same_host:
-                            label: 'Same-host link?'
+                            label: 'Same-host link'
                             type: checkbox
                             span: right
                             default: true
@@ -497,14 +497,14 @@ form:
                 comment: "e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contact"
             
             cta_primary_primary_button_new_tab:
-                label: 'Open link in new tab?'
+                label: 'Open link in new tab'
                 type: checkbox
                 span: left
                 tab: CTA primary
                 default: false
                 
             cta_primary_primary_button_same_host:
-                label: 'Same-host link?'
+                label: 'Same-host link'
                 type: checkbox
                 span: right
                 tab: CTA primary
@@ -536,14 +536,14 @@ form:
                 comment: "e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contact"
             
             cta_primary_secondary_button_new_tab:
-                label: 'Open link in new tab?'
+                label: 'Open link in new tab'
                 type: checkbox
                 span: left
                 tab: CTA primary
                 default: false
                 
             cta_primary_secondary_button_same_host:
-                label: 'Same-host link?'
+                label: 'Same-host link'
                 type: checkbox
                 span: right
                 tab: CTA primary
@@ -660,14 +660,14 @@ form:
                 tab: Retail
                     
             retail_button_new_tab:
-                label: 'Open link in new tab?'
+                label: 'Open link in new tab'
                 type: checkbox
                 span: left
                 default: false
                 tab: Retail
                     
             retail_button_same_host:
-                label: 'Same-host link?'
+                label: 'Same-host link'
                 type: checkbox
                 span: right
                 default: true
@@ -923,14 +923,14 @@ form:
                 comment: "e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contact"
             
             cta_secondary_primary_button_new_tab:
-                label: 'Open link in new tab?'
+                label: 'Open link in new tab'
                 type: checkbox
                 span: left
                 tab: CTA secondary
                 default: false
                 
             cta_secondary_primary_button_same_host:
-                label: 'Same-host link?'
+                label: 'Same-host link'
                 type: checkbox
                 span: right
                 tab: CTA secondary
@@ -962,14 +962,14 @@ form:
                 comment: "e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contact"
             
             cta_secondary_secondary_button_new_tab:
-                label: 'Open link in new tab?'
+                label: 'Open link in new tab'
                 type: checkbox
                 span: left
                 tab: CTA secondary
                 default: false
                 
             cta_secondary_secondary_button_same_host:
-                label: 'Same-host link?'
+                label: 'Same-host link'
                 type: checkbox
                 span: right
                 tab: CTA secondary
@@ -1067,14 +1067,14 @@ form:
                 comment: "e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contact"
             
             utility_maintenance_primary_button_new_tab:
-                label: 'Open link in new tab?'
+                label: 'Open link in new tab'
                 type: checkbox
                 span: left
                 tab: Utility pages
                 default: false
                 
             utility_maintenance_primary_button_same_host:
-                label: 'Same-host link?'
+                label: 'Same-host link'
                 type: checkbox
                 span: right
                 tab: Utility pages
@@ -1101,14 +1101,14 @@ form:
                 comment: "e.g. tel:+1-541-754-3010 | mailto:mail@example.com | https://www.google.com/ | /storage/app/media/catalog.pdf | /blog | /#contact"
             
             utility_maintenance_secondary_button_new_tab:
-                label: 'Open link in new tab?'
+                label: 'Open link in new tab'
                 type: checkbox
                 span: left
                 tab: Utility pages
                 default: false
                 
             utility_maintenance_secondary_button_same_host:
-                label: 'Same-host link?'
+                label: 'Same-host link'
                 type: checkbox
                 span: right
                 tab: Utility pages
@@ -1234,7 +1234,7 @@ form:
                 tab: Theming
 
             theming_google_fonts_enable:
-                label: Use Google Fonts?
+                label: Use Google Fonts
                 type: switch
                 default: 0
                 assetVar: 'google-fonts-enable'
