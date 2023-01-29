@@ -2,7 +2,7 @@ $(document).ready(function() {
     // 1. Back to top
     if ($('#toTop').length) {
         $('#toTop').on('click', function(e) {
-            event.preventDefault();
+            e.preventDefault();
             $('html, body').animate({
                 scrollTop: 0
             }, 1000, function () {
