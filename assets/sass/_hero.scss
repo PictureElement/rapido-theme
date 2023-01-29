@@ -55,7 +55,7 @@
         bottom: #{'min(calc(12vh + 48px), 176px)'};
         left: 50%;
         transform: translate(-50%, 100%);
-        .owl-next, .owl-prev {
+        button.owl-next, button.owl-prev {
             color: $on-primary;
             border: 1px solid $on-primary;
             width: 48px;

@@ -25,3 +25,4 @@
 4.0.6: Fix for "Unable to preventDefault inside passive event listener due to target being treated as passive" errors.
 4.0.7: Update frontend vendor libraries.
 4.0.8: Move bootstrap.min.js and bootstrap.bundle.min.js outside the combiner.
+4.0.9: Fix minor CSS specificity issue.
