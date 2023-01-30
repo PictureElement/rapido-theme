@@ -7,6 +7,7 @@ code: rapido
 database: '0'
 previewImage: assets/images/theme-preview.png
 require:
+    - BizMark.Quicksilver
     - BlakeJones.MagicForms
     - OFFLINE.SiteSearch
     - Tallpro.Related

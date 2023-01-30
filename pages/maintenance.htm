@@ -4,11 +4,11 @@ meta_description = "Live demo of the Rapido business theme for October CMS."
 ==
 {# STYLES #}
 {% put styles %}
-    <link href="{{ [
+    <link rel="stylesheet" href="{{ [
         'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css',
         'assets/vendor/aos/dist/aos.css',
         'assets/sass/rapido.scss'
-    ]|theme }}" rel="stylesheet">
+    ]|theme }}">
 {% endput %}
 
 <!doctype html>
@@ -79,8 +79,8 @@ meta_description = "Live demo of the Rapido business theme for October CMS."
         </main>
         
         {# SCRIPTS #}
-        <script src="{{ [
-            '@jquery',
+        <script type="text/javascript" src="{{ [
+            'assets/vendor/jquery/dist/jquery.min.js',
             'assets/vendor/aos/dist/aos.js',
             'assets/js/rapido.js'
         ]|theme }}"></script>

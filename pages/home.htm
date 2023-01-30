@@ -144,20 +144,20 @@ horizontalOrder = 1
 {% if this.theme.projects_enable == 1 %}
     {# STYLES #}
     {% put styles %}
-        <link href="{{ [
+        <link rel="stylesheet" href="{{ [
             'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css',
             'assets/vendor/owl.carousel2/dist/assets/owl.carousel.min.css',
             'assets/vendor/owl.carousel2/dist/assets/owl.theme.default.min.css',
             'assets/vendor/aos/dist/aos.css',
             'assets/vendor/cookieconsent/build/cookieconsent.min.css',
             'assets/sass/rapido.scss'
-        ]|theme }}" rel="stylesheet">
+        ]|theme }}">
     {% endput %}
 
     {# SCRIPTS #}
     {% put scripts %}
-        <script src="{{ 'assets/vendor/bootstrap/dist/js/bootstrap.min.js'|theme }}"></script>
-        <script src="{{ [
+        <script type="text/javascript" src="{{ 'assets/vendor/bootstrap/dist/js/bootstrap.min.js'|theme }}"></script>
+        <script type="text/javascript" src="{{ [
             '@framework',
             'assets/vendor/owl.carousel2/dist/owl.carousel.min.js',
             'assets/vendor/counterup2/dist/index.js',
@@ -167,7 +167,7 @@ horizontalOrder = 1
 {% else %}
     {# STYLES #}
     {% put styles %}
-        <link href="{{ [
+        <link rel="stylesheet" href="{{ [
             'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css',
             'assets/vendor/owl.carousel2/dist/assets/owl.carousel.min.css',
             'assets/vendor/owl.carousel2/dist/assets/owl.theme.default.min.css',
@@ -175,13 +175,13 @@ horizontalOrder = 1
             'assets/vendor/cookieconsent/build/cookieconsent.min.css',
             'assets/vendor/@fancyapps/fancybox/dist/jquery.fancybox.min.css',
             'assets/sass/rapido.scss'
-        ]|theme }}" rel="stylesheet">
+        ]|theme }}">
     {% endput %}
 
     {# SCRIPTS #}
     {% put scripts %}
-        <script src="{{ 'assets/vendor/bootstrap/dist/js/bootstrap.min.js'|theme }}"></script>
-        <script src="{{ [
+        <script type="text/javascript" src="{{ 'assets/vendor/bootstrap/dist/js/bootstrap.min.js'|theme }}"></script>
+        <script type="text/javascript" src="{{ [
             '@framework',
             'assets/vendor/owl.carousel2/dist/owl.carousel.min.js',
             'assets/vendor/counterup2/dist/index.js',

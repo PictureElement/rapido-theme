@@ -26,3 +26,4 @@
 4.0.7: Update frontend vendor libraries.
 4.0.8: Move bootstrap.min.js and bootstrap.bundle.min.js outside the combiner.
 4.0.9: Fix minor CSS specificity issue.
+4.1.0: Add support for BizMark.Quicksilver.
