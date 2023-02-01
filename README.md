@@ -58,7 +58,7 @@ Rapido is a polished single-page business-oriented theme with a blog.
 
 ## Quicksilver plugin compatibility
 
-Please note that the Quicksilver(https://octobercms.com/plugin/bizmark-quicksilver) caching plugin may break the theme. If you experience any such issue, please either manually clear the cache files under `/storage/quicksilver/cache/` or use `php artisan quicksilver:clear`. If the issue persists, please disable the plugin entirely.
+Please note that the [Quicksilver](https://octobercms.com/plugin/bizmark-quicksilver) caching plugin may break the theme. If you experience any such issue, please either manually clear the cache files under `/storage/quicksilver/cache/` or use `php artisan quicksilver:clear`. If the issue persists, please disable the plugin entirely.
 
 ## Contribution
 The GitHub repository for this theme can be found [here](https://github.com/PictureElement/rapido-theme). Please feel free to contribute or report any bugs.
