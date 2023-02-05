@@ -47,7 +47,7 @@ Rapido is a polished single-page business-oriented theme with a blog.
 * Maintenance
 
 ## Required plugins
-*  - The fastest static files cache system for OctoberCMS.
+* [BizMark.Quicksilver](https://octobercms.com/plugin/bizmark-quicksilver) - The fastest static files cache system for OctoberCMS.
 * [BlakeJones.MagicForms](https://octobercms.com/plugin/blakejones-magicforms) - Create easy AJAX forms.
 * [OFFLINE.SiteSearch](https://octobercms.com/plugin/offline-sitesearch) - Global search for your frontend.
 * [Tallpro.Related](https://octobercms.com/plugin/tallpro-related) - Get related articles by category.
@@ -56,9 +56,8 @@ Rapido is a polished single-page business-oriented theme with a blog.
 * [Msof.Portfolio](https://octobercms.com/plugin/msof-portfolio) - Ajax-powered Masonry portfolio with category filters and a modal dialog.
 * [RainLab.Blog](https://octobercms.com/plugin/rainlab-blog) - A robust blogging platform.
 
-## Quicksilver plugin compatibility
-
-Please note that the [Quicksilver](https://octobercms.com/plugin/bizmark-quicksilver) caching plugin may break the theme. If you experience any such issue, please either manually clear the cache files under `/storage/quicksilver/cache/` or use `php artisan quicksilver:clear`. If the issue persists, please disable the plugin entirely.
+## Troubleshooting
+If the theme breaks, please clear [Quicksilver's](https://octobercms.com/plugin/bizmark-quicksilver) cache. You can do this manually by deleting the cache files under `/storage/quicksilver/cache/` or using `php artisan quicksilver:clear`.
 
 ## Contribution
 The GitHub repository for this theme can be found [here](https://github.com/PictureElement/rapido-theme). Please feel free to contribute or report any bugs.
