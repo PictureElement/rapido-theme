@@ -20,7 +20,7 @@
                                     {% if item.icon|split('.')|last == 'svg' %}
                                         <img
                                             style="width:100%;height:auto;"
-                                            class="rounded-circle"
+                                            class="rounded-circle aspect-square object-cover"
                                             src="{{ item.icon|media }}"
                                             width="1"
                                             height="1"
@@ -28,7 +28,7 @@
                                     {% else %}
                                         <img
                                             style="width:100%;height:auto;"
-                                            class="rounded-circle"
+                                            class="rounded-circle aspect-square object-cover"
                                             src="{{ item.icon|media|resize(56, 56) }}"
                                             srcset="{{ item.icon|media|resize(56, 56) }} 1x, {{ item.icon|media|resize(112, 112) }} 2x"
                                             width="1"

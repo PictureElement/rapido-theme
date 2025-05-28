@@ -1,0 +1,20 @@
+<article class="elevation-0dp corner-shape">
+    <div class="card-body">
+        <div class="font-light font-small">
+            {% if post.categories.count %}
+                {% set categoryLinks = post.categories | map(c => "<a href=\"#{'blog-category'|page({slug: c.slug, page: ''})}\">#{c.name}</a>") | join(', ') %}
+                {# {% set categoryLinks = post.categories | map(c => "<a href=\"#{'blog-category'|page({slug: c.slug})}\">#{c.name}</a>") | join(', ') %} #}
+                
+                {{ 'rainlab.blog::lang.post.posted_byline' | trans({
+                    date: post.published_at | date('rainlab.blog::lang.post.date_format' | trans),
+                    categories: categoryLinks
+                })|raw }}
+            {% else %}
+                {{ 'rainlab.blog::lang.post.posted_byline_no_categories' | trans({
+                    date: post.published_at | date('rainlab.blog::lang.post.date_format' | trans)
+                }) }}
+            {% endif %}
+        </div>
+        <h4 class="mb-0"><a class="link-no-underline font-base d-block" href="{{ 'post'|page({ slug: post.slug }) }}">{{ post.title }}</a></h4>
+    </div>
+</article>

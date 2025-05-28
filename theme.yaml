@@ -7,11 +7,8 @@ code: rapido
 database: '0'
 previewImage: assets/images/theme-preview.png
 require:
-    - BizMark.Quicksilver
     - BlakeJones.MagicForms
     - OFFLINE.SiteSearch
-    - Tallpro.Related
-    - PolloZen.MostVisited
     - Rahman.BlogTags
     - Msof.Portfolio
     - RainLab.Blog
@@ -1137,56 +1134,72 @@ form:
                 label: Primary
                 tab: Theming
                 type: colorpicker
-                default: '#1565c0'
+                default: '#1565C0'
                 assetVar: 'primary'
+                showAlpha: false
+                showInput: true
 
             theming_color_on_primary:
                 label: On-primary
                 tab: Theming
                 type: colorpicker
-                default: 'rgba(255, 255, 255, 0.87)'
+                default: '#E1EBF7'
                 assetVar: 'on-primary'
+                showAlpha: false
+                showInput: true
 
             theming_color_primary_dark:
                 label: Primary dark
                 tab: Theming
                 type: colorpicker
-                default: '#232c33'
+                default: '#232C33'
                 assetVar: 'primary-dark'
+                showAlpha: false
+                showInput: true
 
             theming_color_on_primary_dark:
                 label: On-primary dark
                 tab: Theming
                 type: colorpicker
-                default: 'rgba(255, 255, 255, 0.87)'
+                default: '#E3E4E5'
                 assetVar: 'on-primary-dark'
+                showAlpha: false
+                showInput: true
 
             theming_color_primary_light:
                 label: Light
                 tab: Theming
                 type: colorpicker
-                default: '#ebebeb'
+                default: '#EBEBEB'
                 assetVar: 'primary-light'
+                showAlpha: false
+                showInput: true
 
             theming_color_accent:
                 label: Accent
                 tab: Theming
                 type: colorpicker
-                default: '#ffd600'
+                default: '#FFD600'
                 assetVar: 'accent'
+                showAlpha: false
+                showInput: true
 
             theming_color_on_accent:
                 label: On-accent
                 tab: Theming
                 type: colorpicker
-                default: 'rgba(0, 0, 0, 0.87)'
+                default: '#211C00'
                 assetVar: 'on-accent'
+                showAlpha: false
+                showInput: true
                 
             theming_meta_theme_color:
                 label: 'Value for the theme-color meta tag'
                 tab: Theming
                 type: colorpicker
-                default: '#004ba0'
+                default: '#004BA0'
+                showAlpha: false
+                showInput: true
 
             section_shape:
                 label: Shape

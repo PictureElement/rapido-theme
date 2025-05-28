@@ -17,13 +17,6 @@ slug = "{{ :slug }}"
 displayEmpty = 0
 categoryPage = "blog-category"
 
-[topPosts]
-period = 5
-category = 0
-postPerPage = 4
-postPage = "post"
-slug = "{{ :slug }}"
-
 [searchInput]
 useAutoComplete = 0
 autoCompleteResultCount = 5
@@ -93,20 +86,12 @@ function onEnd()
 
 <div class="space-py-4">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8 order-1 order-lg-0">
-                {# POPULAR #}
-                {% partial 'blog/popular' class="" title="Popular posts" posts=topPosts.mostVisitedPosts isPopular=true %}
-            </div>
-            <div class="col-lg-4 order-0 order-lg-1 pl-lg-5">
-                {# SEARCH #}
-                {% partial 'searchForm/default' text="Search for posts" class="mb-4" %}
-                {# CATEGORIES #}
-                {% partial 'blog/categories' blogCategories=blogCategories %}
-                {# TAGS #}
-                {% partial 'blog/tags' tags=tags class='mb-4' %}
-            </div>
-        </div>
+        {# SEARCH #}
+        {% partial 'searchForm/default' text="Search for posts" class="mb-4" %}
+        {# CATEGORIES #}
+        {% partial 'blog/categories' blogCategories=blogCategories %}
+        {# TAGS #}
+        {% partial 'blog/tags' tags=tags %}
     </div>
 </div>
 
@@ -130,14 +115,14 @@ function onEnd()
 {# STYLES #}
 {% put styles %}
     <link rel="stylesheet" href="{{ [
-        'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css',
-        'assets/vendor/aos/dist/aos.css',
-        'assets/vendor/cookieconsent/build/cookieconsent.min.css',
-        'assets/sass/rapido.scss'
+        'assets/css/vendor/all.min.css',
+        'assets/css/vendor/aos.css',
+        'assets/css/vendor/cookieconsent.min.css',
+        'assets/scss/rapido.scss'
     ]|theme }}">
 {% endput %}
 
 {# SCRIPTS #}
 {% put scripts %}
-    <script type="text/javascript" src="{{ 'assets/vendor/bootstrap/dist/js/bootstrap.min.js'|theme }}"></script>
+    <script type="text/javascript" src="{{ 'assets/js/vendor/bootstrap.min.js'|theme }}"></script>
 {% endput %}

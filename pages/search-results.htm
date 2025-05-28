@@ -8,6 +8,7 @@ resultsPerPage = 12
 showProviderBadge = 1
 noResultsMessage = "Your search returned no results."
 visitPageMessage = "Visit page"
+minQueryLength = 0
 
 [searchInput]
 useAutoComplete = 0
@@ -60,14 +61,14 @@ function onEnd()
 {# STYLES #}
 {% put styles %}
     <link rel="stylesheet" href="{{ [
-        'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css',
-        'assets/vendor/aos/dist/aos.css',
-        'assets/vendor/cookieconsent/build/cookieconsent.min.css',
-        'assets/sass/rapido.scss'
+        'assets/css/vendor/all.min.css',
+        'assets/css/vendor/aos.css',
+        'assets/css/vendor/cookieconsent.min.css',
+        'assets/scss/rapido.scss'
     ]|theme }}">
 {% endput %}
 
 {# SCRIPTS #}
 {% put scripts %}
-    <script type="text/javascript" src="{{ 'assets/vendor/bootstrap/dist/js/bootstrap.min.js'|theme }}"></script>
+    <script type="text/javascript" src="{{ 'assets/js/vendor/bootstrap.min.js'|theme }}"></script>
 {% endput %}

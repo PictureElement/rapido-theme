@@ -7,19 +7,10 @@ meta_description = "Live demo of the Rapido business theme for October CMS."
 slug = "{{ :slug }}"
 categoryPage = "blog-category"
 
-[registerVisit]
-
 [blogCategories]
 slug = "{{ :slug }}"
 displayEmpty = 0
 categoryPage = "blog-category"
-
-[topPosts]
-period = 5
-category = 0
-postPerPage = 4
-postPage = "post"
-slug = "{{ :slug }}"
 
 [searchInput]
 useAutoComplete = 0
@@ -30,10 +21,6 @@ searchPage = "search-results.htm"
 [tags]
 results = 0
 sortOrder = "created_at desc"
-
-[relatedPosts]
-slug = "{{ :slug }}"
-results = 4
 ==
 <?php
 function onStart() {
@@ -52,6 +39,27 @@ function onEnd()
         $this->page->title = $this->post->title;
         $this->page->description = $this->post->summary;
     }
+
+    $post = $this->post;
+    
+    if (!$post) {
+        return;
+    }
+    
+    // Get current post's category IDs
+    $categoryIds = $post->categories->pluck('id')->toArray();
+    
+    // Use isPublished() scope instead of published()
+    $relatedPosts = \RainLab\Blog\Models\Post::isPublished()
+        ->where('id', '!=', $post->id)
+        ->whereHas('categories', function($query) use ($categoryIds) {
+            $query->whereIn('id', $categoryIds);
+        })
+        ->orderBy('published_at', 'desc')
+        ->limit(3)
+        ->get();
+    
+    $this['relatedPosts'] = $relatedPosts;
 }
 ?>
 ==
@@ -109,10 +117,8 @@ function onEnd()
         </div>
         <div class="col-lg-8">
             <hr class="my-5 d-none d-lg-block">
-            {# SIMILAR #}
-            {% partial 'blog/popular' class="mb-4" title="Similar posts" posts=relatedPosts.posts isPopular=false %}
-            {# POPULAR #}
-            {% partial 'blog/popular' class="" title="Popular posts" posts=topPosts.mostVisitedPosts isPopular=true %}
+            {# RELATED #}
+            {% partial 'blog/related' title="Related posts" posts=relatedPosts %}
         </div>
     </div>
 </div>
@@ -137,20 +143,20 @@ function onEnd()
 {# STYLES #}
 {% put styles %}
     <link rel="stylesheet" href="{{ [
-        'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css',
-        'assets/vendor/owl.carousel2/dist/assets/owl.carousel.min.css',
-        'assets/vendor/owl.carousel2/dist/assets/owl.theme.default.min.css',
-        'assets/vendor/aos/dist/aos.css',
-        'assets/vendor/cookieconsent/build/cookieconsent.min.css',
-        'assets/sass/rapido.scss'
+        'assets/css/vendor/all.min.css',
+        'assets/css/vendor/owl.carousel.min.css',
+        'assets/css/vendor/owl.theme.default.min.css',
+        'assets/css/vendor/aos.css',
+        'assets/css/vendor/cookieconsent.min.css',
+        'assets/scss/rapido.scss'
     ]|theme }}">
 {% endput %}
 
 {# SCRIPTS #}
 {% put scripts %}
-    <script type="text/javascript" src="{{ 'assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js'|theme }}"></script>
+    <script type="text/javascript" src="{{ 'assets/js/vendor/bootstrap.bundle.min.js'|theme }}"></script>
     <script type="text/javascript" src="{{ [
-        'assets/vendor/owl.carousel2/dist/owl.carousel.min.js',
-        'assets/vendor/clipboard/dist/clipboard.min.js'
+        'assets/js/vendor/owl.carousel.min.js',
+        'assets/js/vendor/clipboard.min.js'
     ]|theme }}"></script>
 {% endput %}
